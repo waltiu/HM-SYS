@@ -18,7 +18,13 @@ export default {
   },
   methods: {
     search () {
-      axios.get('http://api.map.baidu.com/place/v2/search?query=ATM%E6%9C%BA&tag=%E9%93%B6%E8%A1%8C&region=%E5%8C%97%E4%BA%AC&output=json&ak=lvNKaGepBi4j6QORExntHLDTZkXLoCdi')
+      console.log(this.jq)
+      // axios.get('http://api.map.baidu.com/place/v2/search?query=ATM%E6%9C%BA&tag=%E9%93%B6%E8%A1%8C&region=%E5%8C%97%E4%BA%AC&output=json&ak=lvNKaGepBi4j6QORExntHLDTZkXLoCdi')
+      axios.get('/searchLocation/place/v2/suggestion?query=ATM%E6%9C%BA&tag=%E9%93%B6%E8%A1%8C&region=%E5%8C%97%E4%BA%AC&output=json&ak=lvNKaGepBi4j6QORExntHLDTZkXLoCdi'
+      )
+        .then(res => {
+          console.log(res)
+        })
     }
   },
   mounted () {
