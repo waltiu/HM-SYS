@@ -1,62 +1,53 @@
 {
-	"personalData":
-	[
-		{
-			"username":"165150313",
-			"password":"0313",
-			"permission":[{
-				"map":"true",
-				"name":"地图",
-				"id":"01",
-				"chidren":[
-					{
-					"id":"01-01",
-					"map":"map",
-					"name":"地图",
-					"path":"map"
-					},
-					{
-					"id":"01-02",
-					"map":"map",
-					"name":"资源",
-					"path":"source"
-					}
-				
-				]
-				
-			}]
-		},
-		{
-			"username":"小猪",
-			"password":"521",
-			"permission":"",
-			"details":{
-				
-			}
-		},
-		{
-			"username":"0916",
-			"password":"0916",
-			"permission":"",
-			"details":{
-				
-			}
-		},
-		{
-			"username":"waltiu",
-			"password":"qwer1234",
-			"permission":"",
-			"details":{
-				
-			}
-		},
-		{
-			"username":"金泽楠",
-			"password":"qwer@1234",
-			"permission":"",
-			"details":{
-				
-			}
-		}
-	]
+  "personalData": [
+    {
+      "username": "165150313",
+      "password": "0313",
+      "permission": [
+        {
+          "map": "true",
+          "name": "地图",
+          "id": "01",
+          "chidren": [
+            {
+              "id": "01-01",
+              "map": "map",
+              "name": "地图",
+              "path": "map"
+            },
+            {
+              "id": "01-02",
+              "map": "map",
+              "name": "资源",
+              "path": "source"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "username": "小猪",
+      "password": "521",
+      "permission": "",
+      "details": {}
+    },
+    {
+      "username": "0916",
+      "password": "0916",
+      "permission": "",
+      "details": {}
+    },
+    {
+      "username": "waltiu",
+      "password": "qwer1234",
+      "permission": "",
+      "details": {}
+    },
+    {
+      "username": "金泽楠",
+      "password": "qwer@1234",
+      "permission": "",
+      "details": {}
+    }
+  ]
 }

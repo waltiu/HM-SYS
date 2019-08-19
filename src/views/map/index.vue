@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div>保护</div>
+    <input v-model="jq" />
+    <button @click="search">搜索</button>
+    <div></div>
     <div id="map" class="container"></div>
   </div>
 </template>
@@ -9,6 +11,16 @@ import 'maptalks/dist/maptalks.css';
 import * as maptalks from 'maptalks';
 import axios from 'axios'
 export default {
+  data: {
+    return () {
+      jq: ''
+    }
+  },
+  methods: {
+    search () {
+      axios.get('http://api.map.baidu.com/place/v2/search?query=ATM%E6%9C%BA&tag=%E9%93%B6%E8%A1%8C&region=%E5%8C%97%E4%BA%AC&output=json&ak=lvNKaGepBi4j6QORExntHLDTZkXLoCdi')
+    }
+  },
   mounted () {
     this.$nextTick(() => {
       const map = new maptalks.Map('map', {
@@ -32,3 +44,6 @@ export default {
   height: 80vh;
 }
 </style>
+
+
+lvNKaGepBi4j6QORExntHLDTZkXLoCdi
