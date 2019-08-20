@@ -6,7 +6,7 @@ const serverConfig = {
     target: "http://api.map.baidu.com/",
     changeOrigin: true,
     pathRewrite: {
-      "^/searchLocaltion": "/place/v2/search"
+      "^/searchLocaltion": ""
     }
   },
   "/getLocation": {
