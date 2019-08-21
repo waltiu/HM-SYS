@@ -58,16 +58,15 @@ export default {
           sessionStorage.setItem('permission', JSON.stringify(this.personForm[i].permission));
           this.personalData.push(this.personForm[i])
           setTimeout(() => {
-            // this.loginLoading = true
-            console.log('1') //此处修改data中的参数时无效
-          }, 5000);
-          this.$message({
+            this.$message({
             message: '恭喜你，登陆成功',
             type: 'success'          })
           this.$router.push('/map')
           console.log(this.personForm[i].permission)
           var data2 = JSON.parse(sessionStorage.getItem('permission'))
-          console.log(data2)
+          this.loginLoading = false
+          }, 2000);
+         
 
 
         }
