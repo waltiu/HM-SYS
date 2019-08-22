@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="bar">
-    <search-location></search-location>
+      <search-location></search-location>
     </div>
     <div id="map" class="container"></div>
   </div>
@@ -12,39 +12,43 @@ import * as maptalks from 'maptalks';
 import searchLocation from './search'
 import axios from 'axios'
 export default {
- data() {
-			return {
-				query:''
-			}
-    },
-  components:{
+  data () {
+    return {
+      query: '',
+      layer: [
+
+      ]
+
+
+    }
+  },
+  components: {
     searchLocation,
   },
   methods: {
     search () {
-          axios.get('/searchLocation/place/v2/suggestion', {
-    params: {
-      query:this.query,
-      region: '沈阳',
-      city_limit: true,
-      output: 'json',
-      ak: 'lvNKaGepBi4j6QORExntHLDTZkXLoCdi'
-    }
-  })
-  .then(res=>(console.log(res)))
+      axios.get('/searchLocation/place/v2/suggestion', {
+        params: {
+          query: this.query,
+          region: '沈阳',
+          city_limit: true,
+          output: 'json',
+          ak: 'lvNKaGepBi4j6QORExntHLDTZkXLoCdi'
+        }
+      })
+        .then(res => (console.log(res)))
     }
   },
   mounted () {
     this.$nextTick(() => {
       const map = new maptalks.Map('map', {
-        center: [-0.113049,51.498568],
+        center: [123.4254440161916, 41.79928173774194],
         zoom: 18,
-         minZoom: 5,
-      maxZoom: 19,
+        minZoom: 5,
+        maxZoom: 19,
         baseLayer: new maptalks.TileLayer('base', {
-         urlTemplate: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png',
-          subdomains: ['a','b','c','d'],
-          attribution: '&copy; <a href="http://osm.org">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/">CARTO</a>'
+          urlTemplate: 'http://218.25.36.152:9009/arctiler/google/services/TiandituMap3857/Google/{z}/{x}/{y}.png',
+          attribution: '&copy; waltiu '
         }),
       });
       // console.log('map: ', map);
@@ -58,9 +62,9 @@ export default {
   width: 100%;
   height: 80vh;
 }
-.bar{
+.bar {
   position: absolute;
-  z-index: 999
+  z-index: 999;
 }
 </style>
 
