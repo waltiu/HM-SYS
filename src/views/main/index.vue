@@ -39,6 +39,7 @@
 
 <script>
 export default {
+  name: 'mainShow',
   data () {
     return {
       colum: '',

@@ -3,7 +3,8 @@
     <div class="bar">
       <search-location></search-location>
     </div>
-    <div id="map" class="container"></div>
+    <maptalks-map></maptalks-map>
+    <!-- <div id="map" class="container"></div> -->
   </div>
 </template>
 <script>
@@ -12,6 +13,7 @@ import * as maptalks from 'maptalks';
 import searchLocation from './search'
 import axios from 'axios'
 export default {
+  name: 'baseMap',
   data () {
     return {
       query: '',
@@ -39,21 +41,21 @@ export default {
         .then(res => (console.log(res)))
     }
   },
-  mounted () {
-    this.$nextTick(() => {
-      const map = new maptalks.Map('map', {
-        center: [123.4254440161916, 41.79928173774194],
-        zoom: 18,
-        minZoom: 5,
-        maxZoom: 19,
-        baseLayer: new maptalks.TileLayer('base', {
-          urlTemplate: 'http://218.25.36.152:9009/arctiler/google/services/TiandituMap3857/Google/{z}/{x}/{y}.png',
-          attribution: '&copy; waltiu '
-        }),
-      });
-      // console.log('map: ', map);
-    });
-  },
+  // mounted () {
+  //   this.$nextTick(() => {
+  //     const map = new maptalks.Map('map', {
+  //       center: [123.4254440161916, 41.79928173774194],
+  //       zoom: 18,
+  //       minZoom: 5,
+  //       maxZoom: 19,
+  //       baseLayer: new maptalks.TileLayer('base', {
+  //         urlTemplate: 'http://218.25.36.152:9009/arctiler/google/services/TiandituMap3857/Google/{z}/{x}/{y}.png',
+  //         attribution: '&copy; waltiu '
+  //       }),
+  //     });
+  //     // console.log('map: ', map);
+  //   });
+  // },
 };
 </script>
 
