@@ -1,9 +1,9 @@
 <template>
   <div>
     <el-container>
-      <el-header>Header</el-header>
+      <el-header class="header" height="120px">Header</el-header>
       <el-container>
-        <el-aside width="15%">
+        <el-aside width="15%" class="aside">
           <div class="barLeft">
             <el-menu
               class="el-menu-vertical-demo"
@@ -29,7 +29,7 @@
             </el-menu>
           </div>
         </el-aside>
-        <el-main>
+        <el-main class="main">
           <div>
             <router-view></router-view>
           </div>
@@ -65,7 +65,20 @@ export default {
 
 <style scoped="scoped">
 .barLeft {
-  height: 690px;
+  height: 910px;
   background-color: antiquewhite;
+}
+.aside {
+  width: 100%;
+  height: 100%;
+}
+.main {
+  width: 100%;
+  height: 910px;
+  background-image: url(/img/mapBack.jpeg);
+}
+.header {
+  width: 100%;
+  height: 100%;
 }
 </style>

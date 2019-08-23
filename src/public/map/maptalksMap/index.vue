@@ -16,8 +16,11 @@ export default {
     }
   },
   watch: {
-    '$store.state.defaultCenter': function (newVal) {
+    '$store.state.defaultCenter': function () {
       this.map.setCenter([this.$store.state.defaultCenter.lng, this.$store.state.defaultCenter.lat])
+    },
+    '$store.state.defaultZoom.zoom': function () {
+      this.map.setZoom(this.$store.state.defaultZoom.zoom)
     }
   },
   methods: {
@@ -26,7 +29,7 @@ export default {
   mounted () {
     this.map = new maptalks.Map('map', {
       center: [this.$store.state.defaultCenter.lng, this.$store.state.defaultCenter.lat],
-      zoom: 17,
+      zoom: this.$store.state.defaultZoom.zoom,
       minZoom: 10,
       maxZoom: 19,
       baseLayer: new maptalks.TileLayer('base', {
