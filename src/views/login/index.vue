@@ -35,6 +35,7 @@
 <script>
 import axios from 'axios'
 export default {
+  name: 'login',
   data () {
     return {
       loginForm: {
@@ -59,14 +60,14 @@ export default {
           this.personalData.push(this.personForm[i])
           setTimeout(() => {
             this.$message({
-            message: '恭喜你，登陆成功',
-            type: 'success'          })
-          this.$router.push('/map')
-          console.log(this.personForm[i].permission)
-          var data2 = JSON.parse(sessionStorage.getItem('permission'))
-          this.loginLoading = false
+              message: '恭喜你，登陆成功',
+              type: 'success'            })
+            this.$router.push('/map')
+            console.log(this.personForm[i].permission)
+            var data2 = JSON.parse(sessionStorage.getItem('permission'))
+            this.loginLoading = false
           }, 2000);
-         
+
 
 
         }
