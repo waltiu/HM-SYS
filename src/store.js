@@ -5,9 +5,10 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    // 41.795428, 123.413131
     defaultCenter: {
-      lat: 41.800475,
-      lng: 123.401711,
+      lat: 41.795428,
+      lng: 123.413131,
     }
   }
   ,

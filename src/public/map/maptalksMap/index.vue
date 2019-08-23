@@ -17,7 +17,7 @@ export default {
   },
   watch: {
     '$store.state.defaultCenter': function (newVal) {
-      this.map.setCenter([this.$store.state.defaultCenter.lat, this.$store.state.defaultCenter.lng])
+      this.map.setCenter([this.$store.state.defaultCenter.lng, this.$store.state.defaultCenter.lat])
     }
   },
   methods: {
@@ -26,8 +26,8 @@ export default {
   mounted () {
     this.map = new maptalks.Map('map', {
       center: [this.$store.state.defaultCenter.lng, this.$store.state.defaultCenter.lat],
-      zoom: 18,
-      minZoom: 5,
+      zoom: 17,
+      minZoom: 10,
       maxZoom: 19,
       baseLayer: new maptalks.TileLayer('base', {
         'urlTemplate': 'http://online4.map.bdimg.com/tile/?qt=vtile&x={x}&y={y}&z={z}&styles=pl&scaler=300',

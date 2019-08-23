@@ -22,13 +22,12 @@
           <span>加载中...</span>
         </div>
         <div v-if="!loading" class="dataContent">
-          <div v-if="!queryData" claas="noData">无数据</div>
           <div class="hadData">
             <div
               v-for="(item, index) in queryData"
               :key="index"
               class="hasDataDetail"
-              @click="submit(item.location)"
+              @click="submit(item.location,item.name)"
             >
               <div class="listContent">
                 <i class="el-icon-location-information" style="color: #409eff"></i>
@@ -59,16 +58,6 @@ export default {
 
     }
   },
-  computed: {
-
-    centerAndZoom: function () {
-      let prop = this.$store.state.defaultCenter
-      return {
-        center: [prop.lng, prop.lat],
-
-      }
-    }
-  },
 
   methods: {
     search () {
@@ -86,11 +75,23 @@ export default {
         .then((res) => {
           this.loading = false
           this.queryData = res.data.result
+          if (!this.queryData.length) {
+            this.$notify({
+              message: '您搜索的地点不存在，请重新输入!  ',
+              position: 'top-left',
+              type: 'warning'
+            });
+            this.listState = false
+            this.query = ''
+
+          }
         })
     },
-    submit (info) {
-      this.$store.commit('changeCenter', info)
-      console.log(this.$store.state.defaultCenter)
+    submit (location, name) {
+      this.$store.commit('changeCenter', location)
+      this.listState = false
+      this.$message.success(`您当前的位置在: ${name}`)
+      // this.query = ''
     }
   }
 }
@@ -104,14 +105,15 @@ export default {
   display: flex;
 }
 .latlng {
-  position: absolute;
-  right: 120px;
+  position: relative;
+  left: 80px;
   font-size: 12px;
 }
 .hasDataDetail {
   padding: 10px;
 }
 .hadData {
-  /* height: 400px; */
+  height: 400px;
+  overflow: auto;
 }
 </style>
