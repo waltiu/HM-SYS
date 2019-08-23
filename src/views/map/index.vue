@@ -2,14 +2,17 @@
   <div>
     <div class="bar">
       <search-location></search-location>
+      <zoom class="zoom"></zoom>
     </div>
     <maptalks-map></maptalks-map>
+
     <!-- <div id="map" class="container"></div> -->
   </div>
 </template>
 <script>
 import 'maptalks/dist/maptalks.css'
 import searchLocation from './search'
+import zoom from './zoom'
 import axios from 'axios'
 export default {
   name: 'baseMap',
@@ -23,7 +26,8 @@ export default {
     }
   },
   components: {
-    searchLocation
+    searchLocation,
+    zoom
   },
   methods: {
     search () {
@@ -65,6 +69,10 @@ export default {
 .bar {
   position: absolute;
   z-index: 999;
+}
+.zoom {
+  position: absolute;
+  top: 200px;
 }
 </style>
 
