@@ -12,7 +12,6 @@ export default {
   data () {
     return {
       map: {}
-
     }
   },
   watch: {
@@ -21,12 +20,24 @@ export default {
     },
     '$store.state.defaultZoom.zoom': function () {
       this.map.setZoom(this.$store.state.defaultZoom.zoom)
+    },
+    zoom: function () {
+      // parseInt(this.map._zoomLevel)
+      this.$store.commit('setZoom', parseInt(this.map._zoomLevel))
+    }
+  },
+  computed: {
+    zoom: function () {
+      return this.map._zoomLevel
     }
   },
   methods: {
 
   },
   mounted () {
+    // this.map.getZoom()
+    console.log()
+    // console.log(this.zoom)
     this.map = new maptalks.Map('map', {
       center: [this.$store.state.defaultCenter.lng, this.$store.state.defaultCenter.lat],
       zoom: this.$store.state.defaultZoom.zoom,

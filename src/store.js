@@ -11,7 +11,7 @@ export default new Vuex.Store({
       lng: 123.413131
     },
     defaultZoom: {
-      zoom: '18'
+      zoom: '17'
     }
   },
   mutations: {
@@ -30,6 +30,9 @@ export default new Vuex.Store({
       if (state.defaultZoom.zoom > 8) {
         state.defaultZoom.zoom--
       }
+    },
+    setZoom (state, info) {
+      state.defaultZoom.zoom = info
     }
 
   },
