@@ -22,10 +22,14 @@ export default new Vuex.Store({
       state.defaultZoom.zoom = info
     },
     addZoom (state) {
-      state.defaultZoom.zoom++
+      if (state.defaultZoom.zoom < 19) {
+        state.defaultZoom.zoom++
+      }
     },
     reduceZoom (state) {
-      state.defaultZoom.zoom--
+      if (state.defaultZoom.zoom > 8) {
+        state.defaultZoom.zoom--
+      }
     }
 
   },
