@@ -56,24 +56,19 @@ export default {
       for (var i = 0; i < len; i++) {
         if (this.personForm[i].username === this.loginForm.name &&
           this.personForm[i].password === this.loginForm.password) {
-          sessionStorage.setItem('permission', JSON.stringify(this.personForm[i].permission));
+          sessionStorage.setItem('permission', JSON.stringify(this.personForm[i].permission))
           this.personalData.push(this.personForm[i])
           setTimeout(() => {
             this.$message({
               message: '恭喜你，登陆成功',
-              type: 'success'            })
+              type: 'success'
+            })
             this.$router.push('/map')
-            console.log(this.personForm[i].permission)
-            var data2 = JSON.parse(sessionStorage.getItem('permission'))
             this.loginLoading = false
-          }, 2000);
-
-
-
+          }, 2000)
         }
       }
-    }
-    ,
+    },
     registForm () {
       console.log('a')
     },
@@ -85,7 +80,7 @@ export default {
   },
   mounted () {
     this.getLoginForm()
-  },
+  }
 }
 
 </script>

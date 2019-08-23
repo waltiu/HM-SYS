@@ -8,8 +8,7 @@
   </div>
 </template>
 <script>
-import 'maptalks/dist/maptalks.css';
-import * as maptalks from 'maptalks';
+import 'maptalks/dist/maptalks.css'
 import searchLocation from './search'
 import axios from 'axios'
 export default {
@@ -21,11 +20,10 @@ export default {
 
       ]
 
-
     }
   },
   components: {
-    searchLocation,
+    searchLocation
   },
   methods: {
     search () {
@@ -40,7 +38,7 @@ export default {
       })
         .then(res => (console.log(res)))
     }
-  },
+  }
   // mounted () {
   //   this.$nextTick(() => {
   //     const map = new maptalks.Map('map', {
@@ -56,7 +54,7 @@ export default {
   //     // console.log('map: ', map);
   //   });
   // },
-};
+}
 </script>
 
 <style >
@@ -69,6 +67,5 @@ export default {
   z-index: 999;
 }
 </style>
-
 
 lvNKaGepBi4j6QORExntHLDTZkXLoCdi

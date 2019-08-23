@@ -1,29 +1,27 @@
 
-
 const serverConfig = {
 
-  "/searchLocaltion": {
-    target: "http://api.map.baidu.com/",
+  '/searchLocaltion': {
+    target: 'http://api.map.baidu.com/',
     changeOrigin: true,
     pathRewrite: {
-      "^/searchLocaltion": "/place/v2/search"
+      '^/searchLocaltion': '/place/v2/search'
     }
   },
-  "/getLocation": {
-    target: "http://api.map.baidu.com/",
+  '/getLocation': {
+    target: 'http://api.map.baidu.com/',
     changeOrigin: true,
     pathRewrite: {
-      "^/getLocation": ""
+      '^/getLocation': ''
     }
   },
-  "/searchLocation/": {
-    target: "http://api.map.baidu.com",
+  '/searchLocation/': {
+    target: 'http://api.map.baidu.com',
     changeOrigin: true,
     pathRewrite: {
-      "^/searchLocation/": "/"
+      '^/searchLocation/': '/'
     }
   }
-};
+}
 
-
-module.exports = serverConfig;
+module.exports = serverConfig

@@ -4,8 +4,8 @@
   </div>
 </template>
 <script>
-import 'maptalks/dist/maptalks.css';
-import * as maptalks from 'maptalks';
+import 'maptalks/dist/maptalks.css'
+import * as maptalks from 'maptalks'
 
 export default {
   name: 'maptalksMap',
@@ -37,11 +37,10 @@ export default {
         'coordinate': 'BD',
         'subdomains': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
         attribution: '&copy; waltiu '
-      }),
-    });
-
-  },
-};
+      })
+    })
+  }
+}
 </script>
 
 <style >

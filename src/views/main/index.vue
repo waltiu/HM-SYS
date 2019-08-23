@@ -10,7 +10,9 @@
               background-color="#545c64"
               text-color="#fff"
               :router="true"
+              :unique-opened="true"
               active-text-color="#ffd04b"
+              :default-active="this.defaultOPen"
             >
               <el-submenu :index="item.id" v-for="item of colum" :key="item.id">
                 <template slot="title">
@@ -43,12 +45,19 @@ export default {
   data () {
     return {
       colum: '',
-      isCollapse: false
+      isCollapse: false,
+      defaultOPen: ''
+    }
+  },
+  methods: {
+    selectTip (res) {
+      console.log('1', res)
     }
   },
   mounted () {
     this.colum = JSON.parse(sessionStorage.getItem('permission'))
-    console.log(1, this.colum)
+    this.defaultOPen = this.$route.path.slice(1)
+    console.log(this.defaultOPen)
   }
 
 }

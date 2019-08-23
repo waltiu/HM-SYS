@@ -80,10 +80,9 @@ export default {
               message: '您搜索的地点不存在，请重新输入!  ',
               position: 'top-left',
               type: 'warning'
-            });
+            })
             this.listState = false
             this.query = ''
-
           }
         })
     },
