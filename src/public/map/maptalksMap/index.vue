@@ -30,7 +30,7 @@ export default {
     this.map = new maptalks.Map('map', {
       center: [this.$store.state.defaultCenter.lng, this.$store.state.defaultCenter.lat],
       zoom: this.$store.state.defaultZoom.zoom,
-      minZoom: 10,
+      minZoom: 8,
       maxZoom: 19,
       baseLayer: new maptalks.TileLayer('base', {
         'urlTemplate': 'http://online4.map.bdimg.com/tile/?qt=vtile&x={x}&y={y}&z={z}&styles=pl&scaler=300',
