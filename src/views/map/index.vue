@@ -1,18 +1,18 @@
 <template>
   <div>
+    <maptalks-map @getMap="(info)=>{this.map=info}"></maptalks-map>
     <div class="bar">
-      <search-location></search-location>
+      <search-location class="search"></search-location>
       <zoom class="zoom"></zoom>
+      <right-bar :map="map"></right-bar>
     </div>
-    <maptalks-map></maptalks-map>
-
-    <!-- <div id="map" class="container"></div> -->
   </div>
 </template>
 <script>
 import 'maptalks/dist/maptalks.css'
 import searchLocation from './search'
 import zoom from './zoom'
+import rightBar from './rightBar'
 import axios from 'axios'
 export default {
   name: 'baseMap',
@@ -21,13 +21,15 @@ export default {
       query: '',
       layer: [
 
-      ]
-
+      ],
+      map: {}
     }
   },
   components: {
     searchLocation,
-    zoom
+    zoom,
+    rightBar
+
   },
   methods: {
     search () {
@@ -40,8 +42,10 @@ export default {
           ak: 'lvNKaGepBi4j6QORExntHLDTZkXLoCdi'
         }
       })
-        .then(res => (console.log(res)))
+      // .then(res => (console.log(res)))
     }
+  },
+  mounted () {
   }
   // mounted () {
   //   this.$nextTick(() => {
@@ -69,11 +73,14 @@ export default {
 .bar {
   position: absolute;
   z-index: 999;
+  top: 120px;
+}
+.search {
+  position: relative;
+  z-index: 999;
 }
 .zoom {
   position: absolute;
   top: 200px;
 }
 </style>
-
-lvNKaGepBi4j6QORExntHLDTZkXLoCdi
