@@ -4,8 +4,8 @@
     <div class="bar">
       <search-location class="search"></search-location>
       <zoom class="zoom"></zoom>
-      <right-bar :map="map"></right-bar>
     </div>
+    <right-bar :map="map" class="rightBar"></right-bar>
   </div>
 </template>
 <script>
@@ -82,5 +82,10 @@ export default {
 .zoom {
   position: absolute;
   top: 200px;
+}
+.rightBar {
+  position: absolute;
+  right: 30px;
+  top: 45%;
 }
 </style>
