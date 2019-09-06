@@ -51,13 +51,13 @@ export default {
   },
   methods: {
     selectTip (res) {
-      console.log('1', res)
+      // console.log('1', res)
     }
   },
   mounted () {
     this.colum = JSON.parse(sessionStorage.getItem('permission'))
     this.defaultOPen = this.$route.path.slice(1)
-    console.log(this.defaultOPen)
+    // console.log(this.defaultOPen)
   }
 
 }

@@ -12,7 +12,8 @@ export default new Vuex.Store({
     },
     defaultZoom: {
       zoom: '17'
-    }
+    },
+    defaultMap: {}
   },
   mutations: {
     changeCenter (state, info) {
@@ -33,6 +34,9 @@ export default new Vuex.Store({
     },
     setZoom (state, info) {
       state.defaultZoom.zoom = info
+    },
+    getMap (state, info) {
+      state.defaultMap = info
     }
 
   },
