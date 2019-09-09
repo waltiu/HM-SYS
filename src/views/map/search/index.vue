@@ -88,6 +88,7 @@ export default {
     },
     submit (location, name) {
       this.$store.commit('changeCenter', location)
+      this.$store.commit('changeZoom', 17)
       this.listState = false
       this.$message.success(`您当前的位置在: ${name}`)
       // this.query = ''

@@ -26,7 +26,7 @@ export default {
   },
   mounted () {
     this.map = this.$store.state.defaultMap
-    this.LineHandle = new LineHandle(this.map, '')
+    this.LineHandle = new LineHandle(this.map, '1')
   },
   methods: {
     state () {

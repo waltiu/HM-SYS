@@ -4,17 +4,21 @@
     <div v-if="drawerState">
       <div class="barDetail">
         <region></region>
+        <iconsSchool></iconsSchool>
+        <test></test>
       </div>
     </div>
   </div>
 </template>
 <script>
 import region from './card/region'
-import source from './card/source'
+import iconsSchool from './card/source'
+import test from './card/draw'
 export default {
   components: {
     region,
-    source
+    iconsSchool,
+    test
   },
   data () {
     return {
