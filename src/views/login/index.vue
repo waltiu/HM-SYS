@@ -57,6 +57,7 @@ export default {
         if (this.personForm[i].username === this.loginForm.name &&
           this.personForm[i].password === this.loginForm.password) {
           sessionStorage.setItem('permission', JSON.stringify(this.personForm[i].permission))
+          sessionStorage.setItem('token', JSON.stringify(this.personForm[i].token))
           this.personalData.push(this.personForm[i])
           setTimeout(() => {
             this.$message({

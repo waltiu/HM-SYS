@@ -3,11 +3,12 @@ import Router from 'vue-router'
 import login from './views/login'
 import map from './views/map'
 import main from './views/main'
-import source from './views/source'
+import source from './views/village'
+import error from './views/ERROR'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -15,6 +16,11 @@ export default new Router({
       path: '/',
       name: 'login',
       component: login
+    },
+    {
+      path: '/error',
+      name: 'error',
+      component: error
     },
     {
       path: '/main',
@@ -35,3 +41,17 @@ export default new Router({
     }
   ]
 })
+router.beforeEach((to, from, next) => {
+  if (to.path === '/' || to.path === '/error') {
+    next()
+  } else {
+    console.log('2')
+    let token = sessionStorage.getItem('token')
+    if (token === null) {
+      next('/error')
+    } else {
+      next()
+    }
+  }
+})
+export default router

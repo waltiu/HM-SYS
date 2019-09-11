@@ -3,6 +3,7 @@
     {
       "username": "admin",
       "password": "admin",
+      "token": "This is a token",
       "permission": [
         {
           "name": "section1",
@@ -41,6 +42,7 @@
     {
       "username": "165150313",
       "password": "0313",
+      "token": "This is a token",
       "permission": [
         {
           "name": "地图",
@@ -63,6 +65,7 @@
     {
       "username": "小猪",
       "password": "521",
+      "token": "This is a token",
       "permission": [
         {
           "name": "section1",
@@ -86,6 +89,7 @@
     {
       "username": "0916",
       "password": "0916",
+      "token": "This is a token",
       "permission": [
         {
           "name": "section1",
@@ -109,6 +113,7 @@
     {
       "username": "waltiu",
       "password": "qwer1234",
+      "token": "This is a token",
       "permission": [
         {
           "name": "section1",
@@ -132,6 +137,7 @@
     {
       "username": "金泽楠",
       "password": "qwer@1234",
+      "token": "This is a token",
       "permission": [
         {
           "name": "section1",
