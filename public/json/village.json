@@ -602,10 +602,5 @@
         "isHaveOverAreaMr": "否"
       }
     ]
-  },
-  "page": {
-    "size": 40,
-    "totalPages": 14,
-    "total": 40
   }
 }
