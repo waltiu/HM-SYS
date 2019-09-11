@@ -1,6 +1,10 @@
 <template>
   <div>
     <button @click="test">test</button>
+    <div>
+      <el-input clearable v-model="query"></el-input>
+      <el-button type="danger" @click="search">搜索</el-button>
+    </div>
     <el-table :data="showData" style="width: 100%">
       <el-table-column prop="city" label="日期" width="180"></el-table-column>
       <el-table-column prop="name" label="姓名" width="180"></el-table-column>
@@ -27,28 +31,41 @@ export default {
       page: {
         currentPage: 1,
         pageSize: 10,
-        total: 40
+        total: ''
       },
-      tableData: []
+      tableData: [],
+      query: ''
 
     }
   },
 
   methods: {
+    search () {
+      if (this.query) {
+        this.showData = this.tableData.filter((item) => {
+          return item.name.indexOf(this.query) === 0
+        })
+        this.page.total = this.showData.length
+      } else {
+        this.showData = this.tableData
+        this.page.total = this.showData.length
+      }
+    },
     handleSizeChange (size) {
-      console.log(size)
       this.page.pageSize = size
+      this.search()
       this.computedData()
     },
     handlePageChange (page) {
-      console.log(page)
       this.page.currentPage = page
+      this.search()
       this.computedData()
     },
     getForm () {
       axios.get('/json/village.json')
         .then((res) => {
           this.tableData = res.data.data.village
+          this.search()
           this.computedData()
         })
     },
@@ -56,7 +73,6 @@ export default {
       console.log(this.page)
     },
     computedData () {
-      this.showData = this.tableData
       const data = this.showData.slice((this.page.currentPage - 1) * this.page.pageSize, this.page.currentPage * this.page.pageSize)
       this.showData = data
     }
