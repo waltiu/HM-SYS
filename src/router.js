@@ -45,9 +45,9 @@ router.beforeEach((to, from, next) => {
   if (to.path === '/' || to.path === '/error') {
     next()
   } else {
-    let token = localStorage.getItem('token')
-
-    if (token === 'null' || token === '') {
+    console.log('2')
+    let token = sessionStorage.getItem('token')
+    if (token === null) {
       next('/error')
     } else {
       next()
