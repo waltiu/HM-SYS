@@ -1,15 +1,10 @@
 <template>
   <div>
-    <button @click="test">test</button>
     <div>
       <el-input clearable v-model="query"></el-input>
       <el-button type="danger" @click="search">搜索</el-button>
     </div>
-    <el-table :data="showData" style="width: 100%">
-      <el-table-column prop="city" label="日期" width="180"></el-table-column>
-      <el-table-column prop="name" label="姓名" width="180"></el-table-column>
-      <el-table-column prop="area" label="地址"></el-table-column>
-    </el-table>
+    <lt-table :showData="showData" :config="tableConfig"></lt-table>
     <el-pagination
       @size-change="handleSizeChange"
       @current-change="handlePageChange"
@@ -22,6 +17,7 @@
   </div>
 </template>
 <script>
+import { config } from './config'
 import axios from 'axios'
 export default {
   name: 'village',
@@ -31,24 +27,41 @@ export default {
       page: {
         currentPage: 1,
         pageSize: 10,
-        total: ''
+        total: 0
       },
       tableData: [],
       query: ''
 
     }
   },
-
+  computed: {
+    tableConfig: function () {
+      return Object.values(config)
+        .map(item => {
+          return {
+            title: item.title,
+            key: item.key,
+            width: item.width
+          }
+        })
+    }
+  },
   methods: {
     search () {
       if (this.query) {
         this.showData = this.tableData.filter((item) => {
-          return item.name.indexOf(this.query) === 0
+          return item.name.includes(this.query)
         })
         this.page.total = this.showData.length
+        if (this.page.currentPage === 1) {
+          this.computedData()
+        }
       } else {
         this.showData = this.tableData
         this.page.total = this.showData.length
+        if (this.page.currentPage === 1) {
+          this.computedData()
+        }
       }
     },
     handleSizeChange (size) {
@@ -68,9 +81,6 @@ export default {
           this.search()
           this.computedData()
         })
-    },
-    test () {
-      console.log(this.page)
     },
     computedData () {
       const data = this.showData.slice((this.page.currentPage - 1) * this.page.pageSize, this.page.currentPage * this.page.pageSize)
