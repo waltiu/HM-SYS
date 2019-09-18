@@ -19,7 +19,6 @@ export default new Vuex.Store({
   mutations: {
     changeCenter (state, info) {
       state.defaultCenter = info
-      console.log(info)
     },
     changeZoom (state, info) {
       state.defaultZoom.zoom = info

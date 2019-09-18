@@ -1,21 +1,27 @@
   <template>
   <div>
-    <el-input clearable v-model="query"></el-input>
-    <el-button type="danger" @click="search">搜索</el-button>
+    <el-card>
+      名称：
+      <el-input clearable v-model="query" style="width:200px" label="名称"></el-input>
+      <el-button @click="search">搜索</el-button>
+    </el-card>
   </div>
 </template>
 <script>
 export default {
   name: 'ltSearch',
+  data () {
+    return {
+      query: ''
+    }
+  },
   methods: {
-    data () {
-      return {
-        query: 1
-      }
-    },
     search () {
       this.$emit('search', this.query)
     }
+  },
+  mounted () {
+    this.$emit('search')
   }
 
 }

@@ -7,7 +7,7 @@ export const config = {
   area: {
     key: 'area',
     title: '大区',
-    width: 200
+    width: 80
   },
   city: {
     key: 'city',
@@ -22,7 +22,7 @@ export const config = {
   address: {
     key: 'address',
     title: '地址',
-    width: 900
+    width: 500
   },
   note: {
     key: 'note',

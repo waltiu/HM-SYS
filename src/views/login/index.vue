@@ -67,6 +67,10 @@ export default {
             this.$router.push('/map')
             this.loginLoading = false
           }, 2000)
+        } else {
+          setTimeout(() => {
+            this.loginLoading = false
+          }, 2000)
         }
       }
     },
@@ -97,7 +101,7 @@ export default {
   position: absolute;
   width: 30%;
   height: 10%;
-  margin-top: 15%;
+  margin: 15% 50% 25% 30%;
 }
 .loginButton {
   position: relative;

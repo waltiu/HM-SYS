@@ -40,13 +40,19 @@
 </template>
 
 <script>
+import Router from 'vue-router'
+const originalPush = Router.prototype.push
+Router.prototype.push = function push (location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 export default {
   name: 'mainShow',
   data () {
     return {
       colum: '',
       isCollapse: false,
-      defaultOPen: ''
+      defaultOPen: '',
+      key: []
     }
   },
   methods: {
@@ -54,9 +60,25 @@ export default {
       // console.log('1', res)
     }
   },
+  watch: {
+    debug: function (newVal) {
+      if (newVal) {
+        this.$router.push('/error')
+      }
+    }
+  },
+  computed: {
+    debug: function () {
+      return this.key.join('') === 'litanshizhu'
+    }
+  },
   mounted () {
     this.colum = JSON.parse(sessionStorage.getItem('permission'))
     this.defaultOPen = this.$route.path.slice(1)
+    document.addEventListener('keydown', () => {
+      const key = event.key
+      this.key.push(key)
+    })
     // console.log(this.defaultOPen)
   }
 
@@ -75,7 +97,6 @@ export default {
 .main {
   width: 100%;
   height: 910px;
-  background-image: url(/img/mapBack.jpeg);
 }
 .header {
   width: 100%;
