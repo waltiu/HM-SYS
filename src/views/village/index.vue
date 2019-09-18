@@ -48,16 +48,9 @@ export default {
         this.showData = this.tableData.filter((item) => {
           return item.name.includes(this.query)
         })
-        this.page.total = this.showData.length
-        if (this.page.currentPage === 1) {
-          this.$refs.ltPage.computedData(this.showData)
-        }
+        this.$refs.ltPage.computedData(this.showData)
       } else {
         this.showData = this.tableData
-        this.page.total = this.showData.length
-        if (this.page.currentPage === 1) {
-          this.$refs.ltPage.computedData(this.showData)
-        }
       }
     },
     getForm () {

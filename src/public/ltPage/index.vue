@@ -20,7 +20,8 @@ export default {
         currentPage: 1,
         pageSize: 10
       },
-      showData: []
+      showData: [],
+      length: ''
     }
   },
   props: {
@@ -34,7 +35,7 @@ export default {
   },
   computed: {
     total: function () {
-      return this.showData.length || this.tableData.length
+      return this.length || this.tableData.length
     }
   },
   methods: {
@@ -49,7 +50,7 @@ export default {
       this.computedData()
     },
     computedData (info) {
-      console.log(info)
+      this.length = info
       const data = (info || this.tableData).slice((this.page.currentPage - 1) * this.page.pageSize, this.page.currentPage * this.page.pageSize)
       this.showData = data
       this.$emit('getData', this.showData)
