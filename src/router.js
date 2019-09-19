@@ -5,6 +5,8 @@ import map from './views/map'
 import main from './views/main'
 import source from './views/village'
 import error from './views/ERROR'
+import data from './views/data'
+import compare from './views/compare'
 
 Vue.use(Router)
 
@@ -36,6 +38,17 @@ const router = new Router({
           path: '/source',
           name: 'source',
           component: source
+        },
+        {
+          path: '/data',
+          name: 'data',
+          component: data
+        },
+        {
+          path: '/compare',
+          name: 'compare',
+          component: compare
+
         }
       ]
     }
@@ -45,7 +58,6 @@ router.beforeEach((to, from, next) => {
   if (to.path === '/' || to.path === '/error') {
     next()
   } else {
-    console.log('2')
     let token = sessionStorage.getItem('token')
     if (token === null) {
       next('/error')

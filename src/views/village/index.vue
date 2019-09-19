@@ -5,8 +5,8 @@
     <lt-page
       ref="ltPage"
       @getData="(info)=>{this.showData=info}"
-      :tableData="tableData"
       @search="search"
+      :tableData="tableData"
       :query="query"
     ></lt-page>
   </div>
@@ -21,8 +21,7 @@ export default {
       showData: [],
       page: {
         currentPage: 1,
-        pageSize: 10,
-        total: 0
+        pageSize: 10
       },
       tableData: [],
       query: ''
@@ -48,9 +47,9 @@ export default {
         this.showData = this.tableData.filter((item) => {
           return item.name.includes(this.query)
         })
-        this.$refs.ltPage.computedData(this.showData)
+        this.showData = this.$refs.ltPage.computedData(this.showData)
       } else {
-        this.showData = this.tableData
+        this.showData = this.$refs.ltPage.computedData()
       }
     },
     getForm () {

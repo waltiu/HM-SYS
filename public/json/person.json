@@ -130,6 +130,22 @@
               "path": "source"
             }
           ]
+        },
+        {
+          "name": "section2",
+          "id": "02",
+          "chidren": [
+            {
+              "id": "02-01",
+              "name": "数据",
+              "path": "data"
+            },
+            {
+              "id": "02-02",
+              "name": "对比",
+              "path": "compare"
+            }
+          ]
         }
       ],
       "details": {}
