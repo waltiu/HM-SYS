@@ -5,6 +5,7 @@
 import echarts from 'echarts'
 import theme from './theme.json'
 import router from '../../router'
+import store from '../../store'
 
 export default {
   name: 'ltEcharts',
@@ -20,7 +21,7 @@ export default {
       const option = {
         tooltip: {
           trigger: 'item',
-          formatter: "{a} <br/>{b}: {c} ({d}%)"
+          formatter: `{a} <br/>{b}: {c} ({d}%)`
         },
         legend: {
           orient: 'vertical',
@@ -124,8 +125,9 @@ export default {
       window.addEventListener('resize', function () {
         myChart.resize()
       })
-      myChart.on('click', function (params) {
-        console.log(router.push('/source'))
+      myChart.on('pieselectchanged', function (res) {
+        store.commit('getQuery', res.name)
+        router.push('/source')
       })
     }
   }

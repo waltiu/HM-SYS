@@ -14,7 +14,8 @@ export default new Vuex.Store({
       zoom: '17'
     },
     defaultMap: {},
-    token: ''
+    token: '',
+    query: ''
   },
   mutations: {
     changeCenter (state, info) {
@@ -38,6 +39,9 @@ export default new Vuex.Store({
     },
     getMap (state, info) {
       state.defaultMap = info
+    },
+    getQuery (state, info) {
+      state.query = info
     }
 
   },

@@ -121,13 +121,8 @@
           "chidren": [
             {
               "id": "01-01",
-              "name": "地图",
+              "name": "中央大地图",
               "path": "map"
-            },
-            {
-              "id": "01-02",
-              "name": "资源",
-              "path": "source"
             }
           ]
         },
@@ -137,13 +132,18 @@
           "chidren": [
             {
               "id": "02-01",
-              "name": "数据",
-              "path": "data"
+              "name": "小区资源",
+              "path": "source"
             },
             {
               "id": "02-02",
-              "name": "对比",
+              "name": "房屋资源",
               "path": "compare"
+            },
+            {
+              "id": "02-03",
+              "name": "图标数据",
+              "path": "data"
             }
           ]
         }
