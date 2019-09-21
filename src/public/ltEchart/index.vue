@@ -17,12 +17,14 @@ export default {
     setEchart () {
       const myChart = echarts.init(document.getElementById('echart'), theme)
       const option = {
-        color: ['#3398DB'],
+        title: {
+          text: '半年交易均价：'
+        },
         tooltip: {
-          trigger: 'axis',
-          axisPointer: {            // 坐标轴指示器，坐标轴触发有效
-            type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-          }
+          trigger: 'axis'
+        },
+        legend: {
+          data: ['买房', '租房', '新房']
         },
         grid: {
           left: '3%',
@@ -30,30 +32,35 @@ export default {
           bottom: '3%',
           containLabel: true
         },
-        xAxis: [
-          {
-            type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-            axisTick: {
-              alignWithLabel: true
-            }
-          }
-        ],
-        yAxis: [
-          {
-            type: 'value'
-          }
-        ],
+        xAxis: {
+          type: 'category',
+          data: ['一月', '二月', '三月', '四月', '五月', '六月']
+        },
+        yAxis: {
+          type: 'value'
+        },
         series: [
           {
-            name: '直接访问',
-            type: 'bar',
-            barWidth: '60%',
-            data: [10, 52, 200, 334, 390, 330, 220]
+            name: '买房',
+            type: 'line',
+            step: 'start',
+            data: [6000, 6100, 6500, 6800, 7000, 7200, 8000]
+          },
+          {
+            name: '租房',
+            type: 'line',
+            step: 'middle',
+            data: [700, 800, 100, 1100, 1200, 1300, 1400, 1500]
+          },
+          {
+            name: '新房',
+            type: 'line',
+            step: 'end',
+            data: [7000, 8000, 9000, 9000, 8000, 8500, 9000]
           }
         ]
+      };
 
-      }
       myChart.setOption(option)
 
       window.addEventListener('resize', function () {
