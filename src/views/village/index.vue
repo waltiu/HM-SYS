@@ -12,7 +12,6 @@
   </div>
 </template>
 <script>
-import { config } from './config'
 import axios from 'axios'
 export default {
   name: 'village',
@@ -24,13 +23,14 @@ export default {
         pageSize: 10
       },
       tableData: [],
-      query: ''
+      query: '',
+      type: 'village'
 
     }
   },
   computed: {
     tableConfig: function () {
-      return Object.values(config)
+      return Object.values(this.$tableConfig[this.type])
         .map(item => {
           return {
             title: item.title,
@@ -63,7 +63,6 @@ export default {
 
   },
   mounted () {
-    // this.$getData()
     this.getForm()
   }
 }

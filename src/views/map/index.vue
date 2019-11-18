@@ -46,6 +46,7 @@ export default {
     }
   },
   mounted () {
+    console.log(this.$tableConfig)
   }
   // mounted () {
   //   this.$nextTick(() => {

@@ -36,17 +36,22 @@
         </el-main>
       </el-container>
     </el-container>
+    <lt-dialog></lt-dialog>
   </div>
 </template>
 
 <script>
 import Router from 'vue-router'
+import ltDialog from '../../public/ltDialog/mapDialog'
 const originalPush = Router.prototype.push
 Router.prototype.push = function push (location) {
   return originalPush.call(this, location).catch(err => err)
 }
 export default {
   name: 'mainShow',
+  components: {
+    ltDialog
+  },
   data () {
     return {
       colum: '',
@@ -79,25 +84,27 @@ export default {
       const key = event.key
       this.key.push(key)
     })
-    // console.log(this.defaultOPen)
   }
 
 }
 </script>
 
-<style scoped="scoped">
+<style scoped>
 .barLeft {
   height: 910px;
   background-color: antiquewhite;
 }
+
 .aside {
   width: 100%;
   height: 100%;
 }
+
 .main {
   width: 100%;
   height: 910px;
 }
+
 .header {
   width: 100%;
   height: 100%;
