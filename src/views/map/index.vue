@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <maptalks-map @getMap="(info)=>{this.map=info}"></maptalks-map>
+  <div class="item">
+    <maptalks-map @getMap="(info)=>{this.map=info}" class="map"></maptalks-map>
     <div class="bar">
       <search-location class="search"></search-location>
       <zoom class="zoom"></zoom>
@@ -48,21 +48,7 @@ export default {
   mounted () {
     console.log(this.$tableConfig)
   }
-  // mounted () {
-  //   this.$nextTick(() => {
-  //     const map = new maptalks.Map('map', {
-  //       center: [123.4254440161916, 41.79928173774194],
-  //       zoom: 18,
-  //       minZoom: 5,
-  //       maxZoom: 19,
-  //       baseLayer: new maptalks.TileLayer('base', {
-  //         urlTemplate: 'http://218.25.36.152:9009/arctiler/google/services/TiandituMap3857/Google/{z}/{x}/{y}.png',
-  //         attribution: '&copy; waltiu '
-  //       }),
-  //     });
-  //     // console.log('map: ', map);
-  //   });
-  // },
+
 }
 </script>
 
@@ -88,5 +74,10 @@ export default {
   position: absolute;
   right: 30px;
   top: 45%;
+}
+.map {
+  position: relative;
+  right: 20px;
+  top: -20px;
 }
 </style>

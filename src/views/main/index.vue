@@ -1,7 +1,6 @@
 <template>
   <div>
     <el-container>
-      <el-header class="header" height="120px">Header</el-header>
       <el-container>
         <el-aside width="15%" class="aside">
           <div class="barLeft">
@@ -30,6 +29,8 @@
           </div>
         </el-aside>
         <el-main class="main">
+          <div class="header">Header</div>
+
           <div>
             <router-view></router-view>
           </div>
@@ -102,11 +103,18 @@ export default {
 
 .main {
   width: 100%;
-  height: 910px;
 }
 
 .header {
-  width: 100%;
-  height: 100%;
+  width: 120%;
+  height: 12%;
+  margin: 0px;
+  padding: 0px;
+  background-image: url(/img/headerBack.jpg);
+  background-size: 110% 100%;
+  background-repeat: no-repeat;
+  position: relative;
+  top: -20px;
+  left: -22px;
 }
 </style>

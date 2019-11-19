@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-table :data="showData" style="width: 100%" height="600px">
+    <el-table :data="showData" style="width: 100%" height="500px">
       <el-table-column type="selection" width="55"></el-table-column>
       <el-table-column
         v-for="item  in config"

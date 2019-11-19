@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="village">
     <lt-search @search="search"></lt-search>
     <lt-table :showData="showData" :config="tableConfig" style="padding-top:20px"></lt-table>
     <lt-page
@@ -67,3 +67,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+.village {
+  height: 1000px;
+}
+</style>
