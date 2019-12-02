@@ -53,10 +53,6 @@ export default {
 </script>
 
 <style >
-.container {
-  width: 100%;
-  height: 80vh;
-}
 .bar {
   position: absolute;
   z-index: 999;

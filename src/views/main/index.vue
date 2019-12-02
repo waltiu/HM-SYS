@@ -2,35 +2,43 @@
   <div>
     <el-container>
       <el-container>
-        <el-aside width="15%" class="aside">
+        <el-aside style="width:15%" class="aside">
           <div class="barLeft">
-            <el-menu
-              class="el-menu-vertical-demo"
-              background-color="#545c64"
-              text-color="#fff"
-              :router="true"
-              :unique-opened="true"
-              active-text-color="#ffd04b"
-              :default-active="this.defaultOPen"
-            >
-              <el-submenu :index="item.id" v-for="item of colum" :key="item.id">
-                <template slot="title">
-                  <i class="el-icon-menu"></i>
-                  <span>{{item.name}}</span>
-                </template>
-                <el-menu-item-group>
-                  <el-menu-item :index="item1.path" v-for="item1 of item.chidren" :key="item1.id">
-                    <i class="el-icon-location"></i>
-                    {{item1.name}}
-                  </el-menu-item>
-                </el-menu-item-group>
-              </el-submenu>
-            </el-menu>
+            <img
+              src="http://static.fangxiaoer.com/web/images/ico/head/logo.png"
+              alt="房小二网"
+              class="icon"
+            />
+            <div class="ment">
+              <el-menu
+                class="el-menu-vertical-demo"
+                background-color="#464c5b"
+                text-color="#fff"
+                :router="true"
+                :unique-opened="true"
+                active-text-color="#2d8cf0"
+                :default-active="this.defaultOPen"
+              >
+                <el-submenu :index="item.id" v-for="item of colum" :key="item.id">
+                  <template slot="title">
+                    <i class="el-icon-menu"></i>
+                    <span>{{item.name}}</span>
+                  </template>
+                  <el-menu-item-group style="overflow-y: auto;overflow-x: hidden;">
+                    <el-menu-item :index="item1.path" v-for="item1 of item.chidren" :key="item1.id">
+                      <i class="el-icon-location"></i>
+                      {{item1.name}}
+                    </el-menu-item>
+                  </el-menu-item-group>
+                </el-submenu>
+              </el-menu>
+            </div>
           </div>
         </el-aside>
         <el-main class="main">
-          <div class="header">Header</div>
-
+          <el-header>
+            <div class="header">Header</div>
+          </el-header>
           <div>
             <router-view></router-view>
           </div>
@@ -92,29 +100,26 @@ export default {
 
 <style scoped>
 .barLeft {
-  height: 910px;
-  background-color: antiquewhite;
-}
-
-.aside {
+  float: left;
+  background: #464c5b;
+  height: 100vh;
   width: 100%;
-  height: 100%;
-}
-
-.main {
-  width: 100%;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .header {
-  width: 120%;
   height: 12%;
-  margin: 0px;
-  padding: 0px;
-  background-image: url(/img/headerBack.jpg);
-  background-size: 110% 100%;
-  background-repeat: no-repeat;
+}
+.icon {
   position: relative;
-  top: -20px;
-  left: -22px;
+  left: 15%;
+  top: 10px;
+  padding: 30px 0px 30px 0px;
+}
+.ment {
+  position: relative;
+  top: 30px;
 }
 </style>
