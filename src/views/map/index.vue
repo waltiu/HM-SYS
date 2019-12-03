@@ -1,11 +1,12 @@
 <template>
   <div class="item">
-    <maptalks-map @getMap="(info)=>{this.map=info}" class="map"></maptalks-map>
+    <maptalks-map @getMap="(info)=>{this.map=info}" class="map">
+      <right-bar :map="map" :style="{'z-index': '999', position: 'absolute', 'right': 0}"></right-bar>
+    </maptalks-map>
     <div class="bar">
       <search-location class="search"></search-location>
       <zoom class="zoom"></zoom>
     </div>
-    <right-bar :map="map" class="rightBar"></right-bar>
   </div>
 </template>
 <script>
@@ -59,18 +60,16 @@ export default {
   top: 120px;
 }
 .search {
-  position: relative;
+  position: absolute;
+  top: -50px;
+  left: -10px;
   z-index: 999;
 }
 .zoom {
   position: absolute;
   top: 200px;
 }
-.rightBar {
-  position: absolute;
-  right: 30px;
-  top: 45%;
-}
+
 .map {
   position: relative;
   right: 20px;

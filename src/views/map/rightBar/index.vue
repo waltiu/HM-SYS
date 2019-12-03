@@ -1,45 +1,85 @@
 <template>
-  <div style=" display:flex">
-    <img src="/img/drawer.jpeg" @click="changeState" width="100px" height="100px" />
-    <div v-if="drawerState">
-      <div class="barDetail">
-        <region></region>
-        <iconsSchool></iconsSchool>
-        <test></test>
-      </div>
+  <div style=" display:flex" @wheel.stop="() => {}">
+    <div>
+      <img
+        src="/img/map/bar.png"
+        @click="changeState"
+        style="height: 60px;margin-top: 42vh;"
+        alt="bar"
+        class="transform"
+      />
     </div>
+    <transition name="slide-fade">
+      <div v-if="drawerState" class="barAll">
+        <div class="barItem">
+          <bar-item></bar-item>
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 <script>
-import region from './card/region'
-import iconsSchool from './card/source'
-import test from './card/draw'
+import barItem from './card'
 export default {
   components: {
-    region,
-    iconsSchool,
-    test
+    barItem
   },
   data () {
     return {
-      drawerState: false
-
+      drawerState: false,
+      iconState1: true,
+      iconState2: false
     }
   },
   methods: {
     changeState () {
       this.drawerState = !this.drawerState
+      if (this.drawerState) {
+        this.iconState1 = true
+        setTimeout(
+          this.iconState2 = false
+          , 50000)
+      } else {
+        this.iconState1 = false
+        setTimeout(
+          this.iconState2 = true
+          , 50000)
+      }
     }
   }
 
 }
 </script>
 <style scoped>
-.barDetail {
+.barAll {
+  height: 90vh;
+  width: 30vh;
   position: relative;
-  top: -300px;
-  height: 800px;
-  width: 250px;
-  background-color: aliceblue;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  background: hsla(0, 0%, 100%, 0.6);
+  z-index: initial;
+}
+.barItem {
+  width: 31vh;
+}
+.slide-fade-enter-active {
+  transition: all 0.5s ease;
+}
+.slide-fade-leave-active {
+  transition: all 0.5s ease;
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */ {
+  transform: translateX(400px);
+  /*opacity: 0;*/
+}
+.transform {
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 </style>
