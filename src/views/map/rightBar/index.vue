@@ -34,15 +34,15 @@ export default {
   },
   data () {
     return {
-      drawerState: false,
-      iconState1: true,
-      iconState2: false
+      drawerState: true,
+      iconState1: false,
+      iconState2: true
     }
   },
   methods: {
     changeState () {
       this.drawerState = !this.drawerState
-      if (this.drawerState) {
+      if (!this.drawerState) {
         this.iconState2 = false
         setTimeout(() => {
           this.iconState1 = true
