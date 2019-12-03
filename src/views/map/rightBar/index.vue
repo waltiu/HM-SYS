@@ -6,6 +6,14 @@
         @click="changeState"
         style="height: 60px;margin-top: 42vh;"
         alt="bar"
+        v-show="iconState1"
+      />
+      <img
+        src="/img/map/bar.png"
+        @click="changeState"
+        style="height: 60px;margin-top: 42vh;"
+        alt="bar"
+        v-show="iconState2"
         class="transform"
       />
     </div>
@@ -35,15 +43,15 @@ export default {
     changeState () {
       this.drawerState = !this.drawerState
       if (this.drawerState) {
-        this.iconState1 = true
-        setTimeout(
-          this.iconState2 = false
-          , 50000)
+        this.iconState2 = false
+        setTimeout(() => {
+          this.iconState1 = true
+        }, 600)
       } else {
         this.iconState1 = false
-        setTimeout(
+        setTimeout(() => {
           this.iconState2 = true
-          , 50000)
+        }, 600)
       }
     }
   }
@@ -53,7 +61,7 @@ export default {
 <style scoped>
 .barAll {
   height: 90vh;
-  width: 30vh;
+  width: 340px;
   position: relative;
   overflow-y: auto;
   overflow-x: hidden;
@@ -62,7 +70,7 @@ export default {
   z-index: initial;
 }
 .barItem {
-  width: 31vh;
+  width: 350px;
 }
 .slide-fade-enter-active {
   transition: all 0.5s ease;

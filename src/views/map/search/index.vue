@@ -66,8 +66,7 @@ export default {
       axios.get('/searchLocation/place/v2/suggestion', {
         params: {
           query: this.query,
-          region: '沈阳',
-          city_limit: true,
+          region: '全国',
           output: 'json',
           ak: 'lvNKaGepBi4j6QORExntHLDTZkXLoCdi'
         }

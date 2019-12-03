@@ -24,8 +24,9 @@ export default {
       map: {}
     }
   },
+  inject: ['mapDom'],
   mounted () {
-    this.map = this.$store.state.defaultMap
+    this.map = this.mapDom.mapDom
     this.LineHandle = new LineHandle(this.map, '1')
   },
   methods: {
@@ -63,6 +64,5 @@ export default {
       }
     }
   }
-
 }
 </script>

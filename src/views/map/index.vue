@@ -1,6 +1,6 @@
 <template>
   <div class="item">
-    <maptalks-map @getMap="(info)=>{this.map=info}" class="map">
+    <maptalks-map @getMap="getMap" class="map">
       <right-bar :map="map" :style="{'z-index': '999', position: 'absolute', 'right': 0}"></right-bar>
     </maptalks-map>
     <div class="bar">
@@ -14,7 +14,6 @@ import 'maptalks/dist/maptalks.css'
 import searchLocation from './search'
 import zoom from './zoom'
 import rightBar from './rightBar'
-import axios from 'axios'
 export default {
   name: 'baseMap',
   data () {
@@ -23,7 +22,13 @@ export default {
       layer: [
 
       ],
-      map: {}
+      map: {},
+      mapDom: {}
+    }
+  },
+  provide () {
+    return {
+      mapDom: this
     }
   },
   components: {
@@ -32,22 +37,12 @@ export default {
     rightBar
 
   },
+
   methods: {
-    search () {
-      axios.get('/searchLocation/place/v2/suggestion', {
-        params: {
-          query: this.query,
-          region: '沈阳',
-          city_limit: true,
-          output: 'json',
-          ak: 'lvNKaGepBi4j6QORExntHLDTZkXLoCdi'
-        }
-      })
-      // .then(res => (console.log(res)))
+    getMap (info) {
+      this.mapDom = info
+      console.log(this)
     }
-  },
-  mounted () {
-    console.log(this.$tableConfig)
   }
 
 }

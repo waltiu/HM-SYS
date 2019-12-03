@@ -52,6 +52,7 @@ export default {
       })
     })
     this.$store.commit('getMap', this.map)
+    this.$emit('getMap', this.map)
   }
 }
 </script>
