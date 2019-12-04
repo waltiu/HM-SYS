@@ -49,7 +49,7 @@
       <img src="http://static.fangxiaoer.com/web/images/ico/head/logo.png" width="100%" />
     </div>
     <div class="middleText">
-      <h1 class="htitle">您的贴身房管家!</h1>
+      <h1 class="htitle">您的贴♥房管家!</h1>
       <div class="iconList" style="display:flex">
         <div class="icon">
           <div style="height:80px">

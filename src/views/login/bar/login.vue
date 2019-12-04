@@ -1,7 +1,7 @@
 <template>
   <div class="loginCard">
     <div class="login">
-      <el-form :model="loginForm" ref="ruleForm" :label-position="labelPosition">
+      <el-form :model="loginForm" ref="ruleForm" :label-position="labelPosition" class="form">
         <el-form-item label="用户名：">
           <el-input prefix-icon="el-icon-monitor" v-model="loginForm.name" style="width:50%"></el-input>
         </el-form-item>
@@ -13,16 +13,14 @@
             style="width:50%"
           ></el-input>
         </el-form-item>
-        <el-form-item>
-          <el-button
-            class="loginButton"
-            type="success"
-            icon="el-icon-check"
-            @click="submitLoginForm('ruleForm')"
-            circle
-          ></el-button>
-        </el-form-item>
       </el-form>
+    </div>
+    <el-button class="loginButton" @click="submitLoginForm('ruleForm')">登录</el-button>
+
+    <p class="tips">+++++++++++第三方登录+++++++++++</p>
+
+    <div class="otherLoad">
+      <div>1</div>
     </div>
   </div>
 </template>
@@ -86,7 +84,7 @@ export default {
 <style scoped>
 .loginCard {
   border-radius: 20px;
-  position: absolute;
+  position: relative;
   left: -70vw;
   width: 41vw;
   height: 50vh;
@@ -94,6 +92,35 @@ export default {
 }
 .login {
   position: relative;
-  margin: 10vh -20vh 10vh 14vh;
+  left: 25%;
+  width: 41vw;
+}
+.loginButton {
+  text-align: center;
+  position: relative;
+  left: 30%;
+
+  margin: 0px auto;
+  width: 15vw;
+  border-radius: 30%;
+  background-image: url("http://demo.demohuo.top/modals/49/4919/demo/images/bg-01.jpg");
+}
+.otherLoad {
+  position: absolute;
+  width: 40vw;
+}
+.tips {
+  position: relative;
+  left: 10px;
+  width: 41vw;
+  overflow: hidden;
+  opacity: 0.4;
+  font-size: 12px;
+  top: 20px;
+  left: 28%;
+}
+.form {
+  width: 100%;
+  margin: 0px auto;
 }
 </style>
