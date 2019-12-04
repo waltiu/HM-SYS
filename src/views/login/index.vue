@@ -2,15 +2,29 @@
   <div
     class="loginItem"
     v-loading="loginLoading"
-    element-loading-text="拼命加载中"
+    element-loading-text="正在登录中..."
     element-loading-spinner="el-icon-loading"
     element-loading-background="rgba(0, 0, 0, 0.8)"
   >
+    <div class="right">
+      <transition name="slide-fade">
+        <img
+          src="/img/map/bar.png"
+          style="height: 60px;margin-top: 50vh;"
+          class="barImg"
+          @click="showLogin"
+        />
+      </transition>
+      <transition name="slide-fade">
+        <div class="rightBar" v-show="barShow">
+          <bar @getLoadingState="getLoadingState"></bar>
+        </div>
+      </transition>
+    </div>
     <div class="github">
       <svg
         @click="jumperToGithub"
         aria-hidden="true"
-        height="10%"
         style="fill:#000; color:#fff; z-index: 999; position: fixed; top: 0; border: 0; left: 0; transform: scale(-1, 1);"
         viewBox="0 0 250 250"
         width="4.5%"
@@ -68,92 +82,43 @@
         </div>
       </div>
     </div>
-    <!-- <div class="login">
-      <el-form :model="loginForm" ref="ruleForm">
-        <el-form-item>
-          <el-button type="primary" size="small">用户名</el-button>
-          <el-input v-model="loginForm.name"></el-input>
-        </el-form-item>
-        <el-form-item>
-          <el-button type="primary" size="small">密&nbsp;&nbsp;&nbsp;&nbsp;码</el-button>
-          <el-input type="password" v-model="loginForm.password"></el-input>
-        </el-form-item>
-        <el-form-item>
-          <el-button
-            class="loginButton"
-            type="success"
-            icon="el-icon-check"
-            @click="submitLoginForm('ruleForm')"
-            circle
-          ></el-button>
-        </el-form-item>
-      </el-form>
-    </div>-->
   </div>
 </template>
 
 <script>
-import axios from 'axios'
+import bar from './bar/index'
 export default {
   name: 'login',
   data () {
     return {
-      loginForm: {
-        name: '',
-        password: ''
-      },
-      personForm: {},
-      personalData: [],
-      data: {},
+
       loginLoading: false,
-      style1: { top: '10px' }
+      style1: { top: '10px' },
+      barShow: false
 
     }
   },
+  components: {
+    bar
+  },
   methods: {
+    showLogin () {
+      this.barShow = !this.barShow
+    },
+    getLoadingState (info) {
+      this.loginLoading = info
+    },
     iconJump () {
       let TF = false
       setInterval(() => {
-        console.log(TF)
         if (TF) {
           this.style1 = { marginTop: '-15px' }
-          console.log('1')
           TF = !TF
         } else {
-          console.log('2')
-
           this.style1 = { marginTop: '0px' }
           TF = !TF
         }
-      }, 1000)
-    },
-    submitLoginForm () {
-      this.loginLoading = true
-      let len = this.personForm.length
-      for (var i = 0; i < len; i++) {
-        if (this.personForm[i].username === this.loginForm.name &&
-          this.personForm[i].password === this.loginForm.password) {
-          sessionStorage.setItem('permission', JSON.stringify(this.personForm[i].permission))
-          sessionStorage.setItem('token', JSON.stringify(this.personForm[i].token))
-          this.personalData.push(this.personForm[i])
-          setTimeout(() => {
-            this.$message({
-              message: '恭喜你，登陆成功',
-              type: 'success'
-            })
-            this.$router.push('/map')
-            this.loginLoading = false
-          }, 2000)
-        } else {
-          setTimeout(() => {
-            this.loginLoading = false
-          }, 2000)
-        }
-      }
-    },
-    getLoginForm () {
-      axios.get('/json/person.json')
-        .then((res) => { this.personForm = res.data.personalData })
+      }, 700)
     },
     jumperToGithub () {
       window.location.href = 'https://github.com/15922232724'
@@ -161,7 +126,6 @@ export default {
 
   },
   mounted () {
-    this.getLoginForm()
     this.iconJump()
   }
 }
@@ -181,7 +145,17 @@ export default {
   background-image: url(/img/login/headerBack.jpg);
 }
 .iconList {
-  margin-top: 50px;
+  margin-top: 60px;
+}
+.rightBar {
+  height: 100vh;
+  width: 6.5vh;
+  background-image: linear-gradient(#e66465, #9198e5);
+}
+.right {
+  position: absolute;
+  right: 0px;
+  display: flex;
 }
 .login {
   position: absolute;
@@ -211,7 +185,7 @@ export default {
   position: relative;
   width: 600px;
   margin: 0px auto;
-  top: 200px;
+  top: 250px;
 }
 .icon {
   position: relative;
@@ -223,5 +197,8 @@ export default {
 .icon img {
   width: 76px;
   height: 60px;
+}
+.barImg {
+  position: relative;
 }
 </style>
