@@ -24,13 +24,16 @@ export default {
       map: {}
     }
   },
+  inject: ['mapDom'],
+
   mounted () {
     this.map = this.$store.state.defaultMap
-    this.IconsHandle = new IconsHandle(this.map, '')
   },
   methods: {
     state () {
       if (this.value === true) {
+        this.IconsHandle = new IconsHandle(this.mapDom.map, '')
+
         const a =
           [
             [123.403396, 41.799682],

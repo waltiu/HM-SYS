@@ -17,19 +17,23 @@
     </div>
     <el-button class="loginButton" @click="submitLoginForm('ruleForm')">登录</el-button>
 
-    <p class="tips">+++++++++++第三方登录+++++++++++</p>
+    <div class="tips">+++++++++++第三方登录+++++++++++</div>
 
     <div class="otherLoad">
-      <div>1</div>
+      <oauth class="admin"></oauth>
     </div>
   </div>
 </template>
 
 <script>
+import oauth from './oauth'
 import axios from 'axios'
 
 export default {
   name: 'loginForm',
+  components: {
+    oauth
+  },
   data () {
     return {
       labelPosition: 'top',
@@ -94,6 +98,7 @@ export default {
   position: relative;
   left: 25%;
   width: 41vw;
+  margin: 0px auto;
 }
 .loginButton {
   text-align: center;
@@ -106,13 +111,13 @@ export default {
   background-image: url("http://demo.demohuo.top/modals/49/4919/demo/images/bg-01.jpg");
 }
 .otherLoad {
-  position: absolute;
+  position: relative;
   width: 40vw;
+  margin: 0px auto;
 }
 .tips {
   position: relative;
   left: 10px;
-  width: 41vw;
   overflow: hidden;
   opacity: 0.4;
   font-size: 12px;
@@ -122,5 +127,9 @@ export default {
 .form {
   width: 100%;
   margin: 0px auto;
+}
+.admin {
+  margin: 0px auto;
+  width: 40px;
 }
 </style>

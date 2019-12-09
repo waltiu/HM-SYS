@@ -40,8 +40,7 @@ export default {
 
   methods: {
     getMap (info) {
-      this.mapDom = info
-      console.log(this)
+      this.map = info
     }
   }
 

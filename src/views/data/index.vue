@@ -20,12 +20,12 @@ export default {
   data () {
     return {
       styles: {
-        width: '469px',
+        width: '28vw',
         height: '300px'
 
       },
       style: {
-        width: '600px',
+        width: '30vw',
         height: '300px'
       },
       sources1: {
@@ -64,12 +64,12 @@ export default {
 .style {
   position: relative;
   top: -300px;
-  left: 450px;
+  left: 26vw;
 }
 .styles2 {
   position: relative;
   top: -600px;
-  left: 1000px;
+  left: 52vw;
 }
 .contain {
   position: absolute;

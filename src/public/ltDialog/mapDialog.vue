@@ -40,7 +40,7 @@ export default {
   mounted () {
     this.status = false
     this.$store.watch(state => state.defaultZoom.zoom, (newVal) => {
-      this.status = true
+      this.status = false
       this.infoData = newVal
     })
   }

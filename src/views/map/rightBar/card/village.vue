@@ -26,12 +26,14 @@ export default {
   },
   inject: ['mapDom'],
   mounted () {
-    this.map = this.mapDom.mapDom
-    this.LineHandle = new LineHandle(this.map, '1')
+    this.map = this.mapDom.map
+    console.log(this.map)
   },
   methods: {
     state () {
       if (this.value === true) {
+        this.LineHandle = new LineHandle(this.mapDom.map, '')
+
         const a = [
           [
             [123.413131, 41.795428],

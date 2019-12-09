@@ -1,6 +1,7 @@
 import * as maptalks from 'maptalks'
 export default class Handle {
   constructor (map, layerName) {
+    console.log(map)
     this.map = map
     this.data = []
     this.style = {}
@@ -18,7 +19,9 @@ export default class Handle {
 
   // 图层隐藏
   hidden () {
-    this.map.removeLayer(this.layer)
+    if (this.layer) {
+      this.map.removeLayer(this.layer)
+    }
   }
   handleData () {
     // 数据处理
