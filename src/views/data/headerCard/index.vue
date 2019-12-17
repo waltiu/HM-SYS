@@ -1,11 +1,11 @@
 <template>
   <div>
-    <el-card style="text-align:center" v-if="!show" v-loading="!show">
+    <!-- <div style="text-align:center" v-if="!show" v-loading="!show" class="loading">
       <h1 style="font-size:50px">正在获取实时数据ing...</h1>
-    </el-card>
+    </div>-->
     <div class="allCard">
       <div v-for="item of info" :key="item.title">
-        <el-card shadow="hover" class="eCard" v-show="show">
+        <el-card shadow="hover" class="eCard">
           <i :class="item.icons" :style="item.color" id="icons"></i>
           <div class="text">
             <span>{{item.title}}</span>
@@ -61,7 +61,7 @@ export default {
     setInterval(() => {
       this.show = true
       console.log('1')
-    }, 2500)
+    }, 1500)
   }
 
 }
@@ -94,5 +94,10 @@ export default {
 }
 .allCard {
   display: flex;
+}
+.loading {
+  width: 80%;
+  position: absolute;
+  top: 260px;
 }
 </style>

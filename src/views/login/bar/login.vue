@@ -1,5 +1,6 @@
 <template>
   <div class="loginCard">
+    <div class="title">登录</div>
     <div class="login">
       <el-form :model="loginForm" ref="ruleForm" :label-position="labelPosition" class="form">
         <el-form-item label="用户名：">
@@ -16,8 +17,6 @@
       </el-form>
     </div>
     <el-button class="loginButton" @click="submitLoginForm('ruleForm')">登录</el-button>
-
-    <div class="tips">+++++++++++第三方登录+++++++++++</div>
 
     <div class="otherLoad">
       <oauth class="admin"></oauth>
@@ -80,6 +79,7 @@ export default {
     }
   },
   mounted () {
+    console.log('1')
     this.getLoginForm()
   }
 }
@@ -87,12 +87,12 @@ export default {
 
 <style scoped>
 .loginCard {
-  border-radius: 20px;
-  position: relative;
-  left: -70vw;
-  width: 41vw;
-  height: 50vh;
-  background-image: url("http://demo.demohuo.top/modals/49/4919/demo/images/bg-01.jpg");
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://www.oschina.net/dist/oschina/home/login/imgs/body-bg.png");
 }
 .login {
   position: relative;

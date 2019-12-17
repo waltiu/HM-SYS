@@ -32,7 +32,7 @@ export default {
   methods: {
     state () {
       if (this.value === true) {
-        this.LineHandle = new LineHandle(this.mapDom.map, '')
+        this.LineHandle = new LineHandle(this.mapDom.map, 'village')
 
         const a = [
           [

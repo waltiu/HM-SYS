@@ -20,7 +20,7 @@ export default {
       if (this.base < this.index) {
         this.base = this.base + this.step
       }
-    }, 100)
+    }, 150)
   }
 }
 </script>

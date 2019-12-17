@@ -6,6 +6,7 @@
     element-loading-spinner="el-icon-loading"
     element-loading-background="rgba(0, 0, 0, 0.8)"
   >
+    <loginPage class="loginPage" v-if="loginPageState"></loginPage>
     <div class="right">
       <transition name="slide-fade">
         <img
@@ -17,7 +18,7 @@
       </transition>
       <transition name="slide-fade">
         <div class="rightBar" v-show="barShow">
-          <bar @getLoadingState="getLoadingState"></bar>
+          <bar @getLoginPageState="getLoginPageState"></bar>
         </div>
       </transition>
     </div>
@@ -86,6 +87,7 @@
 </template>
 
 <script>
+import loginPage from './components/loginPage'
 import bar from './bar/index'
 export default {
   name: 'login',
@@ -94,19 +96,22 @@ export default {
 
       loginLoading: false,
       style1: { top: '10px' },
-      barShow: false
+      barShow: false,
+      loginPageState: false
 
     }
   },
   components: {
-    bar
+    bar,
+    loginPage
   },
   methods: {
     showLogin () {
       this.barShow = !this.barShow
     },
-    getLoadingState (info) {
-      this.loginLoading = info
+    getLoginPageState (info) {
+      this.loginPageState = info
+      this.barShow = !info
     },
     iconJump () {
       let TF = false
@@ -156,6 +161,7 @@ export default {
   position: absolute;
   right: 0px;
   display: flex;
+  z-index: 999;
 }
 .login {
   position: absolute;
@@ -200,5 +206,9 @@ export default {
 }
 .barImg {
   position: relative;
+}
+.loginPage {
+  position: absolute;
+  z-index: 1;
 }
 </style>

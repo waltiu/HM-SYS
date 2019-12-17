@@ -32,7 +32,7 @@ export default {
   methods: {
     state () {
       if (this.value === true) {
-        this.IconsHandle = new IconsHandle(this.mapDom.map, '')
+        this.IconsHandle = new IconsHandle(this.mapDom.map, 'source')
 
         const a =
           [

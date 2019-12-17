@@ -6,29 +6,23 @@
       class="img"
     />
     <el-button size="mini" @click="login">登录</el-button>
-    <login v-show="loginShow" @getLoadingState="getLoadingState"></login>
   </div>
 </template>
 
 <script>
-import login from './login'
 export default {
   name: 'bar',
-  components: {
-    login
-  },
   data () {
     return {
-      loginShow: false
+      state: false
     }
   },
   methods: {
     login () {
-      this.loginShow = !this.loginShow
-    },
-    getLoadingState (info) {
-      this.$emit('getLoadingState', info)
+      this.state = !this.state
+      this.$emit('getLoginPageState', this.state)
     }
+
   }
 }
 </script>
@@ -38,6 +32,7 @@ export default {
   position: absolute;
   margin: 0px auto;
   width: 4vh;
+  z-index: 999;
 }
 .img {
   position: relative;

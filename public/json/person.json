@@ -1,178 +1,154 @@
 {
-  "personalData": [
-    {
-      "username": "admin",
-      "password": "admin",
-      "token": "This is a token",
-      "permission": [
-        {
-          "name": "section1",
-          "id": "01",
-          "chidren": [
-            {
-              "id": "01-01",
-              "name": "地图",
-              "path": "map"
-            },
-            {
-              "id": "01-02",
-              "name": "资源",
-              "path": "source"
-            }
-          ]
+    "personalData": [{
+            "username": "admin",
+            "password": "admin",
+            "token": "This is a token",
+            "permission": [{
+                    "name": "section1",
+                    "id": "01",
+                    "chidren": [{
+                            "id": "01-01",
+                            "name": "地图",
+                            "path": "map"
+                        },
+                        {
+                            "id": "01-02",
+                            "name": "资源",
+                            "path": "source"
+                        }
+                    ]
+                },
+                {
+                    "name": "section2",
+                    "id": "02",
+                    "chidren": [{
+                            "id": "02-01",
+                            "name": "test1",
+                            "path": "test1"
+                        },
+                        {
+                            "id": "02-02",
+                            "name": "test2",
+                            "path": "test2"
+                        }
+                    ]
+                }
+            ]
         },
         {
-          "name": "section2",
-          "id": "02",
-          "chidren": [
-            {
-              "id": "02-01",
-              "name": "test1",
-              "path": "test1"
-            },
-            {
-              "id": "02-02",
-              "name": "test2",
-              "path": "test2"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "username": "165150313",
-      "password": "0313",
-      "token": "This is a token",
-      "permission": [
-        {
-          "name": "地图",
-          "id": "01",
-          "chidren": [
-            {
-              "id": "01-01",
-              "name": "地图",
-              "path": "map"
-            },
-            {
-              "id": "01-02",
-              "name": "资源",
-              "path": "source"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "username": "小猪",
-      "password": "521",
-      "token": "This is a token",
-      "permission": [
-        {
-          "name": "section1",
-          "id": "01",
-          "chidren": [
-            {
-              "id": "01-01",
-              "name": "地图",
-              "path": "map"
-            },
-            {
-              "id": "01-02",
-              "name": "资源",
-              "path": "source"
-            }
-          ]
-        }
-      ],
-      "details": {}
-    },
-    {
-      "username": "0916",
-      "password": "0916",
-      "token": "This is a token",
-      "permission": [
-        {
-          "name": "section1",
-          "id": "01",
-          "chidren": [
-            {
-              "id": "01-01",
-              "name": "地图",
-              "path": "map"
-            },
-            {
-              "id": "01-02",
-              "name": "资源",
-              "path": "source"
-            }
-          ]
-        }
-      ],
-      "details": {}
-    },
-    {
-      "username": "waltiu",
-      "password": "qwer1234",
-      "token": "This is a token",
-      "permission": [
-        {
-          "name": "section1",
-          "id": "01",
-          "chidren": [
-            {
-              "id": "01-01",
-              "name": "中央大地图",
-              "path": "map"
-            }
-          ]
+            "username": "165150313",
+            "password": "0313",
+            "token": "This is a token",
+            "permission": [{
+                "name": "地图",
+                "id": "01",
+                "chidren": [{
+                        "id": "01-01",
+                        "name": "地图",
+                        "path": "map"
+                    },
+                    {
+                        "id": "01-02",
+                        "name": "资源",
+                        "path": "source"
+                    }
+                ]
+            }]
         },
         {
-          "name": "section2",
-          "id": "02",
-          "chidren": [
-            {
-              "id": "02-01",
-              "name": "小区资源",
-              "path": "source"
-            },
-            {
-              "id": "02-02",
-              "name": "房屋资源",
-              "path": "compare"
-            },
-            {
-              "id": "02-03",
-              "name": "图标数据",
-              "path": "data"
-            }
-          ]
-        }
-      ],
-      "details": {}
-    },
-    {
-      "username": "金泽楠",
-      "password": "qwer@1234",
-      "token": "This is a token",
-      "permission": [
+            "username": "小猪",
+            "password": "521",
+            "token": "This is a token",
+            "permission": [{
+                "name": "section1",
+                "id": "01",
+                "chidren": [{
+                        "id": "01-01",
+                        "name": "地图",
+                        "path": "map"
+                    },
+                    {
+                        "id": "01-02",
+                        "name": "资源",
+                        "path": "source"
+                    }
+                ]
+            }],
+            "details": {}
+        },
         {
-          "name": "section1",
-          "id": "01",
-          "chidren": [
-            {
-              "id": "01-01",
-              "name": "地图",
-              "path": "map"
-            },
-            {
-              "id": "01-02",
-              "name": "资源",
-              "path": "source"
-            }
-          ]
+            "username": "0916",
+            "password": "0916",
+            "token": "This is a token",
+            "permission": [{
+                "name": "section1",
+                "id": "01",
+                "chidren": [{
+                        "id": "01-01",
+                        "name": "地图",
+                        "path": "map"
+                    },
+                    {
+                        "id": "01-02",
+                        "name": "资源",
+                        "path": "source"
+                    }
+                ]
+            }],
+            "details": {}
+        },
+        {
+            "username": "waltiu",
+            "password": "qwer1234",
+            "token": "This is a token",
+            "permission": [{
+                    "name": "section2",
+                    "id": "02",
+                    "chidren": [{
+                            "id": "02-01",
+                            "name": "小区资源",
+                            "path": "source"
+                        },
+
+                        {
+                            "id": "02-03",
+                            "name": "图标数据",
+                            "path": "data"
+                        }
+                    ]
+                },
+                {
+                    "name": "section1",
+                    "id": "01",
+                    "chidren": [{
+                        "id": "01-01",
+                        "name": "中央大地图",
+                        "path": "map"
+                    }]
+                }
+            ],
+            "details": {}
+        },
+        {
+            "username": "金泽楠",
+            "password": "qwer@1234",
+            "token": "This is a token",
+            "permission": [{
+                "name": "section1",
+                "id": "01",
+                "chidren": [{
+                        "id": "01-01",
+                        "name": "地图",
+                        "path": "map"
+                    },
+                    {
+                        "id": "01-02",
+                        "name": "资源",
+                        "path": "source"
+                    }
+                ]
+            }],
+            "details": {}
         }
-      ],
-      "details": {}
-    }
-  ]
+    ]
 }
