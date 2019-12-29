@@ -1,10 +1,6 @@
 <template>
   <div class="bar">
-    <img
-      src="https://image1.ljcdn.com/materials/list/2016-11-23/phpkDJEoM.png"
-      style="height: 40px;"
-      class="img"
-    />
+    <img src="/img/login/3.png" style="height: 40px;" class="img" />
     <el-button size="mini" @click="login">登录</el-button>
   </div>
 </template>

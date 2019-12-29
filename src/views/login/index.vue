@@ -47,17 +47,14 @@
     </div>
 
     <div class="title">
-      <img src="http://static.fangxiaoer.com/web/images/ico/head/logo.png" width="100%" />
+      <img src="/img/login/logo.png" width="100%" />
     </div>
     <div class="middleText">
       <h1 class="htitle">您的贴♥房管家!</h1>
       <div class="iconList" style="display:flex">
         <div class="icon">
           <div style="height:80px">
-            <img
-              src="https://image1.ljcdn.com/materials/ad/25be787db406f85a8c1ed76bce2c8b1c.png"
-              :style="style1"
-            />
+            <img src="/img/login/2.png" :style="style1" />
           </div>
           <h2>找二手房</h2>
           <h3>天啊，在这里竟然找不到你想要的？</h3>
@@ -65,10 +62,7 @@
         <div class="icon">
           <div>
             <div style="height:80px">
-              <img
-                src="https://image1.ljcdn.com/materials/ad/9036ab8e40e733f96f93580ecba3691a.png"
-                :style="style1"
-              />
+              <img src="/img/login/1.png" :style="style1" />
             </div>
           </div>
           <h2>地图找房</h2>
@@ -76,7 +70,7 @@
         </div>
         <div class="icon">
           <div style="height:80px">
-            <img src="http://www.uoko.com/Content/img/serv_hover.gif" :style="style1" />
+            <img src="/img/login/4.gif" :style="style1" />
           </div>
           <h2>专业顾问</h2>
           <h3>在这里，你可以找到你知道的或者不知道的专业中介</h3>
@@ -93,7 +87,6 @@ export default {
   name: 'login',
   data () {
     return {
-
       loginLoading: false,
       style1: { top: '10px' },
       barShow: false,
