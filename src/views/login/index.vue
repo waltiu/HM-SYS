@@ -6,7 +6,7 @@
     element-loading-spinner="el-icon-loading"
     element-loading-background="rgba(0, 0, 0, 0.8)"
   >
-    <loginPage class="loginPage" v-if="loginPageState"></loginPage>
+    <loginPage class="loginPage" v-if="loginPageState" @getLoadingState="getLoadingState"></loginPage>
     <div class="right">
       <transition name="slide-fade">
         <img
@@ -105,6 +105,9 @@ export default {
     getLoginPageState (info) {
       this.loginPageState = info
       this.barShow = !info
+    },
+    getLoadingState (info) {
+      this.loginLoading = info
     },
     iconJump () {
       let TF = false
