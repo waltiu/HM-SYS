@@ -99,7 +99,7 @@
         },
         {
             "username": "waltiu",
-            "password": "qwer1234",
+            "password": "waltiu",
             "token": "This is a token",
             "permission": [{
                     "name": "section2",

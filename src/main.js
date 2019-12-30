@@ -7,6 +7,7 @@ import '../src/public/index'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'vue2-animate/dist/vue2-animate.min.css'
 import './config/tableConfig/index'
+import './tools/http'
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 
