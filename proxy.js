@@ -21,6 +21,13 @@ const serverConfig = {
     pathRewrite: {
       '^/searchLocation/': '/'
     }
+  },
+  '/github': {
+    target: 'https://github.com',
+    changeOrigin: true,
+    pathRewrite: {
+      '^/github': '/'
+    }
   }
 }
 module.exports = serverConfig

@@ -34,54 +34,64 @@
         </div>
       </div>
       <div class="oauth">
-        <div class="rightOauth">
-          <p style="fontSize:10px">使用以下账号直接登录</p>
-          <div class="iconList">
-            <div class="icon">
-              <svg width="30" height="30" viewBox="0 0 83 83" id="icon-logo-wechat">
-                <path
-                  d="M46.977 41.466c-.947 0-1.893.879-1.893 1.961 0 .879.946 1.758 1.893 1.758 1.42 0 2.434-.88 2.434-1.758 0-1.082-1.014-1.96-2.434-1.96zm-6.22-9.128c1.487 0 2.434-.946 2.434-2.367 0-1.487-.947-2.366-2.435-2.366-1.42 0-2.772.879-2.772 2.366 0 1.421 1.353 2.367 2.772 2.367zM41.5 0C18.58 0 0 18.58 0 41.5S18.58 83 41.5 83 83 64.42 83 41.5 64.42 0 41.5 0zm-7.843 52.014c-2.502 0-4.328-.405-6.694-1.082l-6.83 3.449 1.962-5.815c-4.8-3.38-7.64-7.64-7.64-12.847 0-9.196 8.654-16.228 19.202-16.228 9.33 0 17.648 5.545 19.27 13.389a9.36 9.36 0 0 0-1.825-.203c-9.196 0-16.295 6.896-16.295 15.213 0 1.42.202 2.704.54 4.057-.54.067-1.15.067-1.69.067zm28.196 6.626l1.352 4.869-5.14-2.908c-1.96.406-3.853 1.014-5.814 1.014-9.06 0-16.228-6.22-16.228-13.928 0-7.708 7.168-13.929 16.228-13.929 8.587 0 16.295 6.22 16.295 13.929 0 4.327-2.907 8.18-6.693 10.953zM27.369 27.605c-1.42 0-2.908.879-2.908 2.366 0 1.42 1.488 2.367 2.908 2.367 1.352 0 2.434-.946 2.434-2.367 0-1.487-1.082-2.366-2.434-2.366zm30.224 13.861c-1.015 0-1.894.879-1.894 1.961 0 .879.88 1.758 1.894 1.758 1.352 0 2.366-.88 2.366-1.758 0-1.082-1.014-1.96-2.366-1.96z"
-                  fill="#51C332"
-                  fill-rule="evenodd"
-                />
-              </svg>
-            </div>
-            <div class="icon">
-              <svg width="32" height="32" viewBox="0 0 83 83" id="icon-logo-qq">
-                <path
-                  d="M41.5 0C18.58 0 .002 18.58.002 41.5S18.58 83 41.5 83c22.92 0 41.498-18.58 41.498-41.5S64.42 0 41.5 0zm22.848 54.434c-1.072 1-2.912-.09-4.68-2.537a26.78 26.78 0 0 1-2.93 5.7c2.501.893 4.109 2.286 4.109 3.858 0 2.716-4.806 4.913-10.736 4.913-3.52 0-6.628-.768-8.593-1.965-1.947 1.197-5.074 1.965-8.593 1.965-5.93 0-10.736-2.197-10.736-4.913 0-1.554 1.608-2.965 4.109-3.859a25.975 25.975 0 0 1-2.93-5.699c-1.768 2.43-3.608 3.538-4.68 2.537-1.465-1.375-.911-6.235 1.268-10.844.5-1.054 1.036-2 1.59-2.822.303-13.399 9.128-24.154 19.954-24.154h.036c10.825 0 19.65 10.737 19.954 24.154.554.821 1.09 1.768 1.59 2.822 2.161 4.61 2.733 9.469 1.268 10.844z"
-                  fill="#2A9CD5"
-                  fill-rule="evenodd"
-                />
-              </svg>
-            </div>
-            <div class="icon">
-              <img
-                width="32px"
-                src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1576670100&di=46a5eb53d0b1145b3747c897093489c2&src=http://bpic.588ku.com/element_origin_min_pic/01/54/84/75574739874192a.jpg"
-              />
-            </div>
-            <div class="icon">
-              <img
-                width="38px"
-                src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3616276114,2918342791&fm=26&gp=0.jpg"
-              />
-            </div>
-          </div>
-        </div>
+        <oauth></oauth>
       </div>
     </el-card>
   </div>
 </template>
 
 <script>
+import oauth from './oauth'
 export default {
   name: 'login',
   data () {
     return {
       loginForm: {},
-      checkedState: false
+      checkedState: false,
+      personForm: {},
+      personalData: [],
+      data: {}
     }
+  },
+  components: {
+    oauth
+  },
+  methods: {
+    getLoginForm () {
+      this.$http.get('/json/person.json')
+        .then((res) => { this.personForm = res.data.personalData })
+    },
+    login () {
+      this.$emit('getLoadingState', true)
+      let len = this.personForm.length
+      for (var i = 0; i < len; i++) {
+        if (this.personForm[i].username === this.loginForm.name &&
+          this.personForm[i].password === this.loginForm.password) {
+          sessionStorage.setItem('permission', JSON.stringify(this.personForm[i].permission))
+          sessionStorage.setItem('token', JSON.stringify(this.personForm[i].token))
+          this.personalData.push(this.personForm[i])
+          setTimeout(() => {
+            this.$message({
+              message: '恭喜你，登陆成功',
+              type: 'success'
+            })
+            this.$router.push('/map')
+            this.$emit('getLoadingState', false)
+          }, 2000)
+        } else {
+          setTimeout(() => {
+            this.$message({
+              message: '登录失败，请核对用户名和密码',
+              type: 'error'
+            })
+            this.$emit('getLoadingState', false)
+          }, 2000)
+        }
+      }
+    }
+  },
+  mounted () {
+    this.getLoginForm()
   }
 }
 </script>
@@ -98,7 +108,7 @@ export default {
 .card {
   position: relative;
   width: 530px;
-  height: 40vh;
+  height: 50vh;
   margin: 0px auto;
   top: 15vh;
   text-align: center;
@@ -126,22 +136,5 @@ export default {
   top: 90px;
   right: 50px;
   border-left: 1px dashed #eee;
-}
-.rightOauth {
-  position: relative;
-  width: 80%;
-  text-align: center;
-  margin-left: 30px;
-  top: 40px;
-}
-.icon {
-  width: 32px;
-  height: 32px;
-  margin: 13px;
-}
-.iconList {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 5px;
 }
 </style>
