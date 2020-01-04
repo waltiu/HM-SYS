@@ -58,9 +58,8 @@ export default {
   },
   mounted () {
     this.i = 0
-    setInterval(() => {
+    setTimeout(() => {
       this.show = true
-      console.log('1')
     }, 1500)
   }
 

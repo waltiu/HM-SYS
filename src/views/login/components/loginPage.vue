@@ -23,13 +23,13 @@
               placeholder="请输入密   码"
             ></el-input>
           </div>
-          <el-checkbox v-model="checkedState" class="checkBox">已阅读系统须知</el-checkbox>
+          <el-checkbox v-model="checkedState" class="checkBox"
+            >已阅读系统须知</el-checkbox
+          >
           <div class="loadButton">
-            <el-button
-              @click="login"
-              type="success"
-              style="width:48%"
-            >登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录</el-button>
+            <el-button @click="checked" type="success" style="width:48%"
+              >登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录</el-button
+            >
           </div>
         </div>
       </div>
@@ -58,32 +58,51 @@ export default {
   },
   methods: {
     getLoginForm () {
-      this.$http.get('/json/person.json')
-        .then((res) => { this.personForm = res.data.personalData })
+      this.$http.get('/json/person.json').then(res => {
+        this.personForm = res.data.personalData
+      })
+    },
+    checked () {
+      if (this.checkedState) {
+        this.login()
+      } else {
+        this.$message({
+          message: '请先阅读，并勾选阅读须知！',
+          type: 'warning'
+        })
+      }
     },
     login () {
       this.$emit('getLoadingState', true)
       let len = this.personForm.length
       for (var i = 0; i < len; i++) {
-        if (this.personForm[i].username === this.loginForm.name &&
-          this.personForm[i].password === this.loginForm.password) {
-          sessionStorage.setItem('permission', JSON.stringify(this.personForm[i].permission))
-          sessionStorage.setItem('token', JSON.stringify(this.personForm[i].token))
+        if (
+          this.personForm[i].username === this.loginForm.name &&
+          this.personForm[i].password === this.loginForm.password
+        ) {
+          sessionStorage.setItem(
+            'permission',
+            JSON.stringify(this.personForm[i].permission)
+          )
+          sessionStorage.setItem(
+            'token',
+            JSON.stringify(this.personForm[i].token)
+          )
           this.personalData.push(this.personForm[i])
           setTimeout(() => {
             this.$message({
               message: '恭喜你，登陆成功',
               type: 'success'
             })
-            this.$router.push('/map')
+            this.$router.push('/analysis')
             this.$emit('getLoadingState', false)
           }, 2000)
         } else {
           setTimeout(() => {
-            this.$message({
-              message: '登录失败，请核对用户名和密码',
-              type: 'error'
-            })
+            // this.$message({
+            //   message: '登录失败，请核对用户名和密码',
+            //   type: 'error'
+            // })
             this.$emit('getLoadingState', false)
           }, 2000)
         }

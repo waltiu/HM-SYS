@@ -19,15 +19,29 @@
                 active-text-color="#2d8cf0"
                 :default-active="this.defaultOPen"
               >
-                <el-submenu :index="item.id" v-for="item of colum" :key="item.id">
+                <el-submenu
+                  :index="index"
+                  v-for="(item, index) of columConfig"
+                  :key="index"
+                >
                   <template slot="title">
-                    <i class="el-icon-menu"></i>
-                    <span>{{item.name}}</span>
+                    <div v-if="permission[index]">
+                      <i class="el-icon-menu"></i>
+                      <span>{{ item.name }}</span>
+                    </div>
                   </template>
-                  <el-menu-item-group style="overflow-y: auto;overflow-x: hidden;">
-                    <el-menu-item :index="item1.path" v-for="item1 of item.chidren" :key="item1.id">
-                      <i class="el-icon-location"></i>
-                      {{item1.name}}
+                  <el-menu-item-group
+                    style="overflow-y: auto;overflow-x: hidden;"
+                  >
+                    <el-menu-item
+                      :index="child.path"
+                      v-for="(child, ind) of item.chidren"
+                      :key="ind"
+                    >
+                      <div v-if="permission[index].chidren[ind]">
+                        <i class="el-icon-location"></i>
+                        {{ child.name }}
+                      </div>
                     </el-menu-item>
                   </el-menu-item-group>
                 </el-submenu>
@@ -52,6 +66,7 @@
 <script>
 import Router from 'vue-router'
 import ltDialog from '../../public/ltDialog/mapDialog'
+import list from './main.js'
 const originalPush = Router.prototype.push
 Router.prototype.push = function push (location) {
   return originalPush.call(this, location).catch(err => err)
@@ -66,7 +81,9 @@ export default {
       colum: '',
       isCollapse: false,
       defaultOPen: '',
-      key: []
+      key: [],
+      columConfig: {},
+      permission: {}
     }
   },
   methods: {
@@ -87,14 +104,14 @@ export default {
     }
   },
   mounted () {
-    this.colum = JSON.parse(sessionStorage.getItem('permission'))
+    this.columConfig = list
+    this.permission = JSON.parse(sessionStorage.getItem('permission'))
     this.defaultOPen = this.$route.path.slice(1)
     document.addEventListener('keydown', () => {
       const key = event.key
       this.key.push(key)
     })
   }
-
 }
 </script>
 

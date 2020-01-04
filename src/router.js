@@ -5,7 +5,7 @@ import map from './views/map'
 import main from './views/main'
 import source from './views/village'
 import error from './views/ERROR'
-import data from './views/data'
+import analysis from './views/Analysis'
 import compare from './views/compare'
 
 Vue.use(Router)
@@ -40,9 +40,9 @@ const router = new Router({
           component: source
         },
         {
-          path: '/data',
-          name: 'data',
-          component: data
+          path: '/analysis',
+          name: 'analysis',
+          component: analysis
         },
         {
           path: '/compare',

@@ -1,5 +1,5 @@
 <template>
-  <div>404</div>
+  <div>litanshizhu</div>
 </template>
 <script>
 export default {
