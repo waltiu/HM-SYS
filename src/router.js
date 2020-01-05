@@ -7,6 +7,7 @@ import source from './views/village'
 import error from './views/ERROR'
 import analysis from './views/Analysis'
 import compare from './views/compare'
+import oauth from './views/oauth'
 
 Vue.use(Router)
 
@@ -23,6 +24,11 @@ const router = new Router({
       path: '/error',
       name: 'error',
       component: error
+    },
+    {
+      path: '/oauth',
+      name: 'oauth',
+      component: oauth
     },
     {
       path: '/main',
@@ -55,7 +61,7 @@ const router = new Router({
   ]
 })
 router.beforeEach((to, from, next) => {
-  if (to.path === '/' || to.path === '/error') {
+  if (to.path === '/' || to.path === '/error' || to.path === '/oauth') {
     next()
   } else {
     let token = sessionStorage.getItem('token')
