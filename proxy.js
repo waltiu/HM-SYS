@@ -28,6 +28,14 @@ const serverConfig = {
     pathRewrite: {
       '^/github': '/'
     }
+  },
+  '/getGithubUserInfo': {
+    target: 'https://api.github.com/user',
+    changeOrigin: true,
+    pathRewrite: {
+      '^/getGithubUserInfo': ''
+
+    }
   }
 }
 module.exports = serverConfig

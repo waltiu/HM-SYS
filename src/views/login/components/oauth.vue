@@ -20,7 +20,7 @@
           />
         </svg>
       </div>
-      <div class="icon">
+      <div class="icon" @click="loginByGithub">
         <img
           width="32px"
           src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1576670100&di=46a5eb53d0b1145b3747c897093489c2&src=http://bpic.588ku.com/element_origin_min_pic/01/54/84/75574739874192a.jpg"
@@ -38,7 +38,14 @@
 
 <script>
 export default {
-  name: 'oauth'
+  name: 'oauth',
+  methods: {
+    loginByGithub () {
+      // this.$http.get("/oauth/authorize?client_id=87a56680db99ab3b240b");
+      window.location.href =
+        'https://github.com/login/oauth/authorize/?client_id=87a56680db99ab3b240b'
+    }
+  }
 }
 </script>
 
