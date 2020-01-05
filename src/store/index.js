@@ -1,9 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import modules from './modules/main.js'
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+  modules,
   state: {
     // 41.795428, 123.413131
     defaultCenter: {
