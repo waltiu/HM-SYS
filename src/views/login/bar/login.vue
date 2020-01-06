@@ -63,7 +63,7 @@ export default {
               message: '恭喜你，登陆成功',
               type: 'success'
             })
-            this.$router.push('/map')
+            this.$router.push('/analysis')
             this.$emit('getLoadingState', false)
           }, 2000)
         } else {

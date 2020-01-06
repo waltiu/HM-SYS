@@ -23,13 +23,13 @@
               placeholder="请输入密   码"
             ></el-input>
           </div>
-          <el-checkbox v-model="checkedState" class="checkBox"
-            >已阅读系统须知</el-checkbox
-          >
+          <el-checkbox v-model="checkedState" class="checkBox">已阅读系统须知</el-checkbox>
           <div class="loadButton">
-            <el-button @click="checked" type="success" style="width:48%"
-              >登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录</el-button
-            >
+            <el-button
+              @click="checked"
+              type="success"
+              style="width:48%"
+            >登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录</el-button>
           </div>
         </div>
       </div>
@@ -126,8 +126,8 @@ export default {
 }
 .card {
   position: relative;
-  width: 530px;
-  height: 50vh;
+  width: 550px;
+  height: 48vh;
   margin: 0px auto;
   top: 15vh;
   text-align: center;
