@@ -19,20 +19,14 @@
                 active-text-color="#2d8cf0"
                 :default-active="this.defaultOPen"
               >
-                <el-submenu
-                  :index="index"
-                  v-for="(item, index) of columConfig"
-                  :key="index"
-                >
+                <el-submenu :index="index" v-for="(item, index) of columConfig" :key="index">
                   <template slot="title">
                     <div v-if="permission[index]">
                       <i class="el-icon-menu"></i>
                       <span>{{ item.name }}</span>
                     </div>
                   </template>
-                  <el-menu-item-group
-                    style="overflow-y: auto;overflow-x: hidden;"
-                  >
+                  <el-menu-item-group style="overflow-y: auto;overflow-x: hidden;">
                     <el-menu-item
                       :index="child.path"
                       v-for="(child, ind) of item.chidren"
@@ -105,7 +99,12 @@ export default {
   },
   mounted () {
     this.columConfig = list
-    this.permission = JSON.parse(sessionStorage.getItem('permission'))
+    if (sessionStorage.getItem('permission') === 'loginByOauth') {
+      this.permission = this.columConfig
+    } else {
+      this.permission = JSON.parse(sessionStorage.getItem('permission'))
+    }
+
     this.defaultOPen = this.$route.path.slice(1)
     document.addEventListener('keydown', () => {
       const key = event.key
