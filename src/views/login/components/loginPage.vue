@@ -23,6 +23,8 @@
               placeholder="请输入密   码"
             ></el-input>
           </div>
+          <check class="inputName" @checkNumber="checkNumber"></check>
+
           <el-checkbox v-model="checkedState" class="checkBox">已阅读系统须知</el-checkbox>
           <div class="loadButton">
             <el-button
@@ -42,6 +44,7 @@
 
 <script>
 import oauth from './oauth'
+import check from './check'
 export default {
   name: 'login',
   data () {
@@ -50,13 +53,18 @@ export default {
       checkedState: false,
       personForm: {},
       personalData: [],
-      data: {}
+      data: {},
+      checkedNumber: false
     }
   },
   components: {
-    oauth
+    oauth,
+    check
   },
   methods: {
+    checkNumber (info) {
+      this.checkedNumber = true
+    },
     getLoginForm () {
       this.$http.get('/json/person.json').then(res => {
         this.personForm = res.data.personalData
@@ -78,7 +86,7 @@ export default {
       for (var i = 0; i < len; i++) {
         if (
           this.personForm[i].username === this.loginForm.name &&
-          this.personForm[i].password === this.loginForm.password
+          this.personForm[i].password === this.loginForm.password && this.checkedNumber
         ) {
           sessionStorage.setItem(
             'permission',
