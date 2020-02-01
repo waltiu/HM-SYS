@@ -135,7 +135,7 @@ export default {
 .card {
   position: relative;
   width: 550px;
-  height: 48vh;
+  height: 50vh;
   margin: 0px auto;
   top: 15vh;
   text-align: center;
