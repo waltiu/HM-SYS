@@ -66,8 +66,6 @@ export default {
         validate.push(arr[ranNum])
         this.checkData += arr[ranNum]
       }
-      console.log(this.checkData)
-
       return validate
     },
     rgb () {

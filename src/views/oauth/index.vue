@@ -38,20 +38,43 @@ export default {
     getUserInfo (info) {
       this.$http.get(`/getGithubUserInfo?${info}`).then(res => {
         if (res.status === 200) {
-          let a = {
-            login: res.data.login,
+          let githubUser = {
             name: res.data.name,
             email: res.data.email,
-            id: res.data.id
+            location: res.data.location,
+            password: res.data.name,
+            token: 'I am token ?'
           }
-          sessionStorage.setItem('userInfo', a)
-          sessionStorage.setItem('permission', 'loginByOauth')
-          sessionStorage.setItem('token', res.data.url)
-
-          this.$router.push('/analysis')
+          this.$http.get('/api/users/login', {
+            params: githubUser
+          }).then(res => {
+            if (res.data.status === 200) {
+              sessionStorage.setItem(
+                'permission',
+                'visitors'
+              )
+              sessionStorage.setItem(
+                'token',
+                res.data.token
+              )
+              this.$router.push('/analysis')
+            } else {
+              this.$http.post('/api/users/register', githubUser
+              ).then(res => {
+                sessionStorage.setItem(
+                  'permission',
+                  JSON.stringify(res.data.permission)
+                )
+                sessionStorage.setItem(
+                  'token',
+                  'visitors'
+                )
+                this.$router.push('/analysis')
+              })
+            }
+          })
         }
         if (!res.status) {
-          console.log(9999999999999)
           this.$message({
             message: '登录失败,三秒后将跳转到登录界面!',
             type: 'warning'

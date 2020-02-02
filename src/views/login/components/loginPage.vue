@@ -65,11 +65,6 @@ export default {
     checkNumber (info) {
       this.checkedNumber = true
     },
-    getLoginForm () {
-      this.$http.get('/json/person.json').then(res => {
-        this.personForm = res.data.personalData
-      })
-    },
     checked () {
       if (this.checkedState) {
         this.login()
@@ -80,23 +75,21 @@ export default {
         })
       }
     },
+
     login () {
       this.$emit('getLoadingState', true)
-      let len = this.personForm.length
-      for (var i = 0; i < len; i++) {
-        if (
-          this.personForm[i].username === this.loginForm.name &&
-          this.personForm[i].password === this.loginForm.password && this.checkedNumber
-        ) {
+      this.$http.get('/api/users/login', {
+        params: this.loginForm
+      }).then(res => {
+        if (res.data.status === 200) {
           sessionStorage.setItem(
             'permission',
-            JSON.stringify(this.personForm[i].permission)
+            JSON.stringify(res.data.permission)
           )
           sessionStorage.setItem(
             'token',
-            JSON.stringify(this.personForm[i].token)
+            JSON.stringify(res.data.token)
           )
-          this.personalData.push(this.personForm[i])
           setTimeout(() => {
             this.$message({
               message: '恭喜你，登陆成功',
@@ -107,18 +100,15 @@ export default {
           }, 2000)
         } else {
           setTimeout(() => {
-            // this.$message({
-            //   message: '登录失败，请核对用户名和密码',
-            //   type: 'error'
-            // })
+            this.$message({
+              message: '登录失败，请核对用户名和密码',
+              type: 'error'
+            })
             this.$emit('getLoadingState', false)
           }, 2000)
         }
-      }
+      })
     }
-  },
-  mounted () {
-    this.getLoginForm()
   }
 }
 </script>

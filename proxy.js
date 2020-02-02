@@ -34,7 +34,13 @@ const serverConfig = {
     changeOrigin: true,
     pathRewrite: {
       '^/getGithubUserInfo': ''
-
+    }
+  },
+  '/api': {
+    target: 'http://localhost:5000/',
+    changeOrigin: true,
+    pathRewrite: {
+      '^/api': '/api'
     }
   }
 }

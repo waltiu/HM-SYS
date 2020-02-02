@@ -19,12 +19,10 @@
                 active-text-color="#2d8cf0"
                 :default-active="this.defaultOPen"
               >
-                <el-submenu :index="index" v-for="(item, index) of columConfig" :key="index">
+                <el-submenu :index="index" v-for="(item, index) of permission" :key="index">
                   <template slot="title">
-                    <div v-if="permission[index]">
-                      <i class="el-icon-menu"></i>
-                      <span>{{ item.name }}</span>
-                    </div>
+                    <i class="el-icon-menu"></i>
+                    <span>{{ item.name }}</span>
                   </template>
                   <el-menu-item-group style="overflow-y: auto;overflow-x: hidden;">
                     <el-menu-item
@@ -32,10 +30,8 @@
                       v-for="(child, ind) of item.chidren"
                       :key="ind"
                     >
-                      <div v-if="permission[index].chidren[ind]">
-                        <i class="el-icon-location"></i>
-                        {{ child.name }}
-                      </div>
+                      <i class="el-icon-location"></i>
+                      {{ child.name }}
                     </el-menu-item>
                   </el-menu-item-group>
                 </el-submenu>
@@ -82,7 +78,6 @@ export default {
   },
   methods: {
     selectTip (res) {
-      // console.log('1', res)
     }
   },
   watch: {
@@ -98,13 +93,13 @@ export default {
     }
   },
   mounted () {
+    console.log(sessionStorage.getItem('permission'))
     this.columConfig = list
-    if (sessionStorage.getItem('permission') === 'loginByOauth') {
-      this.permission = this.columConfig
+    if (sessionStorage.getItem('permission') === 'admin') {
+      this.permission = this.columConfig.admin
     } else {
-      this.permission = JSON.parse(sessionStorage.getItem('permission'))
+      this.permission = this.columConfig.visitors
     }
-
     this.defaultOPen = this.$route.path.slice(1)
     document.addEventListener('keydown', () => {
       const key = event.key
