@@ -84,11 +84,11 @@ export default {
         if (res.data.status === 200) {
           sessionStorage.setItem(
             'permission',
-            JSON.stringify(res.data.permission)
+            'admin'
           )
           sessionStorage.setItem(
             'token',
-            JSON.stringify(res.data.token)
+            res.data.token
           )
           setTimeout(() => {
             this.$message({

@@ -1,11 +1,15 @@
 <template>
   <div class="village">
-    <lt-search @search="search"></lt-search>
-    <lt-table :showData="showData" :config="tableConfig" style="padding-top:20px"></lt-table>
+    <lt-search @search="getTableList" :searchConfig="searchConfig"></lt-search>
+    <lt-table :showData="showData" :config="tableConfig" style="padding-top:20px">
+      <div style="display:flex;left:10px">
+        <map-show style="marginRight:12px"></map-show>
+        <detail></detail>
+      </div>
+    </lt-table>
     <lt-page
       ref="ltPage"
-      @getData="(info)=>{this.showData=info}"
-      @search="search"
+      @getPageData="(info)=>{this.showData=info}"
       :tableData="tableData"
       :query="query"
     ></lt-page>
@@ -13,8 +17,14 @@
 </template>
 <script>
 import axios from 'axios'
+import mapShow from './map'
+import detail from './detail'
 export default {
   name: 'village',
+  components: {
+    mapShow,
+    detail
+  },
   data () {
     return {
       showData: [],
@@ -38,32 +48,32 @@ export default {
             width: item.width
           }
         })
+    },
+    searchConfig: function () {
+      return Object.values(this.$tableConfig[this.type])
+        .filter(item => {
+          return item.searchAble.tf
+        })
+        .map(item => {
+          return {
+            title: item.title,
+            key: item.key,
+            type: item.searchAble.type,
+            values: item.searchAble.values
+          }
+        })
     }
   },
   methods: {
-    search (info) {
-      this.query = '' || info
-      if (this.query) {
-        this.showData = this.tableData.filter((item) => {
-          return item.name.includes(this.query)
-        })
-        this.showData = this.$refs.ltPage.computedData(this.showData)
-      } else {
-        this.showData = this.$refs.ltPage.computedData()
-      }
-    },
-    getForm () {
-      axios.get('/json/village.json')
-        .then((res) => {
-          this.tableData = res.data.data.village
-          this.search()
-          this.$refs.ltPage.computedData()
-        })
+    getTableList (info) {
+      this.$http.get('/api/source/villageSearch', { params: info }).then(res => {
+        this.tableData = res.data.data
+      })
     }
 
   },
   mounted () {
-    this.getForm()
+    this.getTableList()
   }
 }
 </script>

@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import login from './views/login'
 import map from './views/map'
 import main from './views/main'
-import source from './views/village'
+import village from './views/village'
 import error from './views/ERROR'
 import analysis from './views/Analysis'
 import compare from './views/compare'
@@ -41,9 +41,9 @@ const router = new Router({
           component: map
         },
         {
-          path: '/source',
-          name: 'source',
-          component: source
+          path: '/village',
+          name: 'village',
+          component: village
         },
         {
           path: '/analysis',

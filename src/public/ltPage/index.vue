@@ -29,9 +29,12 @@ export default {
     query: String
   },
   watch: {
-    tableData: function () {
-      console.log('1')
-      this.computedData()
+    tableData: {
+      handler: function () {
+        this.computedData()
+      },
+      immediate: true,
+      deep: true
     }
   },
   computed: {
@@ -61,11 +64,10 @@ export default {
         this.computedData()
       }
     },
-    computedData (info) {
-      this.length = info
-      const data = (info || this.tableData).slice((this.page.currentPage - 1) * this.page.pageSize, this.page.currentPage * this.page.pageSize)
+    computedData () {
+      const data = (this.tableData).slice((this.page.currentPage - 1) * this.page.pageSize, this.page.currentPage * this.page.pageSize)
       this.showData = data
-      this.$emit('getData', this.showData)
+      this.$emit('getPageData', this.showData)
       return this.showData
     }
   }

@@ -21,7 +21,7 @@
               >
                 <el-submenu :index="index" v-for="(item, index) of permission" :key="index">
                   <template slot="title">
-                    <i class="el-icon-menu"></i>
+                    <i :class="item.icon"></i>
                     <span>{{ item.name }}</span>
                   </template>
                   <el-menu-item-group style="overflow-y: auto;overflow-x: hidden;">

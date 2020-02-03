@@ -8,7 +8,12 @@
         :prop="item.key"
         :label="item.title"
         :width="item.width"
-      ></el-table-column>
+        align="center"
+      >
+        <div v-if="item.key==='operations'">
+          <slot></slot>
+        </div>
+      </el-table-column>
     </el-table>
   </div>
 </template>
