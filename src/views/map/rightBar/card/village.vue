@@ -35,14 +35,20 @@ export default {
         this.VillageHandle = new VillageHandle(this.mapDom.map, 'village')
 
         const a = [
-          [
-            [123.413131, 41.795428],
-            [121.6341944408, 41.9887584786]
-          ],
-          [
-            [123.403396, 41.799682],
-            [120.6341944408, 40.9887584786]
-          ]
+          {
+            name: 'waltiu',
+            coordinate: [
+              [123.413131, 41.795428],
+              [121.6341944408, 41.9887584786]
+            ]
+          }, {
+            name: 'waltiu',
+            coordinate: [
+              [123.403396, 41.799682],
+              [120.6341944408, 40.9887584786]
+            ]
+          }
+
         ]
 
         this.VillageHandle.show(a)
