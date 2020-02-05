@@ -56,7 +56,7 @@ const list = {
           'path': 'staff'
         }
       }
-    },
+    }
   },
   visitors: {
     '01': {

@@ -8,9 +8,8 @@ export default class Handle {
     this.layerName = layerName
   }
   // 图层显示
-  show (data, style) {
+  show (data) {
     this.handleData(data)
-    this.handleStyle(style)
     this.hidden()
     this.layer = new maptalks.VectorLayer(this.layerName).addTo(this.map)
     this.loop()

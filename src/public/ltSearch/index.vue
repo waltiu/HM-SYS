@@ -41,13 +41,10 @@ export default {
     reset (formName) {
       this.$refs[formName].resetFields()
       this.$emit('search', {})
-
-
     }
   },
   mounted () {
     this.$emit('search')
-
   }
 
 }

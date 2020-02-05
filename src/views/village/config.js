@@ -5,8 +5,8 @@ const config = {
     width: 180,
     searchAble: {
       tf: true,
-      type: 'input',
-    },
+      type: 'input'
+    }
 
   },
   area: {
@@ -54,7 +54,7 @@ const config = {
     title: '开发商',
     width: 150,
     searchAble: {
-      tf: false,
+      tf: false
     }
   },
   address: {
@@ -62,7 +62,7 @@ const config = {
     title: '详细地址',
     width: 300,
     searchAble: {
-      tf: false,
+      tf: false
     }
   },
 
@@ -70,10 +70,9 @@ const config = {
     key: 'operations',
     title: '操作',
     searchAble: {
-      tf: false,
+      tf: false
     }
-  },
-
+  }
 
 }
 export default config

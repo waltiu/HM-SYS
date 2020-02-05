@@ -15,7 +15,7 @@
   </div>
 </template>
 <script>
-import { LineHandle } from '../../../../class/map/handle/linesHandle/linesHandle'
+import { VillageHandle } from '../../../../class/map/handle/linesHandle/extend/village.js'
 export default {
   name: 'region',
   data () {
@@ -32,7 +32,7 @@ export default {
   methods: {
     state () {
       if (this.value === true) {
-        this.LineHandle = new LineHandle(this.mapDom.map, 'village')
+        this.VillageHandle = new VillageHandle(this.mapDom.map, 'village')
 
         const a = [
           [
@@ -44,25 +44,10 @@ export default {
             [120.6341944408, 40.9887584786]
           ]
         ]
-        const b = {
-          arrowStyle: null, // arrow-style : now we only have classic
-          arrowPlacement: 'vertex-last', // arrow's placement: vertex-first, vertex-last, vertex-firstlast, point
-          visible: true,
-          editable: true,
-          cursor: null,
-          shadowBlur: 0,
-          shadowColor: 'black',
-          draggable: false,
-          dragShadow: false, // display a shadow during dragging
-          drawOnAxis: null,
-          symbol: {
-            'lineColor': '#1bbc9b',
-            'lineWidth': 3
-          }
-        }
-        this.LineHandle.show(a, b)
+
+        this.VillageHandle.show(a)
       } else {
-        this.LineHandle.hidden()
+        this.VillageHandle.hidden()
       }
     }
   }

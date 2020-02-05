@@ -2,9 +2,10 @@
   <div class="village">
     <lt-search @search="getTableList" :searchConfig="searchConfig"></lt-search>
     <lt-table :showData="showData" :config="tableConfig" style="padding-top:20px">
-      <div style="display:flex;left:10px">
-        <map-show style="marginRight:12px"></map-show>
-        <detail></detail>
+      <div class="operationList" slot-scope="info">
+        <collet style="marginRight:12px " :raw="info"></collet>
+        <detail style="marginRight:12px" :raw="info"></detail>
+        <map-show :raw="info"></map-show>
       </div>
     </lt-table>
     <lt-page
@@ -19,11 +20,13 @@
 import axios from 'axios'
 import mapShow from './map'
 import detail from './detail'
+import collet from './collect'
 export default {
   name: 'village',
   components: {
     mapShow,
-    detail
+    detail,
+    collet
   },
   data () {
     return {
@@ -69,6 +72,9 @@ export default {
       this.$http.get('/api/source/villageSearch', { params: info }).then(res => {
         this.tableData = res.data.data
       })
+    },
+    clickInfo (info) {
+      console.log(info, 11)
     }
 
   },
@@ -80,5 +86,10 @@ export default {
 <style scoped>
 .village {
   height: 1000px;
+}
+.operationList {
+  display: flex;
+  position: relative;
+  left: 30px;
 }
 </style>

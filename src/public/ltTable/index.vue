@@ -10,9 +10,12 @@
         :width="item.width"
         align="center"
       >
-        <div v-if="item.key==='operations'">
-          <slot></slot>
-        </div>
+        <template slot-scope="scope">
+          <div v-if="item.key==='operations'">
+            <slot :info="scope.row"></slot>
+          </div>
+          <div v-else>{{scope.row[item.key]}}</div>
+        </template>
       </el-table-column>
     </el-table>
   </div>
