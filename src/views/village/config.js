@@ -6,17 +6,23 @@ const config = {
     searchAble: {
       tf: true,
       type: 'input'
+    },
+    tableShow: {
+      tf: true
     }
 
   },
-  area: {
-    key: 'area',
+  district: {
+    key: 'district',
     title: '大区',
     width: 80,
     searchAble: {
       tf: true,
       type: 'select',
       values: ['铁西区', '于洪区', '皇姑区']
+    },
+    tableShow: {
+      tf: true
     }
   },
   city: {
@@ -27,6 +33,9 @@ const config = {
       tf: true,
       type: 'select',
       values: ['沈阳']
+    },
+    tableShow: {
+      tf: true
     }
   },
   isSchoolOverArea: {
@@ -37,6 +46,9 @@ const config = {
       tf: true,
       type: 'select',
       values: ['是', '否']
+    },
+    tableShow: {
+      tf: true
     }
   },
   isSubwayOverArea: {
@@ -47,6 +59,9 @@ const config = {
       tf: true,
       type: 'select',
       values: ['是', '否']
+    },
+    tableShow: {
+      tf: true
     }
   },
   developer: {
@@ -55,6 +70,9 @@ const config = {
     width: 150,
     searchAble: {
       tf: false
+    },
+    tableShow: {
+      tf: true
     }
   },
   address: {
@@ -63,6 +81,9 @@ const config = {
     width: 300,
     searchAble: {
       tf: false
+    },
+    tableShow: {
+      tf: true
     }
   },
 
@@ -71,6 +92,9 @@ const config = {
     title: '操作',
     searchAble: {
       tf: false
+    },
+    tableShow: {
+      tf: true
     }
   }
 
