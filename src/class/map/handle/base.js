@@ -6,6 +6,7 @@ export default class Handle {
     this.style = {}
     this.layerName = layerName
     this.baseLayer = {}
+    this.map.removeLayer('Tips')
     this.baseLayer['tips'] = new maptalks.VectorLayer('Tips', null, {
       'zIndex': '99'
     }).addTo(this.map)

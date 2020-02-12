@@ -3,7 +3,13 @@ import Router from 'vue-router'
 import login from './views/login'
 import map from './views/map'
 import main from './views/main'
+
 import village from './views/village'
+import house from './views/house'
+import school from './views/school'
+import hospital from './views/hospital'
+import Intermediary from './views/Intermediary'
+
 import error from './views/ERROR'
 import analysis from './views/Analysis'
 import compare from './views/compare'
@@ -44,6 +50,26 @@ const router = new Router({
           path: '/village',
           name: 'village',
           component: village
+        },
+        {
+          path: '/hospital',
+          name: 'hospital',
+          component: hospital
+        },
+        {
+          path: '/house',
+          name: 'house',
+          component: house
+        },
+        {
+          path: '/Intermediary',
+          name: 'Intermediary',
+          component: Intermediary
+        },
+        {
+          path: '/school',
+          name: 'school',
+          component: school
         },
         {
           path: '/analysis',

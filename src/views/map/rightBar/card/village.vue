@@ -1,29 +1,49 @@
 <template>
   <div>
     <el-card class="box-card">
-      <div slot="header" class="clearfix">
-        <span>显示小区</span>
-        <el-switch
-          v-model="value"
-          active-color="#13ce66"
-          inactive-color="#ff4949"
-          @change="state()"
-        ></el-switch>
-      </div>
-      <div>切换上面的开关来切换是否显示小区范围</div>
+      <el-tabs type="card" v-model="extend">
+        <el-tab-pane label="小区" name="first">
+          <el-collapse>
+            <el-collapse-item>
+              <template slot="title">
+                <img src="/img/map/extend.png" width="20px" height="20px" />
+                <p>高级筛选</p>
+              </template>
+              <search :type="type"></search>
+            </el-collapse-item>
+          </el-collapse>
+          <div class="switch">
+            <div class="line"></div>
+            <el-switch
+              v-model="value"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+              class="switchbutton"
+              @change="state()"
+            ></el-switch>
+          </div>
+        </el-tab-pane>
+      </el-tabs>
     </el-card>
   </div>
 </template>
 <script>
-import { VillageHandle } from '../../../../class/map/handle/linesHandle/extend/village.js'
+import search from './components/search'
+import { VillageHandle } from '../../../../class/map/handle/linesHandle/extend/village'
 export default {
-  name: 'region',
+  name: 'village',
   data () {
     return {
       value: false,
-      map: {}
+      map: {},
+      extend: 'first',
+      type: 'village'
     }
   },
+  components: {
+    search
+  },
+
   inject: ['mapDom'],
   mounted () {
     this.map = this.mapDom.map
@@ -59,3 +79,20 @@ export default {
   }
 }
 </script>
+<style>
+.switch {
+  position: relative;
+  margin-top: 20px;
+}
+.switchbutton {
+  position: relative;
+  left: 220px;
+}
+.line {
+  width: 100px;
+  height: 10px;
+  background-color: rgb(179, 154, 18);
+  top: 10px;
+  position: relative;
+}
+</style>
