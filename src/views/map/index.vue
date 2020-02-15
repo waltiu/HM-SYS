@@ -41,6 +41,7 @@ export default {
   methods: {
     getMap (info) {
       this.map = info
+      this.$emit('getMap', this.map)
     }
   }
 

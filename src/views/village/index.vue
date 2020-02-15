@@ -3,9 +3,9 @@
     <lt-search @search="getTableList" :searchConfig="searchConfig"></lt-search>
     <lt-table :showData="showData" :config="tableConfig" style="padding-top:20px">
       <div class="operationList" slot-scope="info">
-        <collet style="marginRight:12px " :raw="info"></collet>
+        <collet style="marginRight:12px " :raw="info" @reload="getTableList"></collet>
         <detail style="marginRight:12px" :raw="info"></detail>
-        <map-show :raw="info"></map-show>
+        <map-show :raw="info" @reload="getTableList"></map-show>
       </div>
     </lt-table>
     <lt-page

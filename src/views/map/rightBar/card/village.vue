@@ -47,7 +47,6 @@ export default {
   inject: ['mapDom'],
   mounted () {
     this.map = this.mapDom.map
-    console.log(this.map)
   },
   methods: {
     state () {
@@ -85,8 +84,8 @@ export default {
   margin-top: 20px;
 }
 .switchbutton {
-  position: relative;
-  left: 220px;
+  position: absolute;
+  margin-left: 220px;
 }
 .line {
   width: 100px;

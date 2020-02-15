@@ -1,7 +1,7 @@
 <template>
   <div>
     <slot></slot>
-    <div id="map" class="container"></div>
+    <div id="map1" class="container1"></div>
   </div>
 </template>
 <script>
@@ -12,7 +12,7 @@ export default {
   name: 'maptalksMap',
   data () {
     return {
-      map: {}
+      map: null
     }
   },
   watch: {
@@ -22,43 +22,44 @@ export default {
     '$store.state.defaultZoom.zoom': function () {
       this.map.setZoom(this.$store.state.defaultZoom.zoom)
     },
-    zoom: function () {
-      // parseInt(this.map._zoomLevel)
-      this.$store.commit('setZoom', parseInt(this.map._zoomLevel))
+    zoom: function (newVal) {
+      this.$store.commit('setZoom', parseInt(newVal))
     }
   },
   computed: {
     zoom: function () {
-      return this.map._zoomLevel
+      if (this.map)
+        return this.map._zoomLevel
     }
   },
   methods: {
 
   },
   mounted () {
-    // this.map.getZoom()
-    // console.log(this.zoom)
-    this.map = new maptalks.Map('map', {
-      center: [this.$store.state.defaultCenter.lng, this.$store.state.defaultCenter.lat],
-      zoom: this.$store.state.defaultZoom.zoom,
-      minZoom: 8,
-      maxZoom: 19,
-      baseLayer: new maptalks.TileLayer('base', {
-        'urlTemplate': 'http://online4.map.bdimg.com/tile/?qt=vtile&x={x}&y={y}&z={z}&styles=pl&scaler=300',
-        spatialReference: {
-          projection: 'baidu'
-        },
-        attribution: '&copy; waltiu '
+    this.$nextTick(() => {
+      this.map = new maptalks.Map('map1', {
+        center: [this.$store.state.defaultCenter.lng, this.$store.state.defaultCenter.lat],
+        zoom: this.$store.state.defaultZoom.zoom,
+        minZoom: 8,
+        maxZoom: 19,
+        baseLayer: new maptalks.TileLayer('base', {
+          'urlTemplate': 'http://online4.map.bdimg.com/tile/?qt=vtile&x={x}&y={y}&z={z}&styles=pl&scaler=300',
+          spatialReference: {
+            projection: 'baidu'
+          },
+          attribution: '&copy; waltiu '
+        })
       })
+      this.$store.commit('getMap', this.map)
+      this.$emit('getMap', this.map)
     })
-    this.$store.commit('getMap', this.map)
-    this.$emit('getMap', this.map)
+
   }
 }
 </script>
 
 <style >
-.container {
+.container1 {
   height: 90vh;
 }
 </style>
