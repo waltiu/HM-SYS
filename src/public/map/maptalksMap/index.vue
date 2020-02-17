@@ -28,14 +28,15 @@ export default {
   },
   computed: {
     zoom: function () {
-      if (this.map)
-        return this.map._zoomLevel
+      if (this.map) { return this.map._zoomLevel }
     }
   },
   methods: {
 
   },
   mounted () {
+
+
     this.$nextTick(() => {
       this.map = new maptalks.Map('map1', {
         center: [this.$store.state.defaultCenter.lng, this.$store.state.defaultCenter.lat],
@@ -53,7 +54,6 @@ export default {
       this.$store.commit('getMap', this.map)
       this.$emit('getMap', this.map)
     })
-
   }
 }
 </script>

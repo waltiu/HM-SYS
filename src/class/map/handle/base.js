@@ -35,11 +35,12 @@ export default class Handle {
     // 样式声明
   }
   blindEvent (obj, item) {
+    let center = [item.mapCenter.lng, item.mapCenter.lat]
     obj.on('click', () => {
       console.log(item)
     })
     obj.on('mouseenter', () => {
-      new maptalks.Marker(item.coordinate, {
+      new maptalks.Marker(center, {
         'properties': {
           'name': item.name
         },

@@ -14,13 +14,7 @@
           </el-collapse>
           <div class="switch">
             <div class="line"></div>
-            <el-switch
-              v-model="value"
-              active-color="#13ce66"
-              inactive-color="#ff4949"
-              class="switchbutton"
-              @change="state()"
-            ></el-switch>
+            <switch-button :type="type" @showMapInfo="showMapInfo" class="switchButton"></switch-button>
           </div>
         </el-tab-pane>
       </el-tabs>
@@ -29,6 +23,8 @@
 </template>
 <script>
 import search from './components/search'
+import switchButton from './components/switch'
+
 import { VillageHandle } from '../../../../class/map/handle/linesHandle/extend/village'
 export default {
   name: 'village',
@@ -41,7 +37,8 @@ export default {
     }
   },
   components: {
-    search
+    search,
+    switchButton
   },
 
   inject: ['mapDom'],
@@ -49,32 +46,16 @@ export default {
     this.map = this.mapDom.map
   },
   methods: {
-    state () {
-      if (this.value === true) {
+    showMapInfo (info) {
+      if (info) {
         this.VillageHandle = new VillageHandle(this.mapDom.map, 'village')
-
-        const a = [
-          {
-            name: 'waltiu',
-            coordinate: [
-              [123.413131, 41.795428],
-              [121.6341944408, 41.9887584786]
-            ]
-          }, {
-            name: 'waltiu',
-            coordinate: [
-              [123.403396, 41.799682],
-              [120.6341944408, 40.9887584786]
-            ]
-          }
-
-        ]
-
-        this.VillageHandle.show(a)
+        this.VillageHandle.show(info)
       } else {
         this.VillageHandle.hidden()
+
       }
-    }
+    },
+
   }
 }
 </script>
@@ -83,15 +64,17 @@ export default {
   position: relative;
   margin-top: 20px;
 }
-.switchbutton {
-  position: absolute;
-  margin-left: 220px;
-}
+
 .line {
   width: 100px;
   height: 10px;
-  background-color: rgb(179, 154, 18);
+  background-color: #a0522d;
   top: 10px;
   position: relative;
+}
+.switchButton {
+  position: relative;
+  margin-left: 100px;
+  top: -3px;
 }
 </style>

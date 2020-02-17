@@ -40,6 +40,8 @@ export default {
     },
     reset (formName) {
       this.$refs[formName].resetFields()
+      this.searchData = {}
+      //不经意间解决的bug，搜索重置后但是选择不了其他选项
       this.$emit('search', {})
     }
   },

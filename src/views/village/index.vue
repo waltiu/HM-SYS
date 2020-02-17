@@ -4,8 +4,8 @@
     <lt-table :showData="showData" :config="tableConfig" style="padding-top:20px">
       <div class="operationList" slot-scope="info">
         <collet style="marginRight:12px " :raw="info" @reload="getTableList"></collet>
-        <detail style="marginRight:12px" :raw="info"></detail>
-        <map-show :raw="info" @reload="getTableList"></map-show>
+        <!-- <detail style="marginRight:12px" :raw="info"></detail> -->
+        <map-show :raw="info"></map-show>
       </div>
     </lt-table>
     <lt-page
@@ -19,13 +19,13 @@
 <script>
 import axios from 'axios'
 import mapShow from './map'
-import detail from './detail'
+// import detail from './detail'
 import collet from './collect'
 export default {
   name: 'village',
   components: {
     mapShow,
-    detail,
+    // detail,
     collet
   },
   data () {
@@ -77,10 +77,6 @@ export default {
         this.tableData = res.data.data
       })
     },
-    clickInfo (info) {
-      console.log(info, 11)
-    }
-
   },
   mounted () {
     this.getTableList()
