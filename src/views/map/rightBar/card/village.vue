@@ -52,9 +52,8 @@ export default {
         this.VillageHandle.show(info)
       } else {
         this.VillageHandle.hidden()
-
       }
-    },
+    }
 
   }
 }

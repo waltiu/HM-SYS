@@ -35,8 +35,6 @@ export default {
 
   },
   mounted () {
-
-
     this.$nextTick(() => {
       this.map = new maptalks.Map('map1', {
         center: [this.$store.state.defaultCenter.lng, this.$store.state.defaultCenter.lat],

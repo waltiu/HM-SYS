@@ -76,7 +76,7 @@ export default {
       this.$http.get('/api/source/villageSearch', { params: info }).then(res => {
         this.tableData = res.data.data
       })
-    },
+    }
   },
   mounted () {
     this.getTableList()

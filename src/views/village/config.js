@@ -8,7 +8,7 @@ const config = {
       type: 'input'
     },
     mapSearchAble: {
-      tf: true,
+      tf: true
     },
     tableShow: {
       tf: true
@@ -25,7 +25,7 @@ const config = {
       values: ['铁西区', '于洪区', '皇姑区']
     },
     mapSearchAble: {
-      tf: true,
+      tf: true
     },
     tableShow: {
       tf: true
@@ -41,7 +41,7 @@ const config = {
       values: ['沈阳']
     },
     mapSearchAble: {
-      tf: false,
+      tf: false
     },
     tableShow: {
       tf: true
@@ -57,7 +57,7 @@ const config = {
       values: ['是', '否']
     },
     mapSearchAble: {
-      tf: true,
+      tf: true
     },
     tableShow: {
       tf: true
@@ -88,7 +88,7 @@ const config = {
       tf: false
     },
     mapSearchAble: {
-      tf: false,
+      tf: false
     },
     tableShow: {
       tf: true
@@ -102,7 +102,7 @@ const config = {
       tf: false
     },
     mapSearchAble: {
-      tf: false,
+      tf: false
     },
     tableShow: {
       tf: true
@@ -116,7 +116,7 @@ const config = {
       tf: false
     },
     mapSearchAble: {
-      tf: false,
+      tf: false
     },
     tableShow: {
       tf: true
