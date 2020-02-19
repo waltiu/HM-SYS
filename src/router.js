@@ -87,7 +87,7 @@ const router = new Router({
           path: '/user',
           name: 'user',
           component: user
-        },
+        }
       ]
     }
   ]

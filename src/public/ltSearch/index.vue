@@ -44,8 +44,7 @@ export default {
       // 不经意间解决的bug，搜索重置后但是选择不了其他选项
       this.$emit('search', {})
     }
-  },
-
+  }
 
 }
 </script>

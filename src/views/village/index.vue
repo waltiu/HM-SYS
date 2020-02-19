@@ -25,7 +25,7 @@ import mapShow from './map'
 export default {
   name: 'village',
   components: {
-    mapShow,
+    mapShow
     // detail,
   },
   data () {
