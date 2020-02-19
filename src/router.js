@@ -14,6 +14,7 @@ import error from './views/ERROR'
 import analysis from './views/Analysis'
 import compare from './views/compare'
 import oauth from './views/oauth'
+import user from './views/user'
 
 Vue.use(Router)
 
@@ -81,7 +82,12 @@ const router = new Router({
           name: 'compare',
           component: compare
 
-        }
+        },
+        {
+          path: '/user',
+          name: 'user',
+          component: user
+        },
       ]
     }
   ]

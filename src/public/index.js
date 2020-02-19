@@ -6,6 +6,8 @@ import ltSearch from './ltSearch'
 import echarts from './ltEcharts'
 import echart from './ltEchart'
 import buttonDialog from './ltDialog/buttonDialog'
+import ltCollect from './ltCollect'
+import ltUrlButton from './ltUrlButton'
 
 Vue.component('maptalks-map', maptalksMap)
 Vue.component('lt-page', ltPage)
@@ -14,3 +16,5 @@ Vue.component('lt-search', ltSearch)
 Vue.component('lt-echarts', echarts)
 Vue.component('lt-echart', echart)
 Vue.component('button-dialog', buttonDialog)
+Vue.component('lt-collect', ltCollect)
+Vue.component('lt-url-button', ltUrlButton)

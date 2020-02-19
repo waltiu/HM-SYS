@@ -55,7 +55,11 @@ export default {
               )
               sessionStorage.setItem(
                 'token',
-                res.data.token
+                res.data.data.token
+              )
+              sessionStorage.setItem(
+                'useInfo',
+                JSON.stringify(res.data.data)
               )
               this.$router.push('/analysis')
             } else {

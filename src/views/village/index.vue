@@ -2,10 +2,12 @@
   <div class="village">
     <lt-search @search="getTableList" :searchConfig="searchConfig"></lt-search>
     <lt-table :showData="showData" :config="tableConfig" style="padding-top:20px">
-      <div class="operationList" slot-scope="info">
-        <collet style="marginRight:12px " :raw="info" @reload="getTableList"></collet>
-        <!-- <detail style="marginRight:12px" :raw="info"></detail> -->
-        <map-show :raw="info"></map-show>
+      <div slot-scope="info">
+        <div class="operationList">
+          <lt-collect style="marginRight:12px " :raw="info" @reload="getTableList" :type="type"></lt-collect>
+          <!-- <detail style="marginRight:12px" :raw="info"></detail> -->
+          <map-show :raw="info"></map-show>
+        </div>
       </div>
     </lt-table>
     <lt-page
@@ -20,13 +22,11 @@
 import axios from 'axios'
 import mapShow from './map'
 // import detail from './detail'
-import collet from './collect'
 export default {
   name: 'village',
   components: {
     mapShow,
     // detail,
-    collet
   },
   data () {
     return {
@@ -79,7 +79,8 @@ export default {
     }
   },
   mounted () {
-    this.getTableList()
+    this.getTableList(this.$store.state.query)
+    this.$store.commit('getQuery', {})
   }
 }
 </script>
@@ -90,6 +91,6 @@ export default {
 .operationList {
   display: flex;
   position: relative;
-  left: 30px;
+  margin-left: 30%;
 }
 </style>

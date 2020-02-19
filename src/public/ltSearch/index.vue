@@ -45,9 +45,7 @@ export default {
       this.$emit('search', {})
     }
   },
-  mounted () {
-    this.$emit('search')
-  }
+
 
 }
 </script>

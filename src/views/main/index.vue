@@ -41,7 +41,9 @@
         </el-aside>
         <el-main class="main">
           <el-header>
-            <div class="header">Header</div>
+            <div class="header">
+              <header-info></header-info>
+            </div>
           </el-header>
           <div>
             <router-view></router-view>
@@ -57,6 +59,7 @@
 import Router from 'vue-router'
 import ltDialog from '../../public/ltDialog/mapDialog'
 import list from './main.js'
+import headerInfo from './componets/header'
 const originalPush = Router.prototype.push
 Router.prototype.push = function push (location) {
   return originalPush.call(this, location).catch(err => err)
@@ -64,8 +67,11 @@ Router.prototype.push = function push (location) {
 export default {
   name: 'mainShow',
   components: {
-    ltDialog
+    ltDialog,
+    headerInfo
+
   },
+
   data () {
     return {
       colum: '',
@@ -93,7 +99,6 @@ export default {
     }
   },
   mounted () {
-    console.log(sessionStorage.getItem('permission'))
     this.columConfig = list
     if (sessionStorage.getItem('permission') === 'admin') {
       this.permission = this.columConfig.admin
