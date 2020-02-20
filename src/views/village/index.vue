@@ -4,7 +4,13 @@
     <lt-table :showData="showData" :config="tableConfig" style="padding-top:20px">
       <div slot-scope="info">
         <div class="operationList">
-          <lt-collect style="marginRight:12px " :raw="info" @reload="getTableList" :type="type"></lt-collect>
+          <lt-collect
+            style="marginRight:12px "
+            :raw="info"
+            @reload="getTableList"
+            :type="type"
+            :colletedData="colletedData"
+          ></lt-collect>
           <!-- <detail style="marginRight:12px" :raw="info"></detail> -->
           <map-show :raw="info"></map-show>
         </div>
@@ -37,7 +43,9 @@ export default {
       },
       tableData: [],
       query: '',
-      type: 'village'
+      type: 'village',
+      colletedData: []
+
 
     }
   },
@@ -75,6 +83,10 @@ export default {
     getTableList (info) {
       this.$http.get('/api/source/villageSearch', { params: info }).then(res => {
         this.tableData = res.data.data
+      })
+      let name = { name: JSON.parse(sessionStorage.getItem('useInfo')).name }
+      this.$http.get('/api/users/userInfo', { params: name }).then(res => {
+        this.colletedData = res.data.collected
       })
     }
   },
