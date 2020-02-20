@@ -91,7 +91,7 @@ export default {
             res.data.data.token
 
           )
-          sessionStorage.setItem(
+          this.resetSetItem(
             'useInfo',
             JSON.stringify(res.data.data)
           )
