@@ -44,8 +44,7 @@ export default {
       tableData: [],
       query: '',
       type: 'village',
-      colletedData: []
-
+      colletedData: null
 
     }
   },
