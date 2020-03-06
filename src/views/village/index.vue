@@ -5,6 +5,7 @@
       :showData="showData"
       :config="tableConfig"
       style="padding-top:20px"
+      @getSelection="getSelection"
     >
       <div slot-scope="info">
         <div class="operationList">
@@ -30,7 +31,7 @@
       :tableData="tableData"
       :query="query"
     ></lt-page>
-    <lt-curl></lt-curl>
+    <lt-curl :info="selectInfo" :type="type" @reload="getTableList"></lt-curl>
   </div>
 </template>
 <script>
@@ -53,7 +54,8 @@ export default {
       tableData: [],
       query: "",
       type: "village",
-      colletedData: null
+      colletedData: null,
+      selectInfo: []
     };
   },
   computed: {
@@ -97,6 +99,9 @@ export default {
       this.$http.get("/api/users/userInfo", { params: name }).then(res => {
         this.colletedData = res.data.collected;
       });
+    },
+    getSelection(info) {
+      this.selectInfo = info;
     }
   },
   mounted() {

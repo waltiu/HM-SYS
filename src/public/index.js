@@ -20,4 +20,3 @@ Vue.component('button-dialog', buttonDialog)
 Vue.component('lt-collect', ltCollect)
 Vue.component('lt-url-button', ltUrlButton)
 Vue.component('lt-curl', ltCurl)
-
