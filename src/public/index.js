@@ -8,6 +8,7 @@ import echart from './ltEchart'
 import buttonDialog from './ltDialog/buttonDialog'
 import ltCollect from './ltCollect'
 import ltUrlButton from './ltUrlButton'
+import ltCurl from './ltCurl'
 
 Vue.component('maptalks-map', maptalksMap)
 Vue.component('lt-page', ltPage)
@@ -18,3 +19,5 @@ Vue.component('lt-echart', echart)
 Vue.component('button-dialog', buttonDialog)
 Vue.component('lt-collect', ltCollect)
 Vue.component('lt-url-button', ltUrlButton)
+Vue.component('lt-curl', ltCurl)
+

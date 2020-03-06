@@ -1,7 +1,11 @@
 <template>
   <div class="village">
     <lt-search @search="getTableList" :searchConfig="searchConfig"></lt-search>
-    <lt-table :showData="showData" :config="tableConfig" style="padding-top:20px">
+    <lt-table
+      :showData="showData"
+      :config="tableConfig"
+      style="padding-top:20px"
+    >
       <div slot-scope="info">
         <div class="operationList">
           <lt-collect
@@ -18,23 +22,28 @@
     </lt-table>
     <lt-page
       ref="ltPage"
-      @getPageData="(info)=>{this.showData=info}"
+      @getPageData="
+        info => {
+          this.showData = info;
+        }
+      "
       :tableData="tableData"
       :query="query"
     ></lt-page>
+    <lt-curl></lt-curl>
   </div>
 </template>
 <script>
-import axios from 'axios'
-import mapShow from './map'
+import axios from "axios";
+import mapShow from "./map";
 // import detail from './detail'
 export default {
-  name: 'village',
+  name: "village",
   components: {
     mapShow
     // detail,
   },
-  data () {
+  data() {
     return {
       showData: [],
       page: {
@@ -42,31 +51,30 @@ export default {
         pageSize: 10
       },
       tableData: [],
-      query: '',
-      type: 'village',
+      query: "",
+      type: "village",
       colletedData: null
-
-    }
+    };
   },
   computed: {
-    tableConfig: function () {
+    tableConfig: function() {
       return Object.values(this.$tableConfig[this.type])
         .filter(item => {
-          console.log(item.tableShow.tf)
-          return item.tableShow.tf
+          console.log(item.tableShow.tf);
+          return item.tableShow.tf;
         })
         .map(item => {
           return {
             title: item.title,
             key: item.key,
             width: item.width
-          }
-        })
+          };
+        });
     },
-    searchConfig: function () {
+    searchConfig: function() {
       return Object.values(this.$tableConfig[this.type])
         .filter(item => {
-          return item.searchAble.tf
+          return item.searchAble.tf;
         })
         .map(item => {
           return {
@@ -74,26 +82,28 @@ export default {
             key: item.key,
             type: item.searchAble.type,
             values: item.searchAble.values
-          }
-        })
+          };
+        });
     }
   },
   methods: {
-    getTableList (info) {
-      this.$http.get('/api/source/villageSearch', { params: info }).then(res => {
-        this.tableData = res.data.data
-      })
-      let name = { name: JSON.parse(sessionStorage.getItem('useInfo')).name }
-      this.$http.get('/api/users/userInfo', { params: name }).then(res => {
-        this.colletedData = res.data.collected
-      })
+    getTableList(info) {
+      this.$http
+        .get("/api/source/villageSearch", { params: info })
+        .then(res => {
+          this.tableData = res.data.data;
+        });
+      let name = { name: JSON.parse(sessionStorage.getItem("useInfo")).name };
+      this.$http.get("/api/users/userInfo", { params: name }).then(res => {
+        this.colletedData = res.data.collected;
+      });
     }
   },
-  mounted () {
-    this.getTableList(this.$store.state.query)
-    this.$store.commit('getQuery', {})
+  mounted() {
+    this.getTableList(this.$store.state.query);
+    this.$store.commit("getQuery", {});
   }
-}
+};
 </script>
 <style scoped>
 .village {
