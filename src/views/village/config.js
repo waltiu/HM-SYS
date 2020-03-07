@@ -2,7 +2,7 @@ const config = {
   name: {
     key: 'name',
     title: '名称',
-    width: 180,
+    width: 150,
     searchAble: {
       tf: true,
       type: 'input'
@@ -12,7 +12,11 @@ const config = {
     },
     tableShow: {
       tf: true
-    }
+    },
+    editAble: {
+      tf: true,
+      type: 'input'
+    },
 
   },
   district: {
@@ -29,7 +33,12 @@ const config = {
     },
     tableShow: {
       tf: true
-    }
+    },
+    editAble: {
+      tf: true,
+      type: 'select',
+      values: ['铁西区', '于洪区', '皇姑区']
+    },
   },
   city: {
     key: 'city',
@@ -45,11 +54,16 @@ const config = {
     },
     tableShow: {
       tf: true
-    }
+    },
+    editAble: {
+      tf: true,
+      type: 'select',
+      values: ['沈阳']
+    },
   },
   isSchoolOverArea: {
     key: 'isSchoolOverArea',
-    title: '学区房',
+    title: '学区区域',
     width: 100,
     searchAble: {
       tf: true,
@@ -61,11 +75,16 @@ const config = {
     },
     tableShow: {
       tf: true
-    }
+    },
+    editAble: {
+      tf: true,
+      type: 'select',
+      values: ['是', '否']
+    },
   },
   isSubwayOverArea: {
     key: 'isSubwayOverArea',
-    title: '临地铁',
+    title: '地铁区域',
     width: 100,
     searchAble: {
       tf: true,
@@ -78,7 +97,12 @@ const config = {
     },
     tableShow: {
       tf: true
-    }
+    },
+    editAble: {
+      tf: true,
+      type: 'select',
+      values: ['是', '否']
+    },
   },
   developer: {
     key: 'developer',
@@ -92,7 +116,12 @@ const config = {
     },
     tableShow: {
       tf: true
-    }
+    },
+    editAble: {
+      tf: true,
+      type: 'input'
+    },
+
   },
   address: {
     key: 'address',
@@ -106,7 +135,11 @@ const config = {
     },
     tableShow: {
       tf: true
-    }
+    },
+    editAble: {
+      tf: true,
+      type: 'input'
+    },
   },
 
   operations: {
@@ -120,7 +153,10 @@ const config = {
     },
     tableShow: {
       tf: true
-    }
+    },
+    editAble: {
+      tf: false,
+    },
   }
 
 }

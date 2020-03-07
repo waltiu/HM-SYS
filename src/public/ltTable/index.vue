@@ -27,16 +27,16 @@
 </template>
 <script>
 export default {
-  name: "ltTable",
+  name: 'ltTable',
   props: {
     showData: Array,
     config: Array
   },
-  mounted() {},
+  mounted () {},
   methods: {
-    getSelection(info) {
-      this.$emit("getSelection", info);
+    getSelection (info) {
+      this.$emit('getSelection', info)
     }
   }
-};
+}
 </script>

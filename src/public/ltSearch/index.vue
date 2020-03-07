@@ -60,7 +60,7 @@ export default {
 <style scoped>
 .searchButton {
   position: absolute;
-  right: 50px;
+  right: 40px;
   margin-top: -60px;
 }
 </style>
