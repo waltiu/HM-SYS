@@ -72,7 +72,9 @@ export default class Handle {
   }
   // 遍历数据
   loop () {
-    this.data.forEach(item => {
+    console.log(this.data)
+    this.data.map(item => {
+      console.log(item, 999)
       this.render(item)
     })
   }

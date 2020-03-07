@@ -16,7 +16,7 @@ const config = {
     editAble: {
       tf: true,
       type: 'input'
-    },
+    }
 
   },
   district: {
@@ -38,7 +38,7 @@ const config = {
       tf: true,
       type: 'select',
       values: ['铁西区', '于洪区', '皇姑区']
-    },
+    }
   },
   city: {
     key: 'city',
@@ -59,7 +59,7 @@ const config = {
       tf: true,
       type: 'select',
       values: ['沈阳']
-    },
+    }
   },
   isSchoolOverArea: {
     key: 'isSchoolOverArea',
@@ -80,7 +80,7 @@ const config = {
       tf: true,
       type: 'select',
       values: ['是', '否']
-    },
+    }
   },
   isSubwayOverArea: {
     key: 'isSubwayOverArea',
@@ -102,7 +102,7 @@ const config = {
       tf: true,
       type: 'select',
       values: ['是', '否']
-    },
+    }
   },
   developer: {
     key: 'developer',
@@ -120,7 +120,7 @@ const config = {
     editAble: {
       tf: true,
       type: 'input'
-    },
+    }
 
   },
   address: {
@@ -139,7 +139,7 @@ const config = {
     editAble: {
       tf: true,
       type: 'input'
-    },
+    }
   },
 
   operations: {
@@ -155,8 +155,8 @@ const config = {
       tf: true
     },
     editAble: {
-      tf: false,
-    },
+      tf: false
+    }
   }
 
 }
