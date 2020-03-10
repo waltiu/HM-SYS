@@ -17,7 +17,6 @@ export default class Handle {
     this.hidden()
     this.layer = new maptalks.VectorLayer(this.layerName).addTo(this.map)
 
-    console.log(this.baseLayer)
     this.loop()
     // this.render()
   }
@@ -72,9 +71,7 @@ export default class Handle {
   }
   // 遍历数据
   loop () {
-    console.log(this.data)
     this.data.map(item => {
-      console.log(item, 999)
       this.render(item)
     })
   }
