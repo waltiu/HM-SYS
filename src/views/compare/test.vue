@@ -11,7 +11,6 @@ export default {
   methods: {
     test () {
       let a = this.$refs.a.src
-      console.log(a)
       this.$emit('changePhoto', a)
     }
   }

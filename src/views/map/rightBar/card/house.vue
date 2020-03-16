@@ -47,7 +47,6 @@ export default {
   },
   methods: {
     showMapInfo (info) {
-      console.log(info)
       if (info) {
         this.HouseHandle = new HouseHandle(this.mapDom.map, 'house')
         this.HouseHandle.show(info)

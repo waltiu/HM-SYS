@@ -1,12 +1,24 @@
 <template>
-  <div>1</div>
+  <div>
+    {{
+    info}}
+  </div>
 </template>
 
 <script>
 export default {
   name: 'detailInfo',
+  data () {
+    return {
+      info: ''
+    }
+  },
   mounted () {
-    console.log(this.$route)
+    this.$http.get('/api/source/houseSearch', {      params: {
+        _id: this.$route.params.id
+      }    }).then(res => {
+      this.info = res.data.data[0]
+    })
   }
 }
 </script>

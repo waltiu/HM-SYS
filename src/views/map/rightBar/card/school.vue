@@ -47,7 +47,6 @@ export default {
   },
   methods: {
     showMapInfo (info) {
-      console.log(info)
       if (info) {
         this.SchoolHandle = new SchoolHandle(this.mapDom.map, 'school')
         this.SchoolHandle.show(info)

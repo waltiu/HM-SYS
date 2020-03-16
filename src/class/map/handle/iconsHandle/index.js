@@ -17,7 +17,6 @@ export class IconsHandle extends Handle {
   }
 
   render (item) {
-    console.log(item.mapInfo, 9999)
     let obj = new maptalks.Marker(item.mapInfo, this.handleStyle()).addTo(this.layer)
     if (this.layerName !== 'defaultVillage' && this.layerName !== 'default') {
 

@@ -41,7 +41,6 @@ export default {
     config: function () {
       return Object.values(this.$tableConfig[this.type])
         .filter(item => {
-          console.log(item)
           return item.mapSearchAble.tf
         })
         .map(item => {

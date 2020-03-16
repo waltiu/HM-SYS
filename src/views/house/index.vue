@@ -61,7 +61,6 @@ export default {
     tableConfig: function () {
       return Object.values(this.$tableConfig[this.type])
         .filter(item => {
-          console.log(item.tableShow.tf)
           return item.tableShow.tf
         })
         .map(item => {

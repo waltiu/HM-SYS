@@ -55,7 +55,6 @@ export default {
   },
   created () {
     this.useInfo = JSON.parse(sessionStorage.getItem('useInfo'))
-    console.log(this.useInfo)
     window.addEventListener('setItem', () => {
       this.useInfo = JSON.parse(sessionStorage.getItem('useInfo'))
 

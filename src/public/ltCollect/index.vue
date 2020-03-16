@@ -52,14 +52,12 @@ export default {
   watch: {
     colletedData: {
       handler: function (newVal) {
-        console.log(newVal)
         if (newVal) {
           let collectedList = []
           newVal[this.type].map((item, index) => {
             collectedList.push(item.name)
           })
           if (collectedList.includes(this.raw.info.name)) {
-            console.log(9999)
             this.collectedState = true
             this.index = collectedList.indexOf(this.raw.info.name)
           }
@@ -70,7 +68,6 @@ export default {
     },
     collectedState: {
       handler: function (newVal) {
-        console.log(newVal)
         if (newVal) {
           this.styleCollected = {
             'color': 'red'

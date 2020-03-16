@@ -37,7 +37,6 @@ export default {
     }
   },
   mounted () {
-    console.log(999)
   }
 }
 </script>

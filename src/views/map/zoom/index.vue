@@ -21,7 +21,6 @@ export default {
     addZoom () {
       this.$store.commit('addZoom')
       if (this.$store.state.defaultZoom.zoom === 19) {
-        // console.log('1')
         this.$message({
           message: '缩放已经达到了最大值！',
           type: 'warning'

@@ -24,7 +24,6 @@ export default {
     info: {
       handler: function (newVal) {
         this.imageUrl = newVal.picture
-        console.log(newVal)
       },
       immediate: true,
       deep: true
