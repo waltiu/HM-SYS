@@ -32,7 +32,7 @@ export default {
         this.$message({
           message: '取消收藏成功！',
           type: 'success'
-        });
+        })
       } else {
         updateInfo.name = this.raw.info.name
         updateInfo.type = this.type
@@ -41,12 +41,11 @@ export default {
         this.$message({
           message: '收藏成功！',
           type: 'success'
-        });
+        })
       }
       allData.collected = collectInfo
       this.$http.post(`/api/users/userUpate`, allData)
       this.collectedState = !this.collectedState
-
     }
   },
   watch: {
@@ -78,12 +77,9 @@ export default {
       },
       deep: true,
       immediate: true
-    },
+    }
 
-  },
-
-
-
+  }
 
 }
 </script>

@@ -53,8 +53,6 @@ export default {
       colletedData: null,
       selectInfo: []
 
-
-
     }
   },
   computed: {

@@ -1,31 +1,22 @@
 <template>
-  <el-dialog title="增加数据" :visible.sync="dialogVisible" width="25%" @close="close">
-    <el-form ref="formData" :model="formData" label-width="80px">
-      <el-form-item v-for="item of tableConfig" :key="item.key" :label="item.title">
-        <div v-if="item.type==='input'">
-          <el-input v-model="formData[item.key]" style="width:200px"></el-input>
-        </div>
-        <div v-else-if="item.type==='select'">
-          <el-select v-model="formData[item.key]" placeholder clearable style="width:200px">
-            <el-option v-for="(item,index) of item.values" :key="index" :value="item"></el-option>
-          </el-select>
-        </div>
-      </el-form-item>
-      <el-form-item label="地理信息">
-        <el-button type="primary" @click="selectPoint">坐标选择</el-button>
-        <el-button type="warning" @click="pointRest">重新选择</el-button>
-      </el-form-item>
-    </el-form>
-    <select-point
-      :selectInfo="selectPointTf"
-      :type="type"
-      @reload="reload"
-      :resetPoint="resetPoint"
-    ></select-point>
+  <el-dialog title="增加数据" :visible.sync="dialogVisible" width="70%" @close="close">
+    <div style="height: 300px;">
+      <el-steps :active="active" finish-status="success" align-center>
+        <el-step title="基本信息"></el-step>
+
+        <el-step title="图片上传"></el-step>
+        <el-step title="其他信息"></el-step>
+      </el-steps>
+    </div>
+
     <span slot="footer" class="dialog-footer">
       <el-button @click="dialogVisible = false">取 消</el-button>
       <el-button type="primary" @click="submit">确 定</el-button>
     </span>
+    <div class="stepOperate">
+      <el-button type="info" icon="el-icon-back" circle @click="foward" v-show="active!==0"></el-button>
+      <el-button type="info" icon="el-icon-right" circle @click="next" v-show="active!==2"></el-button>
+    </div>
   </el-dialog>
 </template>
 
@@ -42,8 +33,7 @@ export default {
       formData: {
         mapInfo: {}
       },
-      selectPointTf: false,
-      resetPoint: false
+      active: 0
     };
   },
   props: {
@@ -96,13 +86,11 @@ export default {
       })
 
     },
-    pointRest () {
-      this.resetPoint = true
-      this.selectPointTf = true
-
+    next () {
+      if (this.active++ > 2) this.active = 0;
     },
-    selectPoint () {
-      this.selectPointTf = true
+    foward () {
+      this.active--
     },
     reload (info) {
       this.selectPointTf = false
@@ -119,4 +107,13 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.stepOperate {
+  position: absolute;
+  width: 90px;
+  margin: 0px auto;
+  right: 0px;
+  left: 0px;
+  top: 15px;
+}
+</style>

@@ -52,9 +52,8 @@ export default {
         this.SchoolHandle.show(info)
       } else {
         this.SchoolHandle.hidden()
-
       }
-    },
+    }
   }
 
 }

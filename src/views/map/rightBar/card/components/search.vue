@@ -62,12 +62,12 @@ export default {
             this.$message({
               message: `暂没有找到符合您条件的资源，请重新选择！`,
               type: 'warn'
-            });
+            })
           } else {
             this.$message({
               message: `已为您找到${this.searchReslut.length}条数据，请选择搜索结果来查看详情！`,
               type: 'success'
-            });
+            })
           }
         })
       },

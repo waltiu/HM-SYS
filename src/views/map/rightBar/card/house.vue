@@ -52,9 +52,8 @@ export default {
         this.HouseHandle.show(info)
       } else {
         this.HouseHandle.hidden()
-
       }
-    },
+    }
   }
 
 }

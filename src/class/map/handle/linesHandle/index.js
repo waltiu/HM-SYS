@@ -14,7 +14,6 @@ export class LineHandle extends Handle {
     let obj = new maptalks.LineString(item.mapInfo, this.handleStyle()).addTo(this.layer)
     if (this.layerName !== 'defaultVillage' && this.layerName !== 'default') {
       this.blindEvent(obj, item, this.map)
-
     }
   }
 }

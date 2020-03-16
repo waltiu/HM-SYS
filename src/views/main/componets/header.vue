@@ -29,7 +29,7 @@ export default {
     }
   },
   components: {
-    user,
+    user
 
   },
 
@@ -57,7 +57,6 @@ export default {
     this.useInfo = JSON.parse(sessionStorage.getItem('useInfo'))
     window.addEventListener('setItem', () => {
       this.useInfo = JSON.parse(sessionStorage.getItem('useInfo'))
-
     })
   }
 

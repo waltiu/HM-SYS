@@ -1,39 +1,44 @@
 <template>
   <div>
     <add :addInfo="addInfo" :type="type" @reload="reload"></add>
-    <delete-info
-      :deleteInfo="deleteInfo"
-      :type="type"
-      @reload="reload"
-    ></delete-info>
+    <delete-info :deleteInfo="deleteInfo" :type="type" @reload="reload"></delete-info>
+    <readd :addInfo="readdInfo" :type="type" @reload="reload"></readd>
   </div>
 </template>
 
 <script>
 import deleteInfo from "./delete";
 import add from "./add";
+import readd from './readd'
 export default {
   name: "curlIndex",
   components: {
     add,
-    deleteInfo
+    deleteInfo,
+    readd
   },
   props: {
     curlType: String,
     info: Array,
     type: String
   },
-  data() {
+  data () {
     return {
       deleteInfo: null,
-      addInfo: null
+      addInfo: null,
+      readdInfo: null
     };
   },
   watch: {
     curlType: {
-      handler: function(newVal) {
+      handler: function (newVal) {
         if (newVal) {
-          if (newVal === "add") {
+          console.log(newVal, this.type)
+          if (newVal === 'add' && this.type === 'house') {
+            this.readdInfo = {};
+
+          }
+          else if (newVal === "add") {
             this.addInfo = {};
           } else if (newVal === "delete") {
             this.deleteInfo = this.info || null;
@@ -44,7 +49,7 @@ export default {
     }
   },
   methods: {
-    reload() {
+    reload () {
       this.$emit("reload");
     }
   }

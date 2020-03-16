@@ -268,7 +268,7 @@ const config = {
       tf: false
     },
     editAble: {
-      tf: true,
+      tf: false,
       type: 'false'
     }
   }
