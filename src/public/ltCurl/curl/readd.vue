@@ -23,7 +23,7 @@
 <script>
 import selectPoint from '../../map/selectPoint/index'
 export default {
-  name: "add",
+  name: 'add',
   components: {
     selectPoint
   },
@@ -34,7 +34,7 @@ export default {
         mapInfo: {}
       },
       active: 0
-    };
+    }
   },
   props: {
     addInfo: Object,
@@ -43,9 +43,9 @@ export default {
   watch: {
     addInfo: function (newVal) {
       if (newVal) {
-        this.dialogVisible = true;
+        this.dialogVisible = true
       }
-    },
+    }
 
   },
   computed: {
@@ -67,27 +67,24 @@ export default {
   methods: {
     submit () {
       this.$http.post(`/api/source/${this.type}Save`, this.formData).then(res => {
-
         if (res.data.status === 200) {
-          this.dialogVisible = false;
-          this.$emit("reload");
+          this.dialogVisible = false
+          this.$emit('reload')
 
           this.$message({
-            type: "success",
+            type: 'success',
             message: `${this.formData.name}增加成功！!`
-          });
+          })
         } else {
-
           this.$message({
-            type: "warn",
-            message: "添加失败，请修改名称!"
-          });
+            type: 'warn',
+            message: '添加失败，请修改名称!'
+          })
         }
       })
-
     },
     next () {
-      if (this.active++ > 2) this.active = 0;
+      if (this.active++ > 2) this.active = 0
     },
     foward () {
       this.active--
@@ -99,12 +96,12 @@ export default {
       }
     },
     close () {
-      this.$emit("reload");
+      this.$emit('reload')
       this.formData = {}
     }
-  },
+  }
 
-};
+}
 </script>
 
 <style scoped>

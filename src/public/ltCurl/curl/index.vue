@@ -7,11 +7,11 @@
 </template>
 
 <script>
-import deleteInfo from "./delete";
-import add from "./add";
+import deleteInfo from './delete'
+import add from './add'
 import readd from './readd'
 export default {
-  name: "curlIndex",
+  name: 'curlIndex',
   components: {
     add,
     deleteInfo,
@@ -27,7 +27,7 @@ export default {
       deleteInfo: null,
       addInfo: null,
       readdInfo: null
-    };
+    }
   },
   watch: {
     curlType: {
@@ -35,13 +35,11 @@ export default {
         if (newVal) {
           console.log(newVal, this.type)
           if (newVal === 'add' && this.type === 'house') {
-            this.readdInfo = {};
-
-          }
-          else if (newVal === "add") {
-            this.addInfo = {};
-          } else if (newVal === "delete") {
-            this.deleteInfo = this.info || null;
+            this.readdInfo = {}
+          } else if (newVal === 'add') {
+            this.addInfo = {}
+          } else if (newVal === 'delete') {
+            this.deleteInfo = this.info || null
           }
         }
       },
@@ -50,10 +48,10 @@ export default {
   },
   methods: {
     reload () {
-      this.$emit("reload");
+      this.$emit('reload')
     }
   }
-};
+}
 </script>
 
 <style></style>
