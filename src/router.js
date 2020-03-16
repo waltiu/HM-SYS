@@ -15,6 +15,7 @@ import analysis from './views/Analysis'
 import compare from './views/compare'
 import oauth from './views/oauth'
 import user from './views/user'
+import houseDetail from './views/house/detail/info'
 
 Vue.use(Router)
 
@@ -36,6 +37,11 @@ const router = new Router({
       path: '/oauth',
       name: 'oauth',
       component: oauth
+    },
+    {
+      path: '/detail/:id',
+      name: 'detail',
+      component: houseDetail
     },
     {
       path: '/main',
@@ -62,6 +68,7 @@ const router = new Router({
           name: 'house',
           component: house
         },
+
         {
           path: '/Intermediary',
           name: 'Intermediary',

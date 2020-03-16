@@ -11,22 +11,30 @@ const config = {
       tf: true
     },
     mapSearchAble: {
-      tf: true,
+      tf: true
     },
+    editAble: {
+      tf: true,
+      type: 'input'
+    }
   },
   district: {
     key: 'district',
     title: '大区',
     width: 30,
     searchAble: {
-      tf: false,
+      tf: false
     },
     tableShow: {
       tf: true
     },
     mapSearchAble: {
-      tf: false,
+      tf: false
     },
+    editAble: {
+      tf: true,
+      type: 'input'
+    }
   },
   village: {
     key: 'village',
@@ -40,8 +48,12 @@ const config = {
       tf: true
     },
     mapSearchAble: {
-      tf: true,
+      tf: true
     },
+    editAble: {
+      tf: true,
+      type: 'input'
+    }
   },
   saleType: {
     key: 'saleType',
@@ -56,8 +68,12 @@ const config = {
       tf: true
     },
     mapSearchAble: {
-      tf: true,
+      tf: true
     },
+    editAble: {
+      tf: true,
+      type: 'input'
+    }
   },
   price: {
     key: 'price',
@@ -75,8 +91,12 @@ const config = {
       tf: true
     },
     mapSearchAble: {
-      tf: false,
+      tf: false
     },
+    editAble: {
+      tf: true,
+      type: 'input'
+    }
   },
   houseType: {
     key: 'houseType',
@@ -91,8 +111,12 @@ const config = {
       tf: true
     },
     mapSearchAble: {
-      tf: true,
+      tf: true
     },
+    editAble: {
+      tf: true,
+      type: 'input'
+    }
   },
   area: {
     key: 'area',
@@ -107,8 +131,12 @@ const config = {
       tf: true
     },
     mapSearchAble: {
-      tf: false,
+      tf: false
     },
+    editAble: {
+      tf: true,
+      type: 'input'
+    }
   },
   level: {
     key: 'level',
@@ -123,22 +151,30 @@ const config = {
       tf: false
     },
     mapSearchAble: {
-      tf: false,
+      tf: false
     },
+    editAble: {
+      tf: true,
+      type: 'input'
+    }
   },
   levelDetail: {
     key: 'levelDetail',
     title: '楼层',
     width: 90,
     searchAble: {
-      tf: false,
+      tf: false
     },
     tableShow: {
       tf: false
     },
     mapSearchAble: {
-      tf: false,
+      tf: false
     },
+    editAble: {
+      tf: true,
+      type: 'input'
+    }
   },
   face: {
     key: 'face',
@@ -153,8 +189,12 @@ const config = {
       tf: false
     },
     mapSearchAble: {
-      tf: false,
+      tf: false
     },
+    editAble: {
+      tf: true,
+      type: 'input'
+    }
   },
   feature: {
     key: 'feature',
@@ -169,8 +209,12 @@ const config = {
       tf: false
     },
     mapSearchAble: {
-      tf: false,
+      tf: false
     },
+    editAble: {
+      tf: true,
+      type: 'input'
+    }
   },
   Intermediary: {
     key: 'Intermediary',
@@ -185,8 +229,12 @@ const config = {
       tf: false
     },
     mapSearchAble: {
-      tf: true,
+      tf: true
     },
+    editAble: {
+      tf: true,
+      type: 'input'
+    }
   },
 
   address: {
@@ -194,14 +242,18 @@ const config = {
     title: '详细地址',
     width: 80,
     searchAble: {
-      tf: false,
+      tf: false
     },
     tableShow: {
       tf: true
     },
     mapSearchAble: {
-      tf: false,
+      tf: false
     },
+    editAble: {
+      tf: true,
+      type: 'input'
+    }
   },
   operations: {
     key: 'operations',
@@ -213,8 +265,12 @@ const config = {
       tf: true
     },
     mapSearchAble: {
-      tf: false,
+      tf: false
     },
+    editAble: {
+      tf: true,
+      type: 'false'
+    }
   }
 
 }
