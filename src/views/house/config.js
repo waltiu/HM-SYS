@@ -1,7 +1,7 @@
 const config = {
   name: {
     key: 'name',
-    title: '名称',
+    title: '简介',
     width: 200,
     searchAble: {
       tf: true,
@@ -33,7 +33,9 @@ const config = {
     },
     editAble: {
       tf: true,
-      type: 'input'
+      type: 'select',
+      values: ['铁西区', '于洪区', '皇姑区']
+
     }
   },
   village: {
@@ -52,7 +54,7 @@ const config = {
     },
     editAble: {
       tf: true,
-      type: 'input'
+      type: 'villageSelect'
     }
   },
   saleType: {
@@ -72,7 +74,9 @@ const config = {
     },
     editAble: {
       tf: true,
-      type: 'input'
+      type: 'select',
+      values: ['出租', '售卖']
+
     }
   },
   price: {
@@ -95,9 +99,33 @@ const config = {
     },
     editAble: {
       tf: true,
-      type: 'input'
+      type: 'priceInput',
+
     }
   },
+  // priceDetail: {
+  //   key: 'priceDetail',
+  //   title: '价格',
+  //   width: 110,
+  //   searchAble: {
+  //     tf: false,
+  //     type: 'singleSelect',
+  //   },
+  //   tableShow: {
+  //     tf: false
+  //   },
+  //   mapSearchAble: {
+  //     tf: false
+  //   },
+  //   editAble: {
+  //     tf: false,
+  //     type: 'priceInput',
+  //     values: {
+  //       total: ['50万', '50-70万', '70-90万', '90-110万', '110-130万', '130-150万', '150-200万', '200-300万', '300万以上'],
+  //       hire: ['0—800元/月', '800—900元/月', '900—1000元/月', '1000—1100元/月', '1100—1200元/月', '1200—1300元/月', '1400—1500元/月', '1500—2000元/月', '2000-10000元/月']
+  //     }
+  //   }
+  // },
   houseType: {
     key: 'houseType',
     title: '户型',
@@ -115,7 +143,9 @@ const config = {
     },
     editAble: {
       tf: true,
-      type: 'input'
+      type: 'select',
+      values: ['一室', '二室', '三室', '四室']
+
     }
   },
   area: {
@@ -135,7 +165,30 @@ const config = {
     },
     editAble: {
       tf: true,
-      type: 'input'
+      type: 'areaInput',
+
+    }
+  },
+  areaDetail: {
+    key: 'areaDetail',
+    title: '房屋面积',
+    width: 110,
+    searchAble: {
+      tf: false,
+      type: 'singleSelect',
+      values: ['一室', '二室', '三室', '四室']
+    },
+    tableShow: {
+      tf: false
+    },
+    mapSearchAble: {
+      tf: false
+    },
+    editAble: {
+      tf: false,
+      type: 'input',
+      values: ['一室', '二室', '三室', '四室']
+
     }
   },
   level: {
@@ -148,13 +201,13 @@ const config = {
       values: ['高层', '低层', '别墅']
     },
     tableShow: {
-      tf: false
+      tf: true
     },
     mapSearchAble: {
       tf: false
     },
     editAble: {
-      tf: true,
+      tf: false,
       type: 'input'
     }
   },
@@ -173,7 +226,9 @@ const config = {
     },
     editAble: {
       tf: true,
-      type: 'input'
+      type: 'twiceInput',
+      values: ['高层', '低层', '别墅']
+
     }
   },
   face: {
@@ -183,7 +238,68 @@ const config = {
     searchAble: {
       tf: false,
       type: 'select',
-      values: ['高层', '低层', '别墅']
+      values: ['朝南', '向西', '东北']
+    },
+    tableShow: {
+      tf: false
+    },
+    mapSearchAble: {
+      tf: false
+    },
+    editAble: {
+      tf: true,
+      type: 'select',
+      values: ['朝南', '向西', '东北']
+
+    }
+  },
+
+  Intermediary: {
+    key: 'Intermediary',
+    title: '中介',
+    width: 100,
+    searchAble: {
+      tf: true,
+      type: 'singleSelect',
+      values: ['中介1', '中介2', '中介3', '个人房源']
+    },
+    tableShow: {
+      tf: true
+    },
+    mapSearchAble: {
+      tf: true
+    },
+    editAble: {
+      tf: true,
+      type: 'select',
+      values: ['中介1', '中介2', '中介3', '个人房源']
+
+    }
+  },
+  houseNumber: {
+    key: 'houseNumber',
+    title: '楼号',
+    width: 80,
+    searchAble: {
+      tf: false
+    },
+    tableShow: {
+      tf: false
+    },
+    mapSearchAble: {
+      tf: false
+    },
+    editAble: {
+      tf: true,
+      type: 'input'
+    }
+  },
+  address: {
+    key: 'address',
+    title: '补充信息',
+    width: 80,
+    searchAble: {
+      tf: false
     },
     tableShow: {
       tf: false
@@ -198,12 +314,12 @@ const config = {
   },
   feature: {
     key: 'feature',
-    title: '特色',
+    title: '房屋特色',
     width: 80,
     searchAble: {
       tf: true,
       type: 'select',
-      values: ['近地铁', '赠车位', '临地铁', '精装房', '超低价', '周边设施全', '拎包入住', '采光好', '超低价', '急出售', '带阳台']
+      values: ['近地铁', '赠车位', '临地铁', '精装房', '超低价', '周边设施全', '拎包入住', '采光好', , '急出售', '带阳台']
     },
     tableShow: {
       tf: false
@@ -213,46 +329,9 @@ const config = {
     },
     editAble: {
       tf: true,
-      type: 'input'
-    }
-  },
-  Intermediary: {
-    key: 'Intermediary',
-    title: '寄售中介',
-    width: 80,
-    searchAble: {
-      tf: true,
-      type: 'singleSelect',
-      values: ['中介1', '中介2', '中介3']
-    },
-    tableShow: {
-      tf: false
-    },
-    mapSearchAble: {
-      tf: true
-    },
-    editAble: {
-      tf: true,
-      type: 'input'
-    }
-  },
+      type: 'checkBox',
+      values: ['近地铁', '赠车位', '临地铁', '精装房', '超低价', '周边设施全', '拎包入住', '采光好', '急出售', '带阳台']
 
-  address: {
-    key: 'address',
-    title: '详细地址',
-    width: 80,
-    searchAble: {
-      tf: false
-    },
-    tableShow: {
-      tf: true
-    },
-    mapSearchAble: {
-      tf: false
-    },
-    editAble: {
-      tf: true,
-      type: 'input'
     }
   },
   operations: {

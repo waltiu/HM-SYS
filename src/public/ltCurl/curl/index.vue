@@ -33,7 +33,6 @@ export default {
     curlType: {
       handler: function (newVal) {
         if (newVal) {
-          console.log(newVal, this.type)
           if (newVal === 'add' && this.type === 'house') {
             this.readdInfo = {}
           } else if (newVal === 'add') {

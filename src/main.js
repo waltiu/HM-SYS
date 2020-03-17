@@ -9,6 +9,7 @@ import 'vue2-animate/dist/vue2-animate.min.css'
 import './config/tableConfig/index'
 import './tools/http'
 import './tools/resetSession'
+import './tools/base64'
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 
