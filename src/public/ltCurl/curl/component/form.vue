@@ -63,8 +63,7 @@ export default {
         levelDetail: {
           type: '',
           info: ''
-        },
-
+        }
 
       },
       allConfig: {},
@@ -84,14 +83,11 @@ export default {
             this.tips = '元 / 月'
           } else {
             this.tips = '万 / 平'
-
           }
-
         }
         if (newVal.village) {
           info.mapInfo = this.villageInfo[newVal.village].mapCenter
           info.mapCenter = this.villageInfo[newVal.village].mapCenter
-
         }
         if (newVal.levelDetail.type) {
           info.level = newVal.levelDetail.type

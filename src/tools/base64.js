@@ -17,12 +17,11 @@ function getBase64 (file) {
   })
 }
 async function getFile (file) {
-
   let info = await getBase64(file).then(res => {
     return res
   })
   return info
 }
-Vue.prototype.$toBase64 = ((file, fileList) => {
+Vue.prototype.$toBase64 = (file, fileList) => {
   return getFile(file)
-})
+}

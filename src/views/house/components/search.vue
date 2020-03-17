@@ -83,7 +83,7 @@ export default {
         area: {
           from: null,
           to: null
-        },
+        }
       },
       unit: '售卖类型请选择！',
       priceInputDisable: true
@@ -95,7 +95,6 @@ export default {
   watch: {
     'searchData.saleType': {
       handler: function (newVal) {
-
         if (newVal) {
           this.priceInputDisable = false
           if (newVal === '售卖') {
@@ -104,24 +103,22 @@ export default {
             this.unit = '元/月'
           }
         }
-
       },
-      deep: true,
+      deep: true
     }
   },
   methods: {
     search () {
+      let info = { ...this.searchData }
       if (this.searchData.price.from === null || this.searchData.price.to === null && this.searchData.price) {
-        delete this.searchData.price
+        delete info.price
       }
       if (this.searchData.area.from === null || this.searchData.area.to === null && this.searchData.area) {
-        delete this.searchData.area
+        delete info.area
       }
-      this.$emit('search', this.searchData)
+      this.$emit('search', info)
     },
     reset (formName) {
-
-      this.$refs[formName].resetFields()
       this.searchData = {
         price: {
           from: null,
@@ -130,7 +127,7 @@ export default {
         area: {
           from: null,
           to: null
-        },
+        }
       }
       this.$emit('search', {})
     }

@@ -66,7 +66,7 @@ export default {
         {
           title: '其他',
           key: 'other'
-        },
+        }
       ],
       indexKey: 'main'
     }
@@ -74,7 +74,6 @@ export default {
   methods: {
 
     change (index) {
-
       this.indexKey = this.infoConfig[index].key
     },
     success (info) {
@@ -87,9 +86,7 @@ export default {
         this.fileList[this.indexKey] = []
         this.fileList[this.indexKey].push(list)
         this.$emit('getInfo', this.formData)
-
       })
-
     }
   }
 }

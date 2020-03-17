@@ -72,7 +72,6 @@ export default {
   },
   computed: {
     tableConfig: function () {
-
       return Object.values(this.$tableConfig[this.type])
         .filter(item => {
           return item.editAble.tf

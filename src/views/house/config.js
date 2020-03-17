@@ -99,7 +99,7 @@ const config = {
     },
     editAble: {
       tf: true,
-      type: 'priceInput',
+      type: 'priceInput'
 
     }
   },
@@ -165,7 +165,7 @@ const config = {
     },
     editAble: {
       tf: true,
-      type: 'areaInput',
+      type: 'areaInput'
 
     }
   },

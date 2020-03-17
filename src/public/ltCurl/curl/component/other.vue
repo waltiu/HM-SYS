@@ -29,7 +29,7 @@ export default {
         let iconList = []
         newVal.map(item => {
           iconList.push({
-            mapInfo: item,
+            mapInfo: item
           })
         })
         if (iconList.length > 0) {
@@ -66,7 +66,6 @@ export default {
               e.coordinate.x,
               e.coordinate.y
             ])
-
           }
         })
       })

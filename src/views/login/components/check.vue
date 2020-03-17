@@ -38,14 +38,15 @@ export default {
       window.clearInterval(this.timer)
     },
     blur () {
-      if (this.emitCheckData === this.checkData) {
-        this.$emit('checkNumber', true)
-      } else {
-        this.emitCheckData = ''
-        this.$message({
-          message: '验证码错误,请重新输入!',
-          type: 'error'
-        })
+      if (this.emitCheckData.length === 4) {
+        if (this.emitCheckData === this.checkData) {
+          this.$emit('checkNumber', true)
+        } else {
+          this.$message({
+            message: '验证码错误,请重新输入!',
+            type: 'error'
+          })
+        }
       }
     },
     lineX () {
