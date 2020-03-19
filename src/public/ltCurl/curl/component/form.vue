@@ -43,6 +43,25 @@
           </el-select>
           <el-input v-model="formData.levelDetail.info" placeholder style="width:100px"></el-input>
         </div>
+        <div v-else-if="item.type==='sourceSelect'">
+          <el-select
+            v-model="formData.sourceDetail.Intermediary"
+            placeholder
+            clearable
+            style="width:100px"
+          >
+            <el-option v-for="(item,index) of item.values" :key="index" :value="item"></el-option>
+          </el-select>
+          <el-input v-model="formData.sourceDetail.info" placeholder="联系方式" style="width:100px"></el-input>
+        </div>
+        <div v-else-if="item.type==='typeSelect'">
+          <el-select v-model="formData.layout.room" placeholder clearable style="width:100px">
+            <el-option v-for="(item,index) of item.values.Room" :key="index" :value="item"></el-option>
+          </el-select>
+          <el-select v-model="formData.layout.hall" placeholder clearable style="width:100px">
+            <el-option v-for="(item,index) of item.values.Hall" :key="index" :value="item"></el-option>
+          </el-select>
+        </div>
       </el-form-item>
     </el-form>
   </div>
@@ -63,6 +82,14 @@ export default {
         levelDetail: {
           type: '',
           info: ''
+        },
+        sourceDetail: {
+          Intermediary: '',
+          info: ''
+        },
+        layout: {
+          room: '',
+          hall: ""
         }
 
       },
@@ -91,6 +118,13 @@ export default {
         }
         if (newVal.levelDetail.type) {
           info.level = newVal.levelDetail.type
+        }
+        if (newVal.sourceDetail.Intermediary) {
+          info.Intermediary = newVal.sourceDetail.Intermediary
+        }
+        if (newVal.sourceDetail.info) {
+          info.tel = newVal.sourceDetail.info
+
         }
         this.$emit('getInfo', info)
       },

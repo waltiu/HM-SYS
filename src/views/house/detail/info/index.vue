@@ -1,8 +1,5 @@
 <template>
-  <div>
-    {{
-    info}}
-  </div>
+  <div></div>
 </template>
 
 <script>
@@ -14,9 +11,9 @@ export default {
     }
   },
   mounted () {
-    this.$http.get('/api/source/houseSearch', { params: {
-      _id: this.$route.params.id
-    } }).then(res => {
+    this.$http.get('/api/source/houseSearch', {      params: {
+        _id: this.$route.params.id
+      }    }).then(res => {
       this.info = res.data.data[0]
     })
   }

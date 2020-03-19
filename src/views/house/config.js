@@ -23,7 +23,9 @@ const config = {
     title: '大区',
     width: 30,
     searchAble: {
-      tf: false
+      tf: true,
+      type: 'select',
+      values: ['铁西区', '于洪区', '皇姑区']
     },
     tableShow: {
       tf: true
@@ -38,25 +40,7 @@ const config = {
 
     }
   },
-  village: {
-    key: 'village',
-    title: '园区',
-    width: 100,
-    searchAble: {
-      tf: true,
-      type: 'input'
-    },
-    tableShow: {
-      tf: true
-    },
-    mapSearchAble: {
-      tf: true
-    },
-    editAble: {
-      tf: true,
-      type: 'villageSelect'
-    }
-  },
+
   saleType: {
     key: 'saleType',
     title: '售卖类型',
@@ -77,6 +61,25 @@ const config = {
       type: 'select',
       values: ['出租', '售卖']
 
+    }
+  },
+  village: {
+    key: 'village',
+    title: '园区',
+    width: 100,
+    searchAble: {
+      tf: true,
+      type: 'input'
+    },
+    tableShow: {
+      tf: true
+    },
+    mapSearchAble: {
+      tf: true
+    },
+    editAble: {
+      tf: true,
+      type: 'villageSelect'
     }
   },
   price: {
@@ -126,14 +129,16 @@ const config = {
   //     }
   //   }
   // },
-  houseType: {
-    key: 'houseType',
+  layout: {
+    key: 'layout',
     title: '户型',
     width: 110,
     searchAble: {
-      tf: true,
+      tf: false,
       type: 'singleSelect',
-      values: ['一室', '二室', '三室', '四室']
+      valuesRoom: ['一室', '二室', '三室', '四室'],
+      valuesHall: ['一厅', '二厅', '三厅', '四厅']
+
     },
     tableShow: {
       tf: true
@@ -143,8 +148,11 @@ const config = {
     },
     editAble: {
       tf: true,
-      type: 'select',
-      values: ['一室', '二室', '三室', '四室']
+      type: 'typeSelect',
+      values: {
+        Room: ['一室', '二室', '三室', '四室'],
+        Hall: ['一厅', '二厅', '三厅', '四厅']
+      }
 
     }
   },
@@ -270,8 +278,30 @@ const config = {
       tf: true
     },
     editAble: {
-      tf: true,
+      tf: false,
       type: 'select',
+      values: ['中介1', '中介2', '中介3', '个人房源']
+
+    }
+  },
+  source: {
+    key: 'source',
+    title: '来源',
+    width: 100,
+    searchAble: {
+      tf: false,
+      type: 'singleSelect',
+      values: ['中介1', '中介2', '中介3', '个人房源']
+    },
+    tableShow: {
+      tf: false
+    },
+    mapSearchAble: {
+      tf: false
+    },
+    editAble: {
+      tf: true,
+      type: 'sourceSelect',
       values: ['中介1', '中介2', '中介3', '个人房源']
 
     }
