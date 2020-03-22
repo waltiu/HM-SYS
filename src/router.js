@@ -15,7 +15,7 @@ import analysis from './views/Analysis'
 import compare from './views/compare'
 import oauth from './views/oauth'
 import user from './views/user'
-import houseDetail from './views/house/detail/info'
+import houseDetail from './views/house/detail/info/index.vue'
 
 Vue.use(Router)
 
