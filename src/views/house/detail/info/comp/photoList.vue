@@ -23,7 +23,6 @@ export default {
   },
   mounted () {
     this.photoTitle = photoTitle
-
   }
 }
 </script>

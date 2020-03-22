@@ -1,20 +1,20 @@
 export const photoTitle = {
   main: {
-    title: '封面',
+    title: '封面'
   },
   Bedroom: {
-    title: '卧室',
+    title: '卧室'
   },
   Kitchen: {
-    title: '厨房',
+    title: '厨房'
   },
   saloon: {
-    title: '客厅',
+    title: '客厅'
   },
   Toilet: {
-    title: '卫生间',
+    title: '卫生间'
   },
   other: {
-    title: '其他',
+    title: '其他'
   }
 }

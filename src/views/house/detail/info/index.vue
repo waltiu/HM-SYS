@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <el-card class="headerCard">
+  <div class="headerCard">
+    <el-card>
       <div style="padding:15px">
         <p style="fontSize:22px">{{info.name}}</p>
         <P style="color: #9399a5;">房源登记时间：{{info.time}}</P>
@@ -26,6 +26,8 @@
         </div>
       </div>
     </el-card>
+    <house-info :info="info" style="marginTop:50PX"></house-info>
+    <extend-info></extend-info>
   </div>
 </template>
 
@@ -33,16 +35,20 @@
 import { photoTitle } from './index'
 import photoList from './comp/photoList'
 import baseInfo from './comp/baseInfo'
+import houseInfo from './comp/houseInfo'
+import extendInfo from './comp/extednInfo'
 export default {
   name: 'detailInfo',
   data () {
     return {
-      info: '',
+      info: ''
     }
   },
   components: {
     photoList,
-    baseInfo
+    baseInfo,
+    houseInfo,
+    extendInfo
   },
   mounted () {
     this.$http.get('/api/source/houseSearch', {      params: {
@@ -65,9 +71,9 @@ export default {
   display: flex;
 }
 .warnTip {
-  position: absolute;
+  position: relative;
   color: brown;
-  right: 140px;
-  top: 80px;
+  left: 1000px;
+  top: 10px;
 }
 </style>

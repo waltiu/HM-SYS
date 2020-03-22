@@ -21,5 +21,4 @@ new Vue({
 var preD = function (e) {
   e.preventDefault()
 }
-document.body.style.overflow = 'hidden'
 document.addEventListener('touchmove', preD, { passive: false })

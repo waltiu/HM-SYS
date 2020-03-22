@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="item">
     <el-container>
       <el-container>
         <el-aside style="width:15%" class="aside">
@@ -45,7 +45,7 @@
               <header-info></header-info>
             </div>
           </el-header>
-          <div>
+          <div class="item">
             <router-view></router-view>
           </div>
         </el-main>
@@ -115,6 +115,10 @@ export default {
 </script>
 
 <style scoped>
+.item {
+  height: 100vh;
+  overflow: hidden;
+}
 .barLeft {
   float: left;
   background: #464c5b;
