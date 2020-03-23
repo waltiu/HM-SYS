@@ -10,10 +10,10 @@
         &nbsp;&nbsp;
         <span class="el-icon-star-off">关注</span>
       </div>
-      <div>
-        <span class="feature">{{info.feature[0]}}</span>
-        <span class="feature">{{info.feature[1]}}</span>
-        <span class="feature">{{info.feature[2]}}</span>
+      <div v-if="info.feature">
+        <span class="feature">{{info.feature[0]||'无'}}</span>
+        <span class="feature">{{info.feature[1]||'无'}}</span>
+        <span class="feature">{{info.feature[2]||'无'}}</span>
       </div>
     </div>
     <div>
@@ -22,17 +22,12 @@
         {{info.saleType}}
       </p>
       <p class="detailInfo">
-        <span class="detail">房屋类型：</span>
-        {{info.layout}}
+        <span class="detail">付款方式：</span>
+        {{info.payType}}
       </p>
       <p class="detailInfo">
-        <span class="detail">朝向楼层：</span>
-        {{info.face}}
-        &nbsp;&nbsp;
-        {{info.levelDetail.type
-        }}{{
-        info.levelDetail.info
-        }}层
+        <span class="detail">资源来源：</span>
+        {{info.Intermediary}}
       </p>
     </div>
     <div></div>
@@ -43,7 +38,7 @@
 export default {
   name: 'baseInfo',
   props: {
-    info: Object
+    info: [Object, String]
   },
   watch: {
     info: function (newVal) {

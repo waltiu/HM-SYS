@@ -3,17 +3,21 @@
     <P class="title1">房屋信息</P>
     <p class="title2" style="marginTop:10px">基本信息：</p>
     <div class="detail1">
-      <div v-for="item of baseConfig" :key="item" class="tips">{{item.title}}：{{item.values}}</div>
+      <div
+        v-for="(item,index) of baseConfig"
+        :key="index"
+        class="tips"
+      >{{item.title}}：{{info[item.key]||item.values}}</div>
     </div>
   </div>
 </template>
 
 <script>
-import { baseConfig, extendConfig } from './config'
+import { baseConfig, extendConfig } from './index'
 export default {
   name: 'houseInfo',
   props: {
-    info: Object
+    info: [Object, String]
   },
   data () {
     return {

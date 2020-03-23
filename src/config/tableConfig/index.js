@@ -7,5 +7,5 @@ files.keys().forEach(element => {
   const type = element.split('/')
   config[type[1]] = files(element).default
 })
-
+console.log(config)
 Vue.prototype.$tableConfig = config

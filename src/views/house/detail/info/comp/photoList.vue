@@ -14,7 +14,8 @@ import { photoTitle } from '../index.js'
 export default {
   name: 'photoList',
   props: {
-    info: Object
+    info: [Object, String]
+
   },
   data () {
     return {

@@ -27,7 +27,7 @@
       </div>
     </el-card>
     <house-info :info="info" style="marginTop:50PX"></house-info>
-    <extend-info></extend-info>
+    <extend-info :info="info"></extend-info>
   </div>
 </template>
 

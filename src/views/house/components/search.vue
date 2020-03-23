@@ -24,21 +24,11 @@
         </div>
         <div v-else-if="item.type==='inputAreaPrice'">
           <el-col :span="11">
-            <el-input
-              v-model="searchData[item.key].from"
-              style="width: 110px;"
-              :placeholder="unit "
-              :disabled="priceInputDisable"
-            ></el-input>
+            <el-input v-model="searchData[item.key].from" style="width: 110px;" placeholder="元/月"></el-input>
           </el-col>
           <el-col :span="2">——&nbsp;</el-col>
           <el-col :span="10">
-            <el-input
-              v-model="searchData[item.key].to"
-              style="width: 105px;"
-              :placeholder="unit"
-              :disabled="priceInputDisable"
-            ></el-input>
+            <el-input v-model="searchData[item.key].to" style="width: 105px;" placeholder="元/月"></el-input>
           </el-col>
         </div>
         <div v-else-if="item.type==='inputAreaArea'">

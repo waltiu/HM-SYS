@@ -18,8 +18,8 @@
     "vue-resource": "^1.5.1",
     "vue-router": "^3.0.3",
     "vue2-animate": "^2.1.0",
-    "vuex": "^3.1.1"
-    
+    "vuex": "^3.1.1",
+    "topoflow": "git+https://github.com/Deantsui/topoflow.git"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.10.0",

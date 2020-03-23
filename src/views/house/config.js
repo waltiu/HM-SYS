@@ -43,12 +43,12 @@ const config = {
 
   saleType: {
     key: 'saleType',
-    title: '售卖类型',
+    title: '租赁方式',
     width: 50,
     searchAble: {
       tf: true,
       type: 'singleSelect',
-      values: ['出租', '售卖']
+      values: ['整租', '合租']
     },
     tableShow: {
       tf: true
@@ -59,7 +59,7 @@ const config = {
     editAble: {
       tf: true,
       type: 'select',
-      values: ['出租', '售卖']
+      values: ['整租', '合租']
 
     }
   },
@@ -89,10 +89,7 @@ const config = {
     searchAble: {
       tf: true,
       type: 'inputAreaPrice',
-      values: {
-        total: ['50万', '50-70万', '70-90万', '90-110万', '110-130万', '130-150万', '150-200万', '200-300万', '300万以上'],
-        hire: ['0—800元/月', '800—900元/月', '900—1000元/月', '1000—1100元/月', '1100—1200元/月', '1200—1300元/月', '1400—1500元/月', '1500—2000元/月', '2000-10000元/月']
-      }
+
     },
     tableShow: {
       tf: true
@@ -102,7 +99,8 @@ const config = {
     },
     editAble: {
       tf: true,
-      type: 'priceInput'
+      type: 'input',
+      values: ['0—800元/月', '800—900元/月', '900—1000元/月', '1000—1100元/月', '1100—1200元/月', '1200—1300元/月', '1400—1500元/月', '1500—2000元/月', '2000-10000元/月']
 
     }
   },
@@ -204,7 +202,7 @@ const config = {
     title: '楼层',
     width: 80,
     searchAble: {
-      tf: true,
+      tf: false,
       type: 'singleSelect',
       values: ['高层', '低层', '别墅']
     },
@@ -236,6 +234,29 @@ const config = {
       tf: true,
       type: 'twiceInput',
       values: ['高层', '低层', '别墅']
+
+    }
+  },
+  payType: {
+    key: 'payType',
+    title: '付款',
+    width: 90,
+    searchAble: {
+      tf: true,
+      type: 'singleSelect',
+      values: ['压一付一', '压一付二', '压一付三']
+    },
+    tableShow: {
+      tf: false
+    },
+    mapSearchAble: {
+      tf: false
+    },
+    editAble: {
+      tf: true,
+      type: 'select',
+      values: ['压一付一', '压一付二', '压一付三']
+
 
     }
   },
@@ -306,24 +327,7 @@ const config = {
 
     }
   },
-  houseNumber: {
-    key: 'houseNumber',
-    title: '楼号',
-    width: 80,
-    searchAble: {
-      tf: false
-    },
-    tableShow: {
-      tf: false
-    },
-    mapSearchAble: {
-      tf: false
-    },
-    editAble: {
-      tf: true,
-      type: 'input'
-    }
-  },
+
   address: {
     key: 'address',
     title: '补充信息',
@@ -362,6 +366,24 @@ const config = {
       type: 'checkBox',
       values: ['近地铁', '赠车位', '临地铁', '精装房', '超低价', '周边设施全', '拎包入住', '采光好', '急出售', '带阳台']
 
+    }
+  },
+  setInfo: {
+    key: 'setInfo',
+    title: '配套设置',
+    searchAble: {
+      tf: false
+    },
+    tableShow: {
+      tf: false
+    },
+    mapSearchAble: {
+      tf: false
+    },
+    editAble: {
+      tf: true,
+      type: 'checkBox',
+      values: ['洗衣机', '空调', '衣柜', '电视', '冰箱', '热水器', '床', '暖气', '宽带', '天然气']
     }
   },
   operations: {

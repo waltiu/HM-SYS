@@ -27,14 +27,8 @@
           </el-select>
         </div>
         <div v-else-if="item.type==='checkBox'">
-          <el-checkbox-group v-model="formData[item.key]" size="small">
-            <el-checkbox
-              v-for="(item,index) of item.values"
-              :key="index"
-              :label="item"
-              name="type"
-              length:10px
-            ></el-checkbox>
+          <el-checkbox-group v-model="formData[item.key]" size="small" length="10px">
+            <el-checkbox v-for="(item,index) of item.values" :key="index" :label="item" name="type"></el-checkbox>
           </el-checkbox-group>
         </div>
         <div v-else-if="item.type==='twiceInput'">
@@ -79,6 +73,8 @@ export default {
     return {
       formData: {
         feature: [],
+        setInfo: [],
+
         levelDetail: {
           type: '',
           info: ''
