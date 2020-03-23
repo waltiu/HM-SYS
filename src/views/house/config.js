@@ -88,7 +88,7 @@ const config = {
     width: 100,
     searchAble: {
       tf: true,
-      type: 'inputAreaPrice',
+      type: 'inputAreaPrice'
 
     },
     tableShow: {
@@ -256,7 +256,6 @@ const config = {
       tf: true,
       type: 'select',
       values: ['压一付一', '压一付二', '压一付三']
-
 
     }
   },

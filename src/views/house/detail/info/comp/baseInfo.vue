@@ -2,7 +2,7 @@
   <div>
     <div class="headerInfo">
       <div style="fontSize: 40px;color: #fa5741;">
-        <span>{{info.price}}</span>
+        <span>{{ info.price || "404" }}</span>
         <span style="fontSize:16px;padding:10px">元/月</span>
       </div>
       <div class="jump">
@@ -11,23 +11,26 @@
         <span class="el-icon-star-off">关注</span>
       </div>
       <div v-if="info.feature">
-        <span class="feature">{{info.feature[0]||'无'}}</span>
-        <span class="feature">{{info.feature[1]||'无'}}</span>
-        <span class="feature">{{info.feature[2]||'无'}}</span>
+        <span
+          class="feature"
+          v-for="(item, index) of info.feature"
+          :key="index"
+          >{{ item }}</span
+        >
       </div>
     </div>
     <div>
       <p class="detailInfo">
         <span class="detail">租赁方式：</span>
-        {{info.saleType}}
+        {{ info.saleType || "暂无数据" }}
       </p>
       <p class="detailInfo">
         <span class="detail">付款方式：</span>
-        {{info.payType}}
+        {{ info.payType || "暂无数据" }}
       </p>
       <p class="detailInfo">
         <span class="detail">资源来源：</span>
-        {{info.Intermediary}}
+        {{ info.Intermediary || "暂无数据" }}
       </p>
     </div>
     <div></div>
@@ -36,22 +39,23 @@
 
 <script>
 export default {
-  name: 'baseInfo',
+  name: "baseInfo",
   props: {
     info: [Object, String]
   },
   watch: {
-    info: function (newVal) {
-      console.log(newVal)
+    info: function(newVal) {
+      console.log(newVal);
     }
   }
-}
+};
 </script>
 
 <style scoped>
 .jump {
   position: relative;
   left: 350px;
+  top: -10px;
 }
 .headerInfo {
   padding-bottom: 10px;

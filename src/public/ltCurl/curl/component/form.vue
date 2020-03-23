@@ -85,7 +85,7 @@ export default {
         },
         layout: {
           room: '',
-          hall: ""
+          hall: ''
         }
 
       },
@@ -120,7 +120,6 @@ export default {
         }
         if (newVal.sourceDetail.info) {
           info.tel = newVal.sourceDetail.info
-
         }
         this.$emit('getInfo', info)
       },

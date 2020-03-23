@@ -83,7 +83,7 @@ export const baseConfig = [
     title: '电话',
     values: '暂无信息',
     key: 'tel'
-  },
+  }
 
 ]
 export const extendConfig =
@@ -134,5 +134,5 @@ export const extendConfig =
     title: '天然气',
     url: require('./image/96天然气.png')
 
-  },
+  }
 }

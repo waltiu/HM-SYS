@@ -24,11 +24,9 @@ export default {
     computedStyle (index) {
       if (this.info && this.info.setInfo.includes(index)) {
         return ''
-
       } else {
         console.log(2)
-        return "text-decoration:line-through;"
-
+        return 'text-decoration:line-through;'
       }
     }
   },
