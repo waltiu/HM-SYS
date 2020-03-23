@@ -35,19 +35,19 @@
 </template>
 
 <script>
-import { photoTitle } from "./index";
-import photoList from "./comp/photoList";
-import baseInfo from "./comp/baseInfo";
-import houseInfo from "./comp/houseInfo";
-import extendInfo from "./comp/extednInfo";
-import locationInfo from "./comp/map";
-import recommondInfo from "./comp/recommond";
+import { photoTitle } from './index'
+import photoList from './comp/photoList'
+import baseInfo from './comp/baseInfo'
+import houseInfo from './comp/houseInfo'
+import extendInfo from './comp/extednInfo'
+import locationInfo from './comp/map'
+import recommondInfo from './comp/recommond'
 export default {
-  name: "detailInfo",
-  data() {
+  name: 'detailInfo',
+  data () {
     return {
-      info: ""
-    };
+      info: ''
+    }
   },
   components: {
     photoList,
@@ -57,18 +57,18 @@ export default {
     locationInfo,
     recommondInfo
   },
-  mounted() {
+  mounted () {
     this.$http
-      .get("/api/source/houseSearch", {
+      .get('/api/source/houseSearch', {
         params: {
           _id: this.$route.params.id
         }
       })
       .then(res => {
-        this.info = res.data.data[0];
-      });
+        this.info = res.data.data[0]
+      })
   }
-};
+}
 </script>
 
 <style scoped>

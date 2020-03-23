@@ -33,18 +33,18 @@
   </div>
 </template>
 <script>
-import axios from "axios";
-import mapShow from "./map";
-import detail from "./detail";
-import search from "./components/search";
+import axios from 'axios'
+import mapShow from './map'
+import detail from './detail'
+import search from './components/search'
 export default {
-  name: "house",
+  name: 'house',
   components: {
     mapShow,
     detail,
     search
   },
-  data() {
+  data () {
     return {
       showData: [],
       page: {
@@ -52,30 +52,30 @@ export default {
         pageSize: 10
       },
       tableData: [],
-      query: "",
-      type: "house",
+      query: '',
+      type: 'house',
       colletedData: null,
       selectInfo: []
-    };
+    }
   },
   computed: {
-    tableConfig: function() {
+    tableConfig: function () {
       return Object.values(this.$tableConfig[this.type])
         .filter(item => {
-          return item.tableShow.tf;
+          return item.tableShow.tf
         })
         .map(item => {
           return {
             title: item.title,
             key: item.key,
             width: item.width
-          };
-        });
+          }
+        })
     },
-    searchConfig: function() {
+    searchConfig: function () {
       return Object.values(this.$tableConfig[this.type])
         .filter(item => {
-          return item.searchAble.tf;
+          return item.searchAble.tf
         })
         .map(item => {
           return {
@@ -83,32 +83,32 @@ export default {
             key: item.key,
             type: item.searchAble.type,
             values: item.searchAble.values
-          };
-        });
+          }
+        })
     }
   },
   methods: {
-    getTableList(info) {
-      this.$http.get("/api/source/houseSearch", { params: info }).then(res => {
-        this.tableData = res.data.data;
-      });
-      let name = { name: JSON.parse(sessionStorage.getItem("useInfo")).name };
-      this.$http.get("/api/users/userInfo", { params: name }).then(res => {
-        this.colletedData = res.data.collected;
-      });
+    getTableList (info) {
+      this.$http.get('/api/source/houseSearch', { params: info }).then(res => {
+        this.tableData = res.data.data
+      })
+      let name = { name: JSON.parse(sessionStorage.getItem('useInfo')).name }
+      this.$http.get('/api/users/userInfo', { params: name }).then(res => {
+        this.colletedData = res.data.collected
+      })
     },
-    getSelection(info) {
-      this.selectInfo = info;
+    getSelection (info) {
+      this.selectInfo = info
     },
-    clickInfo(info) {
-      console.log(info, 11);
+    clickInfo (info) {
+      console.log(info, 11)
     }
   },
-  mounted() {
-    this.getTableList(this.$store.state.query);
-    this.$store.commit("getQuery", {});
+  mounted () {
+    this.getTableList(this.$store.state.query)
+    this.$store.commit('getQuery', {})
   }
-};
+}
 </script>
 <style scoped>
 .operationList {

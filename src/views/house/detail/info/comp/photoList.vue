@@ -10,30 +10,30 @@
 </template>
 
 <script>
-import { photoTitle } from "../index.js";
+import { photoTitle } from '../index.js'
 export default {
-  name: "photoList",
+  name: 'photoList',
   props: {
     info: [Object, String]
   },
-  data() {
+  data () {
     return {
       photoTitle: {}
-    };
+    }
   },
   methods: {
-    computedSrc(item) {
+    computedSrc (item) {
       if (item) {
-        return item;
+        return item
       } else {
-        return require("./image/暂无数据.png");
+        return require('./image/暂无数据.png')
       }
     }
   },
-  mounted() {
-    this.photoTitle = photoTitle;
+  mounted () {
+    this.photoTitle = photoTitle
   }
-};
+}
 </script>
 
 <style scoped>

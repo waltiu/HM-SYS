@@ -34,15 +34,15 @@
   </div>
 </template>
 <script>
-import axios from "axios";
-import mapShow from "./map";
+import axios from 'axios'
+import mapShow from './map'
 
 export default {
-  name: "hospital",
+  name: 'hospital',
   components: {
     mapShow
   },
-  data() {
+  data () {
     return {
       showData: [],
       page: {
@@ -50,26 +50,26 @@ export default {
         pageSize: 10
       },
       tableData: [],
-      query: "",
-      type: "hospital",
+      query: '',
+      type: 'hospital',
       colletedData: null,
       selectInfo: []
-    };
+    }
   },
   computed: {
-    tableConfig: function() {
+    tableConfig: function () {
       return Object.values(this.$tableConfig[this.type]).map(item => {
         return {
           title: item.title,
           key: item.key,
           width: item.width
-        };
-      });
+        }
+      })
     },
-    searchConfig: function() {
+    searchConfig: function () {
       return Object.values(this.$tableConfig[this.type])
         .filter(item => {
-          return item.searchAble.tf;
+          return item.searchAble.tf
         })
         .map(item => {
           return {
@@ -77,34 +77,34 @@ export default {
             key: item.key,
             type: item.searchAble.type,
             values: item.searchAble.values
-          };
-        });
+          }
+        })
     }
   },
   methods: {
-    getTableList(info) {
+    getTableList (info) {
       this.$http
-        .get("/api/source/hospitalSearch", { params: info })
+        .get('/api/source/hospitalSearch', { params: info })
         .then(res => {
-          this.tableData = res.data.data;
-        });
-      let name = { name: JSON.parse(sessionStorage.getItem("useInfo")).name };
-      this.$http.get("/api/users/userInfo", { params: name }).then(res => {
-        this.colletedData = res.data.collected;
-      });
+          this.tableData = res.data.data
+        })
+      let name = { name: JSON.parse(sessionStorage.getItem('useInfo')).name }
+      this.$http.get('/api/users/userInfo', { params: name }).then(res => {
+        this.colletedData = res.data.collected
+      })
     },
-    clickInfo(info) {
-      console.log(info, 11);
+    clickInfo (info) {
+      console.log(info, 11)
     },
-    getSelection(info) {
-      this.selectInfo = info;
+    getSelection (info) {
+      this.selectInfo = info
     }
   },
-  mounted() {
-    this.getTableList(this.$store.state.query);
-    this.$store.commit("getQuery", {});
+  mounted () {
+    this.getTableList(this.$store.state.query)
+    this.$store.commit('getQuery', {})
   }
-};
+}
 </script>
 <style scoped>
 .operationList {

@@ -15,37 +15,37 @@
 
 <script>
 export default {
-  name: "recommondInfo",
-  data() {
+  name: 'recommondInfo',
+  data () {
     return {
-      recommendInfo: "",
+      recommendInfo: '',
       lengthInfo: 0
-    };
+    }
   },
   props: {
     info: [Object, String]
   },
   methods: {
-    computedSrc(item) {
+    computedSrc (item) {
       if (item.photoInfo && item.photoInfo.main) {
-        return item.photoInfo.main;
+        return item.photoInfo.main
       } else {
-        return require("./image/暂无数据.png");
+        return require('./image/暂无数据.png')
       }
     }
   },
   watch: {
-    info: function(newVal) {
+    info: function (newVal) {
       let query = {
         district: newVal.district
-      };
-      this.$http.get("/api/source/houseSearch", { params: query }).then(res => {
-        this.recommendInfo = res.data.data.slice(0, 3);
-        this.lengthInfo = this.recommendInfo.length;
-      });
+      }
+      this.$http.get('/api/source/houseSearch', { params: query }).then(res => {
+        this.recommendInfo = res.data.data.slice(0, 3)
+        this.lengthInfo = this.recommendInfo.length
+      })
     }
   }
-};
+}
 </script>
 
 <style scoped>

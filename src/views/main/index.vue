@@ -62,60 +62,60 @@
 </template>
 
 <script>
-import Router from "vue-router";
-import ltDialog from "../../public/ltDialog/mapDialog";
-import list from "./main.js";
-import headerInfo from "./componets/header";
-const originalPush = Router.prototype.push;
-Router.prototype.push = function push(location) {
-  return originalPush.call(this, location).catch(err => err);
-};
+import Router from 'vue-router'
+import ltDialog from '../../public/ltDialog/mapDialog'
+import list from './main.js'
+import headerInfo from './componets/header'
+const originalPush = Router.prototype.push
+Router.prototype.push = function push (location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 export default {
-  name: "mainShow",
+  name: 'mainShow',
   components: {
     ltDialog,
     headerInfo
   },
 
-  data() {
+  data () {
     return {
-      colum: "",
+      colum: '',
       isCollapse: false,
-      defaultOPen: "",
+      defaultOPen: '',
       key: [],
       columConfig: {},
       permission: {}
-    };
+    }
   },
   methods: {
-    selectTip(res) {}
+    selectTip (res) {}
   },
   watch: {
-    debug: function(newVal) {
+    debug: function (newVal) {
       if (newVal) {
-        this.$router.push("/error");
+        this.$router.push('/error')
       }
     }
   },
   computed: {
-    debug: function() {
-      return this.key.join("") === "litanshizhu";
+    debug: function () {
+      return this.key.join('') === 'litanshizhu'
     }
   },
-  mounted() {
-    this.columConfig = list;
-    if (sessionStorage.getItem("permission") === "admin") {
-      this.permission = this.columConfig.admin;
+  mounted () {
+    this.columConfig = list
+    if (sessionStorage.getItem('permission') === 'admin') {
+      this.permission = this.columConfig.admin
     } else {
-      this.permission = this.columConfig.visitors;
+      this.permission = this.columConfig.visitors
     }
-    this.defaultOPen = this.$route.path.slice(1);
-    document.addEventListener("keydown", () => {
-      const key = event.key;
-      this.key.push(key);
-    });
+    this.defaultOPen = this.$route.path.slice(1)
+    document.addEventListener('keydown', () => {
+      const key = event.key
+      this.key.push(key)
+    })
   }
-};
+}
 </script>
 
 <style scoped>

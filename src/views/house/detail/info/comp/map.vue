@@ -4,41 +4,41 @@
   </div>
 </template>
 <script>
-import "maptalks/dist/maptalks.css";
-import * as maptalks from "maptalks";
+import 'maptalks/dist/maptalks.css'
+import * as maptalks from 'maptalks'
 
 export default {
-  name: "maptalksMap",
-  data() {
+  name: 'maptalksMap',
+  data () {
     return {
       map: null
-    };
+    }
   },
   props: {
     info: [Object, String]
   },
   watch: {
-    info: function(newVal) {
-      let center = [newVal.mapCenter.lng, newVal.mapCenter.lat];
-      console.log(center);
-      this.map = new maptalks.Map("locationMap", {
+    info: function (newVal) {
+      let center = [newVal.mapCenter.lng, newVal.mapCenter.lat]
+      console.log(center)
+      this.map = new maptalks.Map('locationMap', {
         center: center,
         zoom: 18,
         minZoom: 8,
         maxZoom: 19,
-        baseLayer: new maptalks.TileLayer("base", {
+        baseLayer: new maptalks.TileLayer('base', {
           urlTemplate:
-            "http://online4.map.bdimg.com/tile/?qt=vtile&x={x}&y={y}&z={z}&styles=pl&scaler=300",
+            'http://online4.map.bdimg.com/tile/?qt=vtile&x={x}&y={y}&z={z}&styles=pl&scaler=300',
           spatialReference: {
-            projection: "baidu"
+            projection: 'baidu'
           },
-          attribution: "&copy; waltiu "
+          attribution: '&copy; waltiu '
         })
-      });
+      })
     }
   },
-  mounted() {}
-};
+  mounted () {}
+}
 </script>
 
 <style scoped>

@@ -39,16 +39,16 @@
 
 <script>
 export default {
-  name: "baseInfo",
+  name: 'baseInfo',
   props: {
     info: [Object, String]
   },
   watch: {
-    info: function(newVal) {
-      console.log(newVal);
+    info: function (newVal) {
+      console.log(newVal)
     }
   }
-};
+}
 </script>
 
 <style scoped>
