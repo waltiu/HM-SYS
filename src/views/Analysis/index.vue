@@ -87,5 +87,6 @@ export default {
 .contain {
   margin-top: 60px;
   display: flex;
+  height: 300px;
 }
 </style>

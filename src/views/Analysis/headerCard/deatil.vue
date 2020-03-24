@@ -20,6 +20,9 @@ export default {
       if (this.base < this.index) {
         this.base = this.base + this.step
       }
+      if (this.base > this.index) {
+        this.base = this.index
+      }
     }, 150)
   }
 }

@@ -27,40 +27,49 @@ export default {
   data () {
     return {
       i: '',
-      show: false,
       info: [
         {
-          title: '房屋资源总数量',
+          title: '客服',
           color: { background: 'rgb(25, 190, 107)' },
-          total: '81230',
-          icons: 'el-icon-s-data'
-        },
-        {
-          title: '客户总人数',
-          color: { background: 'rgb(255, 153, 0)' },
-          total: '11103',
-          icons: 'el-icon-star-on'
-        },
-        {
-          title: '在线客服人数',
-          color: { background: 'rgb(228, 108, 187)' },
-          total: '1016',
-          icons: 'el-icon-user'
-        },
-        {
-          title: '已成交订单数量',
-          color: { background: 'rgb(25, 190, 107)' },
-          total: '5230',
+          total: '2884804',
           icons: 'el-icon-s-data'
         }
       ]
     }
   },
   mounted () {
-    this.i = 0
-    setTimeout(() => {
-      this.show = true
-    }, 1500)
+    this.$http.get('/api/source/houseSearch').then(res => {
+      let houseTotal = res.data.data.length
+      this.info.push(
+        {
+          title: '房屋资源总数',
+          color: { background: 'rgb(25, 190, 107)' },
+          total: houseTotal,
+          icons: 'el-icon-s-data'
+        }
+      )
+    })
+    this.$http.get('/api/source/IntermediarySearch').then(res => {
+      let IntermediaryTotal = res.data.data.length
+      this.info.push({
+        title: '中介资源总数',
+        color: { background: 'rgb(255, 153, 0)' },
+        total: IntermediaryTotal,
+        icons: 'el-icon-star-on'
+      })
+    })
+    this.$http.get('/api/users/userList').then(res => {
+      let userTotal = res.data.data.length
+      this.info.push(
+        {
+          title: '总用户人数',
+          color: { background: 'rgb(228, 108, 187)' },
+          total: userTotal,
+          icons: 'el-icon-user'
+        }
+      )
+    })
+    console.log(this.info)
   }
 
 }
@@ -70,14 +79,11 @@ export default {
 .eCard {
   width: 19.6vw;
   margin-right: 1vw;
+  text-align: center;
 }
 #icons {
-  font-size: 110px;
-  text-align: center;
-  width: 20vw;
-  height: 20vh;
-  border-right: 1px solid;
-  color: aliceblue;
+  width: 20px;
+  height: 20px;
 }
 .text {
   width: 100%;
@@ -93,6 +99,7 @@ export default {
 }
 .allCard {
   display: flex;
+  height: 200px;
 }
 .loading {
   width: 80%;
