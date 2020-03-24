@@ -51,9 +51,9 @@ export default {
     this.char1Config = char1Config
     this.char3Config = char3Config
     char1Config.map(item => {
-      this.$http.get('/api/source/houseSearch', {        params: {
-          payType: item
-        }      }).then(res => {
+      this.$http.get('/api/source/houseSearch', { params: {
+        payType: item
+      } }).then(res => {
         this.sources1.data.push({
           value: res.data.data.length,
           name: item
@@ -61,9 +61,9 @@ export default {
       })
     })
     char3Config.map(item => {
-      this.$http.get('/api/source/houseSearch', {        params: {
-          district: item
-        }      }).then(res => {
+      this.$http.get('/api/source/houseSearch', { params: {
+        district: item
+      } }).then(res => {
         this.sources2.data.push({
           value: res.data.data.length,
           name: item

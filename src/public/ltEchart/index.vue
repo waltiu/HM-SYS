@@ -17,14 +17,15 @@ export default {
     setEchart () {
       const myChart = echarts.init(document.getElementById('echart'), theme)
       const option = {
-        title: {
-          text: '半年交易均价：'
-        },
+
         tooltip: {
           trigger: 'axis'
         },
         legend: {
-          data: ['买房', '租房', '新房']
+          data: [
+            '和平区', '沈河区', '皇姑区', '大东区', '铁西区', '东陵区', '于洪区', '沈北新区', '苏家屯区', '浑南新区'
+          ]
+
         },
         grid: {
           left: '3%',
@@ -41,22 +42,72 @@ export default {
         },
         series: [
           {
-            name: '买房',
+            name: '和平区',
             type: 'line',
             step: 'start',
-            data: [6000, 6100, 6500, 6800, 7000, 7200, 8000]
+            data: [1400, 1500, 1430, 1320, 1230, 1100, 1300]
           },
           {
-            name: '租房',
+            name: '沈河区',
             type: 'line',
             step: 'middle',
-            data: [700, 800, 100, 1100, 1200, 1300, 1400, 1500]
+            data: [1350, 1400, 1400, 1405, 1430, 1470, 1430, 1500]
           },
           {
-            name: '新房',
+            name: '皇姑区',
             type: 'line',
             step: 'end',
-            data: [7000, 8000, 9000, 9000, 8000, 8500, 9000]
+            data: [1400, 1300, 1530, 1520, 1530, 1500, 1600]
+
+          },
+          {
+            name: '大东区',
+            type: 'line',
+            step: 'end',
+            data: [1000, 1100, 1130, 1120, 1030, 1000, 1200]
+
+          },
+          {
+            name: '铁西区',
+            type: 'line',
+            step: 'end',
+            data: [1000, 1100, 1130, 1120, 1030, 1000, 1200]
+
+          },
+          {
+            name: '东陵区',
+            type: 'line',
+            step: 'end',
+            data: [1100, 1200, 1130, 1220, 1130, 1100, 1200]
+
+          },
+          {
+            name: '于洪区',
+            type: 'line',
+            step: 'end',
+            data: [1001, 1110, 1131, 1121, 1130, 1100, 1200]
+
+          },
+          {
+            name: '沈北新区',
+            type: 'line',
+            step: 'end',
+            data: [1010, 1100, 1230, 1320, 1130, 1200, 1100]
+
+          },
+          {
+            name: '苏家屯区',
+            type: 'line',
+            step: 'end',
+            data: [800, 900, 1130, 1100, 1020, 1100, 1100]
+
+          },
+          {
+            name: '浑南新区',
+            type: 'line',
+            step: 'end',
+            data: [900, 1000, 1030, 1020, 1130, 1100, 1000]
+
           }
         ]
       };

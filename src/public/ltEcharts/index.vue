@@ -22,7 +22,6 @@ export default {
     sources: {
       handler: function (newVal) {
         this.setEchart()
-
       },
       deep: true
     }
@@ -83,10 +82,8 @@ export default {
       myChart.on('click', function (res) {
         if (that.sources.type = 'payType') {
           store.commit('getQuery', { 'payType': res.name })
-
         } else {
           store.commit('getQuery', { 'district': res.name })
-
         }
 
         router.push('/house')
