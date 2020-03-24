@@ -5,8 +5,10 @@
     <div class="list">
       <div v-for="(item, index) of recommendInfo" :key="index" class="item">
         <el-card>
-          <img :src="computedSrc(item)" style="width:150px;height:150px" />
-          <p>{{ item.name }}</p>
+          <div @click="jumper(item)">
+            <img :src="computedSrc(item)" style="width:150px;height:150px" />
+            <p>{{ item.name }}</p>
+          </div>
         </el-card>
       </div>
     </div>
@@ -32,6 +34,13 @@ export default {
       } else {
         return require('./image/暂无数据.png')
       }
+    },
+    jumper (item) {
+      let routeUrl = this.$router.resolve({
+        path: `/detail/${item._id}`
+
+      })
+      window.open(routeUrl.href, '_blank')
     }
   },
   watch: {

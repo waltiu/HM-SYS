@@ -4,14 +4,15 @@
       <header-card></header-card>
     </div>
     <div class="contain">
-      <lt-echarts :style="styles" class="styles1" :sources="sources1"></lt-echarts>
-      <lt-echart :style="style" class="style"></lt-echart>
-      <lt-echarts :style="styles" class="styles2" :sources="sources2"></lt-echarts>
+      <lt-echarts :style="styles" :sources="sources1"></lt-echarts>
+      <lt-echart :style="style"></lt-echart>
+      <lt-echarts :style="styles" :sources="sources2"></lt-echarts>
     </div>
   </div>
 </template>
 <script>
 import headerCard from './headerCard'
+import { char1Config, char3Config } from './config'
 export default {
   name: 'echarts',
   components: {
@@ -29,34 +30,46 @@ export default {
         height: '300px'
       },
       sources1: {
-        data:
-          [
-            { value: 335, name: '短租' },
-            { value: 310, name: '合租' },
-            { value: 234, name: '整租' },
-            { value: 435, name: '买房' },
-            { value: 548, name: '卖房' }
-          ],
-        text: '房屋售卖分类',
+        data: [],
+        text: '房屋租金比例',
         position: 'left',
-        name: 'echarts1'
+        name: 'echarts1',
+        type: 'payType'
       },
       sources2: {
-        data:
-          [
-            { value: 335, name: '二手房' },
-            { value: 310, name: '新房' },
-            { value: 234, name: '清水房' },
-            { value: 435, name: '精装房' },
-            { value: 548, name: '地铁' },
-            { value: 548, name: '医院' },
-            { value: 548, name: '学区房' }
-          ],
-        text: '房屋资源分类',
+        data: [],
+        text: '房屋区域分布',
         position: 'right',
-        name: 'echarts2'
-      }
+        name: 'echarts2',
+        type: 'district'
+
+      },
+      type: ['payType', 'district']
     }
+  },
+  mounted () {
+    this.char1Config = char1Config
+    this.char3Config = char3Config
+    char1Config.map(item => {
+      this.$http.get('/api/source/houseSearch', {        params: {
+          payType: item
+        }      }).then(res => {
+        this.sources1.data.push({
+          value: res.data.data.length,
+          name: item
+        })
+      })
+    })
+    char3Config.map(item => {
+      this.$http.get('/api/source/houseSearch', {        params: {
+          district: item
+        }      }).then(res => {
+        this.sources2.data.push({
+          value: res.data.data.length,
+          name: item
+        })
+      })
+    })
   }
 }
 </script>
@@ -72,7 +85,7 @@ export default {
   left: 52vw;
 }
 .contain {
-  position: absolute;
   margin-top: 60px;
+  display: flex;
 }
 </style>

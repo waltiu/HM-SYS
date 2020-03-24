@@ -25,7 +25,9 @@ const config = {
     searchAble: {
       tf: true,
       type: 'select',
-      values: ['铁西区', '于洪区', '皇姑区']
+      values: [
+        '和平区', '沈河区', '皇姑区', '大东区', '铁西区', '东陵区', '于洪区', '沈北新区', '苏家屯区', '浑南新区'
+      ]
     },
     tableShow: {
       tf: true
@@ -36,7 +38,9 @@ const config = {
     editAble: {
       tf: true,
       type: 'select',
-      values: ['铁西区', '于洪区', '皇姑区']
+      values: [
+        '和平区', '沈河区', '皇姑区', '大东区', '铁西区', '东陵区', '于洪区', '沈北新区', '苏家屯区', '浑南新区'
+      ]
 
     }
   },

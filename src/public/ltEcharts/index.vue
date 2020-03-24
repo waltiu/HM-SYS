@@ -15,16 +15,19 @@ export default {
   },
   props: {
     Estyles: Object,
-    sources: Object
+    sources: Object,
+    type: String
   },
   watch: {
-    sources: function (newVal) {
-      console.log(newVal)
-      return newVal
+    sources: {
+      handler: function (newVal) {
+        this.setEchart()
+
+      },
+      deep: true
     }
   },
   mounted () {
-    this.setEchart()
     console.log(this.sources.name)
   },
   computed: {
@@ -37,6 +40,7 @@ export default {
   },
   methods: {
     setEchart () {
+      let that = this
       const myChart = echarts.init(document.getElementById(this.sources.name), theme)
       const option = {
         title: {
@@ -77,8 +81,15 @@ export default {
         myChart.resize()
       })
       myChart.on('click', function (res) {
-        store.commit('getQuery', res.name)
-        router.push('/source')
+        if (that.sources.type = 'payType') {
+          store.commit('getQuery', { 'payType': res.name })
+
+        } else {
+          store.commit('getQuery', { 'district': res.name })
+
+        }
+
+        router.push('/house')
       })
     }
   }
