@@ -11,12 +11,7 @@
         <span class="el-icon-star-off">关注</span>
       </div>
       <div v-if="info.feature">
-        <span
-          class="feature"
-          v-for="(item, index) of info.feature"
-          :key="index"
-          >{{ item }}</span
-        >
+        <span class="feature" v-for="(item, index) of info.feature" :key="index">{{ item }}</span>
       </div>
     </div>
     <div>
@@ -33,20 +28,81 @@
         {{ info.Intermediary || "暂无数据" }}
       </p>
     </div>
-    <div></div>
+    <el-card class="comment">
+      <el-collapse>
+        <el-collapse-item title="评论区" name="1">
+          <div class="info">
+            <div v-for="item of commenList.info" :key="item" style="width:140px">
+              <div class="content">
+                <p class="title">{{item.user}}：</p>
+                <p>{{item.info}}</p>
+              </div>
+
+              <p class="time">{{item.time}}</p>
+            </div>
+          </div>
+          <span>{{new Date().toLocaleString()}}</span>
+          <span class="open" @click="showComment">留言:</span>
+          <div v-if="commenText">
+            <el-input type="textarea" :rows="2" placeholder="请输入内容" v-model="textareaInfo"></el-input>
+            <el-button type="primary" class="eventButton" @click="publish">发表</el-button>
+          </div>
+        </el-collapse-item>
+      </el-collapse>
+    </el-card>
   </div>
 </template>
 
 <script>
 export default {
   name: 'baseInfo',
+  data () {
+    return {
+      textareaInfo: '',
+      commenText: false,
+      user: '',
+      commenList: ''
+    }
+  },
   props: {
     info: [Object, String]
   },
   watch: {
     info: function (newVal) {
-      console.log(newVal)
+      this.$http.get('/api/comment/getList', { params: {
+        id: newVal._id
+      }
+      }).then(res => {
+        this.commenList = res.data.data[0] || []
+      })
     }
+  },
+  methods: {
+    showComment () {
+      this.textareaInfo = ''
+      this.commenText = !this.commenText
+    },
+    publish () {
+      let info = {
+        'user': this.user.name,
+        'info': this.textareaInfo,
+        'time': new Date().toLocaleString()
+      }
+      if (!this.commenList) {
+        this.commenList = {
+          _id: this.info._id,
+          info: []
+        }
+      }
+      console.log(this.commenList)
+      this.commenList.info.push(info)
+      this.$http.post('/api/comment/update', this.commenList).then(res => {
+        this.commenList = res.data.data
+      })
+    }
+  },
+  mounted () {
+    this.user = JSON.parse(sessionStorage.getItem('useInfo'))
   }
 }
 </script>
@@ -74,5 +130,43 @@ export default {
 }
 .detailInfo {
   margin-top: 20px;
+}
+.comment {
+  width: 300px;
+  position: absolute;
+  right: 180px;
+  top: 280px;
+}
+.open {
+  margin-left: 50px;
+  box-shadow: 5px;
+  color: tan;
+  width: 200px;
+  background-color: #9399a5;
+  padding: 0px 10px 0px 10px;
+}
+.eventButton {
+  position: relative;
+  right: -190px;
+  margin-top: 10px;
+}
+.info {
+  height: 120px;
+  overflow-y: auto;
+}
+.time {
+  font-size: 12px;
+  position: relative;
+  left: 80px;
+  font-style: italic;
+}
+.content {
+  display: flex;
+  width: 190px;
+  overflow: hidden;
+}
+.title {
+  font-weight: 300;
+  color: teal;
 }
 </style>
