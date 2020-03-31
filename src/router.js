@@ -16,6 +16,7 @@ import compare from './views/compare'
 import oauth from './views/oauth'
 import user from './views/user'
 import houseDetail from './views/house/detail/info/index.vue'
+import staff from './views/staff/index.vue'
 
 Vue.use(Router)
 
@@ -42,6 +43,11 @@ const router = new Router({
       path: '/detail/:id',
       name: 'detail',
       component: houseDetail
+    },
+    {
+      path: '/staff',
+      name: 'staff',
+      component: staff
     },
     {
       path: '/main',

@@ -3,23 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "start": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@antv/g2": "^4.0.3",
     "axios": "^0.19.0",
     "core-js": "^2.6.5",
     "echarts": "^4.3.0",
     "element-ui": "^2.11.1",
     "maptalks": "^0.44.2",
+    "topoflow": "git+https://github.com/Deantsui/topoflow.git",
     "vue": "^2.6.10",
     "vue-material": "^1.0.0-beta-11",
     "vue-resource": "^1.5.1",
     "vue-router": "^3.0.3",
     "vue2-animate": "^2.1.0",
-    "vuex": "^3.1.1",
-    "topoflow": "git+https://github.com/Deantsui/topoflow.git"
+    "vuex": "^3.1.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.10.0",

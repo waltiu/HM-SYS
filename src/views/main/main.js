@@ -53,7 +53,7 @@ const list = {
       'chidren': {
         ' 0401': {
           'name': '员工管理',
-          'path': 'staff'
+          'route': 'staff'
         }
       }
     }
@@ -61,6 +61,7 @@ const list = {
   visitors: {
     '01': {
       'name': '数据分析',
+      'icon': 'el-icon-reading',
       'chidren': {
         '0101': {
           'name': '售卖分析',
@@ -70,6 +71,7 @@ const list = {
     },
     '02': {
       'name': '资源地图',
+      'icon': 'el-icon-map-location',
       'chidren': {
         ' 0201': {
           'name': '中央大地图',
@@ -79,14 +81,17 @@ const list = {
     },
     '03': {
       'name': '资源管理',
+      'icon': 'el-icon-menu',
       'chidren': {
-        '0301': {
-          'name': '小区资源',
-          'path': 'village'
-        }
+
+        '0302': {
+          'name': '房屋资源',
+          'path': 'house'
+        },
 
       }
-    }
+    },
+
   }
 }
 export default list
