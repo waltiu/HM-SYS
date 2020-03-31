@@ -11,6 +11,7 @@
       <form-info
         :tableConfig="tableConfig"
         :villageInfo="villageInfo"
+        :IntermediaryInfo="IntermediaryInfo"
         :type="type"
         @getInfo="(info) => {formData = {...formData,...info}}"
       ></form-info>
@@ -55,7 +56,9 @@ export default {
         mapInfo: {}
       },
       active: 0,
-      villageInfo: {}
+      villageInfo: {},
+      IntermediaryInfo: {}
+
     }
   },
   props: {
@@ -130,6 +133,14 @@ export default {
         let info = res.data.data
         info.map(item => {
           this.villageInfo[item.name] = item
+        })
+      })
+    this.$http
+      .get('/api/source/IntermediarySearch')
+      .then(res => {
+        let info = res.data.data
+        info.map(item => {
+          this.IntermediaryInfo[item.name] = item
         })
       })
   }

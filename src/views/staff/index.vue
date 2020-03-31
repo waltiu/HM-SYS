@@ -6,16 +6,16 @@
     </div>
     <div class="allInfo">
       <div class="sort">
-        <sort></sort>
+        <sort :tableData="tableData"></sort>
       </div>
       <div class="right">
         <div>
           <p class="title2">钥匙管理</p>
 
-          <keys class="keys"></keys>
+          <keys class="keys" :tableData="tableData"></keys>
         </div>
         <div class="mange">
-          <manage></manage>
+          <manage :tableData="tableData"></manage>
         </div>
       </div>
     </div>
@@ -32,6 +32,18 @@ export default {
     sort,
     keys,
     manage
+  },
+  data () {
+    return {
+      tableData: []
+    }
+  },
+  mounted () {
+    this.$http
+      .get('/api/source/staffMSearch')
+      .then(res => {
+        this.tableData = res.data.data
+      })
   }
 };
 </script>

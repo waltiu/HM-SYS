@@ -16,13 +16,14 @@
 import { config } from "./index";
 export default {
   name: "keys",
-  data() {
+  data () {
     return {
-      config: []
+      config: [],
+      tableData: []
     };
   },
   methods: {
-    computedStyle(item) {
+    computedStyle (item) {
       if (item === 0) {
         return {
           color: "red",
@@ -41,9 +42,18 @@ export default {
       }
     }
   },
-  mounted() {
-    console.log(config);
+  mounted () {
+
     this.config = config;
+    this.$http
+      .get('/api/source/IntermediarySearch', {        params: {
+          name: '房小二'
+        }
+      })
+      .then(res => {
+        this.tableData = res.data.data
+        console.log(this.tableData, 999)
+      })
   }
 };
 </script>

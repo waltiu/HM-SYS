@@ -292,8 +292,7 @@ const config = {
     width: 100,
     searchAble: {
       tf: true,
-      type: 'singleSelect',
-      values: ['中介1', '中介2', '中介3', '个人房源']
+      type: 'IntermediarySelect',
     },
     tableShow: {
       tf: true

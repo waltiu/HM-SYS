@@ -17,6 +17,7 @@ import oauth from './views/oauth'
 import user from './views/user'
 import houseDetail from './views/house/detail/info/index.vue'
 import staff from './views/staff/index.vue'
+import staffM from './views/staffM'
 
 Vue.use(Router)
 
@@ -79,6 +80,11 @@ const router = new Router({
           path: '/Intermediary',
           name: 'Intermediary',
           component: Intermediary
+        },
+        {
+          path: '/staffM',
+          name: 'staffM',
+          component: staffM
         },
         {
           path: '/school',

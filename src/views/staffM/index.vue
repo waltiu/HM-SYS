@@ -4,14 +4,9 @@
     <lt-table
       :showData="showData"
       :config="tableConfig"
+      @getSelection="getSelection"
       style="padding-top:20px"
-    >
-      <div class="operationList" slot-scope="info">
-        <collet style="marginRight:12px " :raw="info"></collet>
-        <detail style="marginRight:12px" :raw="info"></detail>
-        <map-show :raw="info"></map-show>
-      </div>
-    </lt-table>
+    ></lt-table>
     <lt-page
       ref="ltPage"
       @getPageData="
@@ -22,6 +17,7 @@
       :tableData="tableData"
       :query="query"
     ></lt-page>
+    <lt-curl :info="selectInfo" :type="type" @reload="getTableList"></lt-curl>
   </div>
 </template>
 <script>
@@ -30,7 +26,7 @@ import mapShow from './map'
 import detail from './detail'
 import collet from './collect'
 export default {
-  name: 'village',
+  name: 'staffM',
   components: {
     mapShow,
     detail,
@@ -39,13 +35,14 @@ export default {
   data () {
     return {
       showData: [],
+      selectInfo: [],
       page: {
         currentPage: 1,
         pageSize: 10
       },
       tableData: [],
       query: '',
-      type: 'village'
+      type: 'staffM'
     }
   },
   computed: {
@@ -76,10 +73,13 @@ export default {
   methods: {
     getTableList (info) {
       this.$http
-        .get('/api/source/villageSearch', { params: info })
+        .get('/api/source/staffMSearch', { params: info })
         .then(res => {
           this.tableData = res.data.data
         })
+    },
+    getSelection (info) {
+      this.selectInfo = info
     },
     clickInfo (info) {
       console.log(info, 11)

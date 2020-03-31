@@ -44,7 +44,7 @@
             clearable
             style="width:100px"
           >
-            <el-option v-for="(item,index) of item.values" :key="index" :value="item"></el-option>
+            <el-option v-for="(item,index) of IntermediaryInfo" :key="index" :value="item.name"></el-option>
           </el-select>
           <el-input v-model="formData.sourceDetail.info" placeholder="联系方式" style="width:100px"></el-input>
         </div>
@@ -67,7 +67,8 @@ export default {
   props: {
     tableConfig: Array,
     villageInfo: Object,
-    type: String
+    type: String,
+    IntermediaryInfo: Object
   },
   data () {
     return {

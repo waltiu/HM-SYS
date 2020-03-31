@@ -9,30 +9,33 @@
 import { Chart } from "@antv/g2";
 export default {
   name: "sort",
-  mounted() {
-    const data = [
-      { genre: "诡术妖姬", 销售量: 9 },
-      { genre: "疾风剑豪", 销售量: 3 },
-      { genre: "亡灵战神", 销售量: 2 },
-      { genre: "德玛西亚", 销售量: 10 },
-      { genre: "黑色玫瑰", 销售量: 15 }
-    ];
+  props: {
+    tableData: Array
+  },
+  watch: {
+    tableData: function (newVal) {
+      const chart = new Chart({
+        container: "c1", // 指定图表容器 ID
+        width: 600, // 指定图表宽度
+        height: 300 // 指定图表高度
+      });
+
+      // Step 2: 载入数据源
+      chart.data(newVal);
+      chart.legend("1");
+      // Step 3：创建图形语法，绘制柱状图
+      chart.interval().position("name*count");
+
+      // Step 4: 渲染图表
+      chart.render();
+      console.log(newVal, 999)
+    }
+  },
+  mounted () {
+
 
     // Step 1: 创建 Chart 对象
-    const chart = new Chart({
-      container: "c1", // 指定图表容器 ID
-      width: 600, // 指定图表宽度
-      height: 300 // 指定图表高度
-    });
 
-    // Step 2: 载入数据源
-    chart.data(data);
-    chart.legend("1");
-    // Step 3：创建图形语法，绘制柱状图
-    chart.interval().position("genre*销售量");
-
-    // Step 4: 渲染图表
-    chart.render();
   }
 };
 </script>

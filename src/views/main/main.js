@@ -53,7 +53,9 @@ const list = {
       'chidren': {
         ' 0401': {
           'name': '员工管理',
-          'route': 'staff'
+          'route': 'staff',
+          'path': 'staffM'
+
         }
       }
     }

@@ -31,6 +31,11 @@
             <el-input v-model="searchData[item.key].to" style="width: 105px;" placeholder="元/月"></el-input>
           </el-col>
         </div>
+        <div v-else-if="item.type==='IntermediarySelect'">
+          <el-select v-model="searchData[item.key]" placeholder style="width:250px" clearable>
+            <el-option v-for="(item,index) of IntermediaryInfo" :key="index" :value="item"></el-option>
+          </el-select>
+        </div>
         <div v-else-if="item.type==='inputAreaArea'">
           <el-col :span="11">
             <el-input v-model="searchData[item.key].from" style="width: 110px;" placeholder="平方米"></el-input>
@@ -76,7 +81,8 @@ export default {
         }
       },
       unit: '售卖类型请选择！',
-      priceInputDisable: true
+      priceInputDisable: true,
+      IntermediaryInfo: ['个人房源']
     }
   },
   props: {
@@ -124,7 +130,16 @@ export default {
   },
   mounted () {
     this.$emit('search')
+    this.$http
+      .get('/api/source/IntermediarySearch')
+      .then(res => {
+        let info = res.data.data
+        info.map(item => {
+          this.IntermediaryInfo.push(item.name)
+        })
+      })
   }
+
 
 }
 </script>
